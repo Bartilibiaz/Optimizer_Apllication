@@ -12,28 +12,54 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+        /* Default shadow (Indigo) */
         .loader-shadow {
             box-shadow: 0 0 25px rgba(79, 70, 229, 0.5), 0 0 50px rgba(30, 64, 175, 0.3);
+            transition: box-shadow 0.4s ease-in-out;
         }
-        .btn-glow:hover {
-            box-shadow: 0 0 15px rgba(99, 102, 241, 0.8);
+        /* Custom shadows for themes */
+        .shadow-green {
+             box-shadow: 0 0 25px rgba(34, 197, 94, 0.5), 0 0 50px rgba(22, 101, 52, 0.3);
+        }
+        .shadow-purple {
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.5), 0 0 50px rgba(126, 34, 206, 0.3);
+        }
+        .shadow-red {
+            box-shadow: 0 0 25px rgba(239, 68, 68, 0.5), 0 0 50px rgba(153, 27, 27, 0.3);
+        }
+        .shadow-gray {
+            box-shadow: 0 0 25px rgba(107, 114, 128, 0.4), 0 0 50px rgba(55, 65, 81, 0.2);
+        }
+        /* Style for the modal transitions */
+        #mod-modal.hidden {
+            pointer-events: none;
+        }
+        /* Add transitions to elements that change color */
+        #main-container, #modal-content, #main-icon, #select-mod-button, #progress-bar, #launch-button, .mod-choice-button {
+            transition: all 0.4s ease-in-out;
         }
     </style>
 </head>
 <body class="bg-gray-900 flex items-center justify-center min-h-screen p-4">
 
     <!-- Main container for the loader -->
-    <div class="w-full max-w-md bg-gray-800 rounded-2xl p-8 border border-indigo-500/30 loader-shadow text-center">
+    <div id="main-container" class="w-full max-w-md bg-gray-800 rounded-2xl p-8 border border-indigo-500/30 loader-shadow text-center">
         
         <!-- Icon and Title -->
         <div class="flex justify-center items-center mb-4">
-            <svg class="w-12 h-12 text-indigo-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <svg id="main-icon" class="w-12 h-12 text-indigo-400 mr-3" xmlns="http://www.w.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.82m5.84-2.56a6 6 0 016.38 6.38h-4.82m0-1.92v-4.82m0 0a6 6 0 01-6.38-6.38h4.82m6.38 0a6 6 0 01-7.38 5.84m-1.14 0a6 6 0 01-6.38-6.38m-4.82 0h4.82" />
             </svg>
-            <h1 class="text-3xl font-bold text-white tracking-wider">Optimalizer Loader</h1>
+            <h1 id="main-title" class="text-3xl font-bold text-white tracking-wider">Optimalizer Loader</h1>
         </div>
 
-        <p class="text-indigo-300 mb-6">Optimalizer</p>
+        <!-- Select Mod Button -->
+        <button id="select-mod-button" class="w-full bg-gray-700/50 border border-gray-600 text-indigo-300 font-semibold py-2 px-4 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-all duration-300 mb-6 flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+            </svg>
+            <span id="select-mod-button-text">Wybierz Moda</span>
+        </button>
 
         <!-- Status Message -->
         <div id="status-container" class="h-6 mb-4">
@@ -51,15 +77,152 @@
         </button>
 
         <!-- Version Footer -->
-        <p class="text-xs text-gray-500 mt-6">Wersja 1.0.0</p>
+        <p id="version-text" class="text-xs text-gray-500 mt-6">Wersja 1.0.0</p>
+    </div>
+
+    <!-- Mod Selection Modal -->
+    <div id="mod-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 opacity-0 transition-opacity duration-300">
+        <!-- Modal Content -->
+        <div id="modal-content" class="bg-gray-800 rounded-2xl p-8 border border-indigo-500/30 loader-shadow w-full max-w-sm text-center transform transition-transform duration-300 scale-95">
+            <h2 id="modal-title" class="text-2xl font-bold text-white mb-6">Wybierz swojego moda</h2>
+            <div class="flex flex-col gap-4">
+                <button data-mod-name="Sodium" class="mod-choice-button w-full bg-indigo-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-600 transition-colors duration-300">
+                    Sodium
+                </button>
+                <button data-mod-name="Lithium" class="mod-choice-button w-full bg-indigo-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-600 transition-colors duration-300">
+                    Lithium
+                </button>
+                <button data-mod-name="ModernFix" class="mod-choice-button w-full bg-indigo-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-600 transition-colors duration-300">
+                    ModernFix
+                </button>
+            </div>
+            <button id="close-modal-button" class="mt-6 text-gray-400 hover:text-white transition-colors duration-300">Zamknij</button>
+        </div>
     </div>
 
     <script>
+        // --- ELEMENT SELECTORS ---
+        const mainContainer = document.getElementById('main-container');
+        const mainTitle = document.getElementById('main-title');
+        const mainIcon = document.getElementById('main-icon');
         const launchButton = document.getElementById('launch-button');
         const progressBar = document.getElementById('progress-bar');
         const statusText = document.getElementById('status-text');
+        const selectModButton = document.getElementById('select-mod-button');
+        const selectModButtonText = document.getElementById('select-mod-button-text');
+        const modModal = document.getElementById('mod-modal');
+        const modalContent = document.getElementById('modal-content');
+        const modalTitle = document.getElementById('modal-title');
+        const closeModalButton = document.getElementById('close-modal-button');
+        const modChoiceButtons = document.querySelectorAll('.mod-choice-button');
 
-        // A list of simulated steps for the loader
+        let currentTheme = 'default';
+
+        // --- THEME DEFINITIONS ---
+        const themes = {
+            default: {
+                main: ['bg-gray-800', 'border-indigo-500/30', 'loader-shadow'],
+                icon: 'text-indigo-400',
+                progressBar: 'bg-indigo-500',
+                launchButton: ['bg-indigo-600', 'hover:bg-indigo-700', 'focus:ring-indigo-500'],
+                modal: ['bg-gray-800', 'border-indigo-500/30', 'loader-shadow'],
+                modalButtons: ['bg-indigo-500', 'hover:bg-indigo-600'],
+                selectModText: 'text-indigo-300',
+                mainTitle: 'text-white',
+                modalTitle: 'text-white',
+            },
+            Sodium: {
+                main: ['bg-gray-800', 'border-green-500/30', 'shadow-green'],
+                icon: 'text-green-400',
+                progressBar: 'bg-green-500',
+                launchButton: ['bg-green-600', 'hover:bg-green-700', 'focus:ring-green-500'],
+                modal: ['bg-gray-800', 'border-green-500/30', 'shadow-green'],
+                modalButtons: ['bg-green-500', 'hover:bg-green-600'],
+                selectModText: 'text-green-300',
+                mainTitle: 'text-white',
+                modalTitle: 'text-white',
+            },
+            Lithium: {
+                main: ['bg-gray-800', 'border-purple-500/30', 'shadow-purple'],
+                icon: 'text-purple-400',
+                progressBar: 'bg-purple-500',
+                launchButton: ['bg-purple-600', 'hover:bg-purple-700', 'focus:ring-purple-500'],
+                modal: ['bg-gray-800', 'border-purple-500/30', 'shadow-purple'],
+                modalButtons: ['bg-purple-500', 'hover:bg-purple-600'],
+                selectModText: 'text-purple-300',
+                mainTitle: 'text-white',
+                modalTitle: 'text-white',
+            },
+            ModernFix: {
+                main: ['bg-gray-800', 'border-red-500/30', 'shadow-red'],
+                icon: 'text-red-400',
+                progressBar: 'bg-red-500',
+                launchButton: ['bg-red-600', 'hover:bg-red-700', 'focus:ring-red-500'],
+                modal: ['bg-gray-800', 'border-red-500/30', 'shadow-red'],
+                modalButtons: ['bg-red-500', 'hover:bg-red-600'],
+                selectModText: 'text-red-300',
+                mainTitle: 'text-white',
+                modalTitle: 'text-white',
+            }
+        };
+
+        function setTheme(themeName) {
+            const oldThemeClasses = themes[currentTheme];
+            const newThemeClasses = themes[themeName];
+
+            // Helper to swap classes
+            const swapClasses = (element, oldCls, newCls) => {
+                if(Array.isArray(oldCls)) element.classList.remove(...oldCls); else element.classList.remove(oldCls);
+                if(Array.isArray(newCls)) element.classList.add(...newCls); else element.classList.add(newCls);
+            };
+
+            swapClasses(mainContainer, oldThemeClasses.main, newThemeClasses.main);
+            swapClasses(modalContent, oldThemeClasses.modal, newThemeClasses.modal);
+            swapClasses(mainIcon, oldThemeClasses.icon, newThemeClasses.icon);
+            swapClasses(progressBar, oldThemeClasses.progressBar, newThemeClasses.progressBar);
+            swapClasses(launchButton, oldThemeClasses.launchButton, newThemeClasses.launchButton);
+            swapClasses(selectModButton, oldThemeClasses.selectModText, newThemeClasses.selectModText);
+            swapClasses(mainTitle, oldThemeClasses.mainTitle, newThemeClasses.mainTitle);
+            swapClasses(modalTitle, oldThemeClasses.modalTitle, newThemeClasses.modalTitle);
+            
+            modChoiceButtons.forEach(btn => {
+                swapClasses(btn, oldThemeClasses.modalButtons, newThemeClasses.modalButtons);
+            });
+
+            currentTheme = themeName;
+        }
+
+        // --- MODAL LOGIC ---
+        function showModal() {
+            modModal.classList.remove('hidden');
+            setTimeout(() => {
+                modModal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function hideModal() {
+            modModal.classList.add('opacity-0');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => modModal.classList.add('hidden'), 300);
+        }
+
+        selectModButton.addEventListener('click', showModal);
+        closeModalButton.addEventListener('click', hideModal);
+        modModal.addEventListener('click', (event) => {
+            if (event.target === modModal) hideModal();
+        });
+
+        modChoiceButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modName = button.getAttribute('data-mod-name');
+                selectModButtonText.textContent = modName;
+                setTheme(modName);
+                hideModal();
+            });
+        });
+
+        // --- LOADER LOGIC ---
         const loadingSteps = [
             { message: "Sprawdzanie aktualizacji...", progress: 10, delay: 500 },
             { message: "Weryfikacja plików gry...", progress: 30, delay: 1500 },
@@ -71,44 +234,36 @@
 
         let currentStep = 0;
 
-        // Function to update the UI for each step
         function processStep() {
             if (currentStep >= loadingSteps.length) {
-                // Loading finished
                 launchButton.disabled = false;
                 launchButton.textContent = "Uruchom ponownie";
-                currentStep = 0; // Reset for another run
+                currentStep = 0; 
                 return;
             }
-
             const step = loadingSteps[currentStep];
-
-            // Fade out text, update, fade in
             statusText.classList.add('opacity-0');
-
             setTimeout(() => {
                 statusText.textContent = step.message;
                 progressBar.style.width = `${step.progress}%`;
                 statusText.classList.remove('opacity-0');
             }, 300);
-
             currentStep++;
             setTimeout(processStep, step.delay);
         }
 
-        // Event listener for the launch button
         launchButton.addEventListener('click', () => {
             launchButton.disabled = true;
             launchButton.textContent = "Ładowanie...";
-            progressBar.style.width = '0%'; // Reset progress bar
+            progressBar.style.width = '0%';
             currentStep = 0;
             processStep();
-            if (window.chrome && window.chrome.webview) {
-                window.chrome.webview.postMessage('startModDownload');
-            }
         });
     </script>
-
 </body>
 </html>
+
+
+
+
 
