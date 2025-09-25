@@ -27,9 +27,6 @@
         .shadow-red {
             box-shadow: 0 0 25px rgba(239, 68, 68, 0.5), 0 0 50px rgba(153, 27, 27, 0.3);
         }
-        .shadow-gray {
-            box-shadow: 0 0 25px rgba(107, 114, 128, 0.4), 0 0 50px rgba(55, 65, 81, 0.2);
-        }
         /* Style for the modal transitions */
         #mod-modal.hidden {
             pointer-events: none;
@@ -40,14 +37,49 @@
         }
     </style>
 </head>
-<body class="bg-gray-900 flex items-center justify-center min-h-screen p-4">
+<body class="bg-gray-900 flex items-center justify-center min-h-screen p-4 overflow-x-hidden">
+
+    <!-- Menu Button -->
+    <button id="menu-button" class="fixed top-6 left-6 z-40 p-2 rounded-full text-gray-400 hover:text-white hover:bg-gray-700/50 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+    </button>
+
+    <!-- Side Menu Overlay -->
+    <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-60 z-20 hidden opacity-0 transition-opacity duration-300"></div>
+
+    <!-- Side Menu -->
+    <div id="side-menu" class="fixed top-0 left-0 h-full w-64 bg-gray-800 shadow-2xl z-30 transform -translate-x-full transition-transform duration-300 ease-in-out p-6">
+        <h2 class="text-2xl font-bold text-white mb-8">Menu</h2>
+        <nav class="flex flex-col gap-6">
+            <div>
+                <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Loader</h3>
+                <a href="#" id="main-menu-button" class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-gray-700/50 p-2 rounded-md transition-colors">
+                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" /></svg>
+                    <span>Główna</span>
+                </a>
+            </div>
+            <div>
+                <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Konto</h3>
+                <a href="#" id="profile-menu-button" class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-gray-700/50 p-2 rounded-md transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
+                    <span>Profil</span>
+                </a>
+                 <a href="#" class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-gray-700/50 p-2 rounded-md transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.24-.438.613-.438.995s.145.755.438.995l1.003.827c.48.398.668 1.03.26 1.431l-1.296 2.247a1.125 1.125 0 0 1-1.37.49l-1.217-.456c-.355-.133-.75-.072-1.075.124a6.57 6.57 0 0 1-.22.127c-.332.183-.582.495-.645.87l-.213 1.281c-.09.543-.56.94-1.11.94h-2.593c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.063-.374-.313-.686-.645-.87a6.52 6.52 0 0 1-.22-.127c-.324-.196-.72-.257-1.075-.124l-1.217.456a1.125 1.125 0 0 1-1.37-.49l-1.296-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.437-.995s-.145-.755-.437-.995l-1.004-.827a1.125 1.125 0 0 1-.26-1.431l1.296-2.247a1.125 1.125 0 0 1 1.37-.49l1.217.456c.355.133.75.072 1.075-.124.072-.044.146-.087.22-.127.332-.183.582-.495.645-.87l.213-1.281z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>
+                    <span>Ustawienia</span>
+                </a>
+            </div>
+        </nav>
+    </div>
 
     <!-- Main container for the loader -->
-    <div id="main-container" class="w-full max-w-md bg-gray-800 rounded-2xl p-8 border border-indigo-500/30 loader-shadow text-center">
+    <div id="main-container" class="relative w-full max-w-md bg-gray-800 rounded-2xl p-8 border border-indigo-500/30 loader-shadow text-center">
         
         <!-- Icon and Title -->
         <div class="flex justify-center items-center mb-4">
-            <svg id="main-icon" class="w-12 h-12 text-indigo-400 mr-3" xmlns="http://www.w.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <svg id="main-icon" class="w-12 h-12 text-indigo-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.82m5.84-2.56a6 6 0 016.38 6.38h-4.82m0-1.92v-4.82m0 0a6 6 0 01-6.38-6.38h4.82m6.38 0a6 6 0 01-7.38 5.84m-1.14 0a6 6 0 01-6.38-6.38m-4.82 0h4.82" />
             </svg>
             <h1 id="main-title" class="text-3xl font-bold text-white tracking-wider">Optimalizer Loader</h1>
@@ -79,6 +111,34 @@
         <!-- Version Footer -->
         <p id="version-text" class="text-xs text-gray-500 mt-6">Wersja 1.0.0</p>
     </div>
+    
+    <!-- Profile Container -->
+    <div id="profile-container" class="hidden w-full max-w-md bg-gray-800 rounded-2xl p-8 border border-gray-700 text-center">
+        <div class="flex flex-col items-center">
+            <img src="https://placehold.co/128x128/1f2937/a78bfa?text=Avatar" alt="User Avatar" class="w-32 h-32 rounded-full mb-4 border-4 border-gray-700">
+            <h2 class="text-3xl font-bold text-white">Nazwa Gracza</h2>
+            <p class="text-md text-gray-400">Dołączył Styczeń 2024</p>
+        </div>
+        
+        <div class="my-8 border-t border-gray-700"></div>
+
+        <div class="text-left">
+            <h3 class="text-lg font-semibold text-white mb-4">Statystyki</h3>
+            <div class="space-y-3">
+                <div class="flex justify-between items-center text-gray-300">
+                    <span>Użyte modyfikacje:</span>
+                    <span class="font-bold text-white">3</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="my-8 border-t border-gray-700"></div>
+
+        <button class="w-full bg-red-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition-colors duration-300">
+            Wyloguj się
+        </button>
+    </div>
+
 
     <!-- Mod Selection Modal -->
     <div id="mod-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 opacity-0 transition-opacity duration-300">
@@ -103,6 +163,7 @@
     <script>
         // --- ELEMENT SELECTORS ---
         const mainContainer = document.getElementById('main-container');
+        const profileContainer = document.getElementById('profile-container');
         const mainTitle = document.getElementById('main-title');
         const mainIcon = document.getElementById('main-icon');
         const launchButton = document.getElementById('launch-button');
@@ -115,6 +176,12 @@
         const modalTitle = document.getElementById('modal-title');
         const closeModalButton = document.getElementById('close-modal-button');
         const modChoiceButtons = document.querySelectorAll('.mod-choice-button');
+        // Menu Elements
+        const menuButton = document.getElementById('menu-button');
+        const sideMenu = document.getElementById('side-menu');
+        const menuOverlay = document.getElementById('menu-overlay');
+        const mainMenuButton = document.getElementById('main-menu-button');
+        const profileMenuButton = document.getElementById('profile-menu-button');
 
         let currentTheme = 'default';
 
@@ -128,8 +195,6 @@
                 modal: ['bg-gray-800', 'border-indigo-500/30', 'loader-shadow'],
                 modalButtons: ['bg-indigo-500', 'hover:bg-indigo-600'],
                 selectModText: 'text-indigo-300',
-                mainTitle: 'text-white',
-                modalTitle: 'text-white',
             },
             Sodium: {
                 main: ['bg-gray-800', 'border-green-500/30', 'shadow-green'],
@@ -139,8 +204,6 @@
                 modal: ['bg-gray-800', 'border-green-500/30', 'shadow-green'],
                 modalButtons: ['bg-green-500', 'hover:bg-green-600'],
                 selectModText: 'text-green-300',
-                mainTitle: 'text-white',
-                modalTitle: 'text-white',
             },
             Lithium: {
                 main: ['bg-gray-800', 'border-purple-500/30', 'shadow-purple'],
@@ -150,8 +213,6 @@
                 modal: ['bg-gray-800', 'border-purple-500/30', 'shadow-purple'],
                 modalButtons: ['bg-purple-500', 'hover:bg-purple-600'],
                 selectModText: 'text-purple-300',
-                mainTitle: 'text-white',
-                modalTitle: 'text-white',
             },
             ModernFix: {
                 main: ['bg-gray-800', 'border-red-500/30', 'shadow-red'],
@@ -161,8 +222,6 @@
                 modal: ['bg-gray-800', 'border-red-500/30', 'shadow-red'],
                 modalButtons: ['bg-red-500', 'hover:bg-red-600'],
                 selectModText: 'text-red-300',
-                mainTitle: 'text-white',
-                modalTitle: 'text-white',
             }
         };
 
@@ -182,8 +241,6 @@
             swapClasses(progressBar, oldThemeClasses.progressBar, newThemeClasses.progressBar);
             swapClasses(launchButton, oldThemeClasses.launchButton, newThemeClasses.launchButton);
             swapClasses(selectModButton, oldThemeClasses.selectModText, newThemeClasses.selectModText);
-            swapClasses(mainTitle, oldThemeClasses.mainTitle, newThemeClasses.mainTitle);
-            swapClasses(modalTitle, oldThemeClasses.modalTitle, newThemeClasses.modalTitle);
             
             modChoiceButtons.forEach(btn => {
                 swapClasses(btn, oldThemeClasses.modalButtons, newThemeClasses.modalButtons);
@@ -191,6 +248,47 @@
 
             currentTheme = themeName;
         }
+        
+        // --- VIEW SWITCHING ---
+        function showMainView() {
+            profileContainer.classList.add('hidden');
+            mainContainer.classList.remove('hidden');
+        }
+
+        function showProfileView() {
+            mainContainer.classList.add('hidden');
+            profileContainer.classList.remove('hidden');
+        }
+
+        // --- SIDE MENU LOGIC ---
+        function toggleSideMenu() {
+            if (sideMenu.classList.contains('-translate-x-full')) {
+                // Open menu
+                sideMenu.classList.remove('-translate-x-full');
+                menuOverlay.classList.remove('hidden');
+                menuButton.classList.add('opacity-0', 'pointer-events-none');
+                setTimeout(() => menuOverlay.classList.remove('opacity-0'), 10);
+            } else {
+                // Close menu
+                sideMenu.classList.add('-translate-x-full');
+                menuOverlay.classList.add('opacity-0');
+                menuButton.classList.remove('opacity-0', 'pointer-events-none');
+                setTimeout(() => menuOverlay.classList.add('hidden'), 300);
+            }
+        }
+        
+        menuButton.addEventListener('click', toggleSideMenu);
+        menuOverlay.addEventListener('click', toggleSideMenu);
+        mainMenuButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            showMainView();
+            toggleSideMenu();
+        });
+        profileMenuButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            showProfileView();
+            toggleSideMenu();
+        });
 
         // --- MODAL LOGIC ---
         function showModal() {
@@ -253,18 +351,22 @@
         }
 
         launchButton.addEventListener('click', () => {
+            if (selectModButtonText.textContent === 'Wybierz Moda') {
+                statusText.textContent = 'Proszę, najpierw wybierz moda!';
+                return;
+            }
             launchButton.disabled = true;
             launchButton.textContent = "Ładowanie...";
             progressBar.style.width = '0%';
             currentStep = 0;
             processStep();
-            if (window.chrome && window.chrome.webview) {
-                window.chrome.webview.postMessage('startModDownload');
-            }
         });
     </script>
 </body>
 </html>
+
+
+
 
 
 
