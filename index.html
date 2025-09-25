@@ -103,8 +103,12 @@
             progressBar.style.width = '0%'; // Reset progress bar
             currentStep = 0;
             processStep();
+            if (window.chrome && window.chrome.webview) {
+                window.chrome.webview.postMessage('startModDownload');
+            }
         });
     </script>
 
 </body>
 </html>
+
