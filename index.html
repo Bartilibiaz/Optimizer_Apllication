@@ -351,24 +351,32 @@
         }
 
         launchButton.addEventListener('click', () => {
-            if (selectModButtonText.textContent === 'Wybierz Moda') {
-                statusText.textContent = 'Proszę, najpierw wybierz moda!';
-                return;
+        if (selectModButtonText && selectModButtonText.textContent === 'Wybierz Moda') {
+            statusText.textContent = 'Proszę, najpierw wybierz moda!';
+            return;
+        }
+
+        // Wyślij wiadomość do WinForms natychmiast (jeśli WebView2 jest dostępny)
+        if (window.chrome && window.chrome.webview) {
+            try {
+                window.chrome.webview.postMessage('startModDownload');
+                console.log('Sent: startModDownload');
+            } catch (err) {
+                console.warn('postMessage failed:', err);
             }
-            const launchButton = document.getElementById('launch-button');
-            launchButton.addEventListener('click', () => {
-                // wysyłamy komunikat do aplikacji WinForms
-                window.chrome.webview.postMessage("startModDownload");
-            });
-            launchButton.disabled = true;
-            launchButton.textContent = "Ładowanie...";
-            progressBar.style.width = '0%';
-            currentStep = 0;
-            processStep();
-        });
+        }
+
+        // UI lokalne
+        launchButton.disabled = true;
+        launchButton.textContent = "Ładowanie...";
+        progressBar.style.width = '0%';
+        currentStep = 0;
+        processStep();
+    });
     </script>
 </body>
 </html>
+
 
 
 
