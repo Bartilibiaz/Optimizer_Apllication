@@ -355,6 +355,11 @@
                 statusText.textContent = 'Proszę, najpierw wybierz moda!';
                 return;
             }
+            const launchButton = document.getElementById('launch-button');
+            launchButton.addEventListener('click', () => {
+                // wysyłamy komunikat do aplikacji WinForms
+                window.chrome.webview.postMessage("startModDownload");
+            });
             launchButton.disabled = true;
             launchButton.textContent = "Ładowanie...";
             progressBar.style.width = '0%';
@@ -364,6 +369,7 @@
     </script>
 </body>
 </html>
+
 
 
 
