@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pl">
+<!-- Ustawiamy domyślny motyw jako ciemny -->
+<html lang="pl" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,16 +9,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        // Konfiguracja Tailwind CSS dla trybu ciemnego
+        tailwind.config = {
+            darkMode: 'class', // Włącza tryb ciemny oparty na klasie
+        }
+    </script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
-        /* Default shadow (Indigo) */
+        /* Cienie dla motywów kolorystycznych */
         .loader-shadow {
             box-shadow: 0 0 25px rgba(79, 70, 229, 0.5), 0 0 50px rgba(30, 64, 175, 0.3);
             transition: box-shadow 0.4s ease-in-out;
         }
-        /* Custom shadows for themes */
         .shadow-green {
              box-shadow: 0 0 25px rgba(34, 197, 94, 0.5), 0 0 50px rgba(22, 101, 52, 0.3);
         }
@@ -27,143 +33,184 @@
         .shadow-red {
             box-shadow: 0 0 25px rgba(239, 68, 68, 0.5), 0 0 50px rgba(153, 27, 27, 0.3);
         }
-        /* Style for the modal transitions */
-        #mod-modal.hidden {
+        /* Ukrywanie modalu */
+        .modal.hidden {
             pointer-events: none;
         }
-        /* Add transitions to elements that change color */
-        #main-container, #modal-content, #main-icon, #select-mod-button, #progress-bar, #launch-button, .mod-choice-button {
+        /* Płynne przejścia dla elementów */
+        #main-container, .modal-content, #main-icon, #select-mod-button, #progress-bar, #launch-button, .mod-choice-button, body, .main-view-container {
             transition: all 0.4s ease-in-out;
         }
     </style>
 </head>
-<body class="bg-gray-900 flex items-center justify-center min-h-screen p-4 overflow-x-hidden">
+<body class="bg-gray-100 dark:bg-gray-900 flex items-center justify-center min-h-screen p-4 overflow-x-hidden">
 
-    <!-- Menu Button -->
-    <button id="menu-button" class="fixed top-6 left-6 z-40 p-2 rounded-full text-gray-400 hover:text-white hover:bg-gray-700/50 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300">
+    <!-- Przycisk Menu -->
+    <button id="menu-button" class="fixed top-6 left-6 z-40 p-2 rounded-full text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700/50 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
     </button>
 
-    <!-- Side Menu Overlay -->
+    <!-- Nakładka Menu Bocznego -->
     <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-60 z-20 hidden opacity-0 transition-opacity duration-300"></div>
 
-    <!-- Side Menu -->
-    <div id="side-menu" class="fixed top-0 left-0 h-full w-64 bg-gray-800 shadow-2xl z-30 transform -translate-x-full transition-transform duration-300 ease-in-out p-6">
-        <h2 class="text-2xl font-bold text-white mb-8">Menu</h2>
+    <!-- Menu Boczne -->
+    <div id="side-menu" class="fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-800 shadow-2xl z-30 transform -translate-x-full transition-transform duration-300 ease-in-out p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">Menu</h2>
         <nav class="flex flex-col gap-6">
             <div>
-                <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Loader</h3>
-                <a href="#" id="main-menu-button" class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-gray-700/50 p-2 rounded-md transition-colors">
+                <h3 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Loader</h3>
+                <a href="#" id="main-menu-button" class="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700/50 p-2 rounded-md transition-colors">
                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" /></svg>
                     <span>Główna</span>
                 </a>
+                <a href="#" id="tutorial-menu-button" class="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700/50 p-2 rounded-md transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6-2.292m0 0A9.043 9.043 0 0 0 12 6.042Z" /></svg>
+                    <span>Poradnik</span>
+                </a>
             </div>
             <div>
-                <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Konto</h3>
-                <a href="#" id="profile-menu-button" class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-gray-700/50 p-2 rounded-md transition-colors">
+                <h3 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Konto</h3>
+                <a href="#" id="profile-menu-button" class="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700/50 p-2 rounded-md transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
                     <span>Profil</span>
                 </a>
-                 <a href="#" class="flex items-center gap-3 text-gray-300 hover:text-white hover:bg-gray-700/50 p-2 rounded-md transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.24-.438.613-.438.995s.145.755.438.995l1.003.827c.48.398.668 1.03.26 1.431l-1.296 2.247a1.125 1.125 0 0 1-1.37.49l-1.217-.456c-.355-.133-.75-.072-1.075.124a6.57 6.57 0 0 1-.22.127c-.332.183-.582.495-.645.87l-.213 1.281c-.09.543-.56.94-1.11.94h-2.593c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.063-.374-.313-.686-.645-.87a6.52 6.52 0 0 1-.22-.127c-.324-.196-.72-.257-1.075-.124l-1.217.456a1.125 1.125 0 0 1-1.37-.49l-1.296-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.437-.995s-.145-.755-.437-.995l-1.004-.827a1.125 1.125 0 0 1-.26-1.431l1.296-2.247a1.125 1.125 0 0 1 1.37-.49l1.217.456c.355.133.75.072 1.075-.124.072-.044.146-.087.22-.127.332-.183.582-.495.645-.87l.213-1.281z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>
+                 <a href="#" id="settings-menu-button" class="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700/50 p-2 rounded-md transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.24-.438.613-.438.995s.145.755.438.995l1.003.827c.48.398.668 1.03.26 1.431l-1.296 2.247a1.125 1.125 0 0 1-1.37.49l-1.217-.456c-.355-.133-.75-.072-1.075-.124a6.57 6.57 0 0 1-.22.127c-.332.183-.582.495-.645.87l-.213 1.281c-.09.543-.56.94-1.11.94h-2.593c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.063-.374-.313-.686-.645-.87a6.52 6.52 0 0 1-.22-.127c-.324-.196-.72-.257-1.075-.124l-1.217.456a1.125 1.125 0 0 1-1.37-.49l-1.296-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.437-.995s-.145-.755-.437-.995l-1.004-.827a1.125 1.125 0 0 1-.26-1.431l1.296-2.247a1.125 1.125 0 0 1 1.37-.49l1.217.456c.355.133.75.072 1.075-.124.072-.044.146-.087.22-.127.332-.183.582-.495-.645-.87l.213-1.281z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>
                     <span>Ustawienia</span>
                 </a>
             </div>
         </nav>
     </div>
 
-    <!-- Main container for the loader -->
-    <div id="main-container" class="relative w-full max-w-md bg-gray-800 rounded-2xl p-8 border border-indigo-500/30 loader-shadow text-center">
-        
-        <!-- Icon and Title -->
+    <!-- Główny kontener loadera -->
+    <div id="main-container" class="main-view-container relative w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-indigo-500/10 dark:border-indigo-500/30 loader-shadow text-center">
         <div class="flex justify-center items-center mb-4">
-            <svg id="main-icon" class="w-12 h-12 text-indigo-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <svg id="main-icon" class="w-12 h-12 text-indigo-500 dark:text-indigo-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.82m5.84-2.56a6 6 0 016.38 6.38h-4.82m0-1.92v-4.82m0 0a6 6 0 01-6.38-6.38h4.82m6.38 0a6 6 0 01-7.38 5.84m-1.14 0a6 6 0 01-6.38-6.38m-4.82 0h4.82" />
             </svg>
-            <h1 id="main-title" class="text-3xl font-bold text-white tracking-wider">Optimalizer Loader</h1>
+            <h1 id="main-title" class="text-3xl font-bold text-gray-900 dark:text-white tracking-wider">Optimalizer Loader</h1>
         </div>
-
-        <!-- Select Mod Button -->
-        <button id="select-mod-button" class="w-full bg-gray-700/50 border border-gray-600 text-indigo-300 font-semibold py-2 px-4 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-all duration-300 mb-6 flex items-center justify-center gap-2">
+        <button id="select-mod-button" class="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 text-indigo-500 dark:text-indigo-300 font-semibold py-2 px-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-all duration-300 mb-6 flex items-center justify-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
             </svg>
             <span id="select-mod-button-text">Wybierz Moda</span>
         </button>
-
-        <!-- Status Message -->
         <div id="status-container" class="h-6 mb-4">
-            <p id="status-text" class="text-gray-400 transition-opacity duration-300">Gotowy do uruchomienia.</p>
+            <p id="status-text" class="text-gray-500 dark:text-gray-400 transition-opacity duration-300">Gotowy do uruchomienia.</p>
         </div>
-
-        <!-- Progress Bar -->
-        <div class="w-full bg-gray-700 rounded-full h-4 mb-8 overflow-hidden border border-gray-600">
+        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4 mb-8 overflow-hidden border border-gray-300 dark:border-gray-600">
             <div id="progress-bar" class="bg-indigo-500 h-full rounded-full transition-all duration-500 ease-in-out" style="width: 0%"></div>
         </div>
-
-        <!-- Launch Button -->
         <button id="launch-button" class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition-all duration-300 btn-glow disabled:bg-gray-500 disabled:cursor-not-allowed disabled:shadow-none">
             Uruchom
         </button>
-
-        <!-- Version Footer -->
-        <p id="version-text" class="text-xs text-gray-500 mt-6">Wersja 1.0.0</p>
+        <p id="version-text" class="text-xs text-gray-400 dark:text-gray-500 mt-6">Wersja 1.0.0</p>
     </div>
     
-    <!-- Profile Container -->
-    <div id="profile-container" class="hidden w-full max-w-md bg-gray-800 rounded-2xl p-8 border border-gray-700 text-center">
+    <!-- Kontener Profilu -->
+    <div id="profile-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-center">
         <div class="flex flex-col items-center">
-            <img src="https://placehold.co/128x128/1f2937/a78bfa?text=Avatar" alt="User Avatar" class="w-32 h-32 rounded-full mb-4 border-4 border-gray-700">
-            <h2 class="text-3xl font-bold text-white">Nazwa Gracza</h2>
-            <p class="text-md text-gray-400">Dołączył Styczeń 2024</p>
+            <img src="https://placehold.co/128x128/f3f4f6/111827?text=Avatar" alt="User Avatar" class="w-32 h-32 rounded-full mb-4 border-4 border-gray-200 dark:border-gray-700">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Nazwa Gracza</h2>
+            <p class="text-md text-gray-500 dark:text-gray-400">Dołączył Styczeń 2024</p>
         </div>
-        
-        <div class="my-8 border-t border-gray-700"></div>
-
+        <div class="my-8 border-t border-gray-200 dark:border-gray-700"></div>
         <div class="text-left">
-            <h3 class="text-lg font-semibold text-white mb-4">Statystyki</h3>
-            <div class="space-y-3">
-                <div class="flex justify-between items-center text-gray-300">
-                    <span>Użyte modyfikacje:</span>
-                    <span class="font-bold text-white">3</span>
-                </div>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Statystyki</h3>
+            <div class="space-y-3 text-gray-700 dark:text-gray-300">
+                <div class="flex justify-between items-center"><span class="font-bold text-gray-900 dark:text-white">3</span><span>Użyte modyfikacje:</span></div>
             </div>
         </div>
-
-        <div class="my-8 border-t border-gray-700"></div>
-
+        <div class="my-8 border-t border-gray-200 dark:border-gray-700"></div>
         <button class="w-full bg-red-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition-colors duration-300">
             Wyloguj się
         </button>
     </div>
 
-
-    <!-- Mod Selection Modal -->
-    <div id="mod-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 opacity-0 transition-opacity duration-300">
-        <!-- Modal Content -->
-        <div id="modal-content" class="bg-gray-800 rounded-2xl p-8 border border-indigo-500/30 loader-shadow w-full max-w-sm text-center transform transition-transform duration-300 scale-95">
-            <h2 id="modal-title" class="text-2xl font-bold text-white mb-6">Wybierz swojego moda</h2>
-            <div class="flex flex-col gap-4">
-                <button data-mod-name="Sodium" class="mod-choice-button w-full bg-indigo-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-600 transition-colors duration-300">
-                    Sodium
-                </button>
-                <button data-mod-name="Lithium" class="mod-choice-button w-full bg-indigo-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-600 transition-colors duration-300">
-                    Lithium
-                </button>
-                <button data-mod-name="ModernFix" class="mod-choice-button w-full bg-indigo-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-600 transition-colors duration-300">
-                    ModernFix
-                </button>
+    <!-- Kontener Ustawień -->
+    <div id="settings-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-left">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Ustawienia</h2>
+        
+        <div class="space-y-6">
+            <div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Konto</h3>
+                <label for="email-input" class="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Adres e-mail</label>
+                <input type="email" id="email-input" value="gracz@example.com" class="w-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
             </div>
-            <button id="close-modal-button" class="mt-6 text-gray-400 hover:text-white transition-colors duration-300">Zamknij</button>
+
+            <div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Wygląd</h3>
+                <p class="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Motyw aplikacji</p>
+                <div class="flex items-center gap-2 bg-gray-100 dark:bg-gray-900 p-1 rounded-lg">
+                    <button id="light-theme-button" class="w-full py-2 px-4 rounded-md text-sm font-semibold transition-colors">Jasny</button>
+                    <button id="dark-theme-button" class="w-full py-2 px-4 rounded-md text-sm font-semibold transition-colors">Ciemny</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="my-8 border-t border-gray-200 dark:border-gray-700"></div>
+
+        <button class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition-colors duration-300">
+            Zapisz zmiany
+        </button>
+    </div>
+
+    <!-- Kontener Poradnika -->
+    <div id="tutorial-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Poradnik</h2>
+        <div class="space-y-4 text-left">
+            <button data-tutorial="mod-usage" class="tutorial-option-button w-full flex justify-between items-center text-left p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                <span class="font-semibold text-gray-800 dark:text-gray-200">Obsługa Moda</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500 dark:text-gray-400"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
+            </button>
+            <button data-tutorial="profile" class="tutorial-option-button w-full flex justify-between items-center text-left p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                <span class="font-semibold text-gray-800 dark:text-gray-200">Profil i Konto</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500 dark:text-gray-400"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
+            </button>
+            <button data-tutorial="bypass" class="tutorial-option-button w-full flex justify-between items-center text-left p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                <span class="font-semibold text-gray-800 dark:text-gray-200">Metody Bypass</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500 dark:text-gray-400"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
+            </button>
         </div>
     </div>
 
+
+    <!-- Modal Wyboru Moda -->
+    <div id="mod-modal" class="modal hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 opacity-0 transition-opacity duration-300">
+        <div id="modal-content" class="modal-content bg-white dark:bg-gray-800 rounded-2xl p-8 border border-indigo-500/10 dark:border-indigo-500/30 loader-shadow w-full max-w-sm text-center transform transition-transform duration-300 scale-95">
+            <h2 id="modal-title" class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Wybierz swojego moda</h2>
+            <div class="flex flex-col gap-4">
+                <button data-mod-name="Sodium" class="mod-choice-button w-full bg-indigo-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-600 transition-colors duration-300">Sodium</button>
+                <button data-mod-name="Lithium" class="mod-choice-button w-full bg-indigo-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-600 transition-colors duration-300">Lithium</button>
+                <button data-mod-name="ModernFix" class="mod-choice-button w-full bg-indigo-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-600 transition-colors duration-300">ModernFix</button>
+            </div>
+            <button id="close-modal-button" class="mt-6 text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors duration-300">Zamknij</button>
+        </div>
+    </div>
+    
+    <!-- Modal Poradnika -->
+    <div id="tutorial-modal" class="modal hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 opacity-0 transition-opacity duration-300">
+        <div id="tutorial-modal-content" class="modal-content bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 w-full max-w-lg text-center transform transition-transform duration-300 scale-95">
+            <h2 id="tutorial-modal-title" class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Tytuł Poradnika</h2>
+            <div id="tutorial-modal-body" class="mt-4 text-left text-gray-600 dark:text-gray-400 prose dark:prose-invert max-w-none">
+                <p>Treść poradnika pojawi się tutaj...</p>
+            </div>
+            <button id="close-tutorial-modal-button" class="mt-8 bg-indigo-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-indigo-700 transition-colors duration-300">Rozumiem</button>
+        </div>
+    </div>
+
+
     <script>
-        // --- ELEMENT SELECTORS ---
+        // --- SELEKTORY ELEMENTÓW ---
         const mainContainer = document.getElementById('main-container');
         const profileContainer = document.getElementById('profile-container');
+        const settingsContainer = document.getElementById('settings-container');
+        const tutorialContainer = document.getElementById('tutorial-container');
+        const allViews = document.querySelectorAll('.main-view-container');
+        
         const mainTitle = document.getElementById('main-title');
         const mainIcon = document.getElementById('main-icon');
         const launchButton = document.getElementById('launch-button');
@@ -171,156 +218,193 @@
         const statusText = document.getElementById('status-text');
         const selectModButton = document.getElementById('select-mod-button');
         const selectModButtonText = document.getElementById('select-mod-button-text');
+        
+        // Modale
         const modModal = document.getElementById('mod-modal');
         const modalContent = document.getElementById('modal-content');
-        const modalTitle = document.getElementById('modal-title');
         const closeModalButton = document.getElementById('close-modal-button');
         const modChoiceButtons = document.querySelectorAll('.mod-choice-button');
-        // Menu Elements
+        const tutorialModal = document.getElementById('tutorial-modal');
+        const tutorialModalTitle = document.getElementById('tutorial-modal-title');
+        const tutorialModalBody = document.getElementById('tutorial-modal-body');
+        const closeTutorialModalButton = document.getElementById('close-tutorial-modal-button');
+        const tutorialOptionButtons = document.querySelectorAll('.tutorial-option-button');
+
+        // Elementy Menu
         const menuButton = document.getElementById('menu-button');
         const sideMenu = document.getElementById('side-menu');
         const menuOverlay = document.getElementById('menu-overlay');
         const mainMenuButton = document.getElementById('main-menu-button');
         const profileMenuButton = document.getElementById('profile-menu-button');
+        const settingsMenuButton = document.getElementById('settings-menu-button');
+        const tutorialMenuButton = document.getElementById('tutorial-menu-button');
+
+        // Elementy Ustawień Motywu
+        const lightThemeButton = document.getElementById('light-theme-button');
+        const darkThemeButton = document.getElementById('dark-theme-button');
 
         let currentTheme = 'default';
 
-        // --- THEME DEFINITIONS ---
+        // --- DEFINICJE MOTYWÓW (KOLORY AKCENTÓW) ---
         const themes = {
             default: {
-                main: ['bg-gray-800', 'border-indigo-500/30', 'loader-shadow'],
-                icon: 'text-indigo-400',
+                main: ['border-indigo-500/10', 'dark:border-indigo-500/30', 'loader-shadow'],
+                icon: ['text-indigo-500', 'dark:text-indigo-400'],
                 progressBar: 'bg-indigo-500',
                 launchButton: ['bg-indigo-600', 'hover:bg-indigo-700', 'focus:ring-indigo-500'],
-                modal: ['bg-gray-800', 'border-indigo-500/30', 'loader-shadow'],
+                modal: ['border-indigo-500/10', 'dark:border-indigo-500/30', 'loader-shadow'],
                 modalButtons: ['bg-indigo-500', 'hover:bg-indigo-600'],
-                selectModText: 'text-indigo-300',
+                selectModText: ['text-indigo-500', 'dark:text-indigo-300'],
             },
             Sodium: {
-                main: ['bg-gray-800', 'border-green-500/30', 'shadow-green'],
-                icon: 'text-green-400',
+                main: ['border-green-500/10', 'dark:border-green-500/30', 'shadow-green'],
+                icon: ['text-green-500', 'dark:text-green-400'],
                 progressBar: 'bg-green-500',
                 launchButton: ['bg-green-600', 'hover:bg-green-700', 'focus:ring-green-500'],
-                modal: ['bg-gray-800', 'border-green-500/30', 'shadow-green'],
+                modal: ['border-green-500/10', 'dark:border-green-500/30', 'shadow-green'],
                 modalButtons: ['bg-green-500', 'hover:bg-green-600'],
-                selectModText: 'text-green-300',
+                selectModText: ['text-green-500', 'dark:text-green-300'],
             },
             Lithium: {
-                main: ['bg-gray-800', 'border-purple-500/30', 'shadow-purple'],
-                icon: 'text-purple-400',
+                main: ['border-purple-500/10', 'dark:border-purple-500/30', 'shadow-purple'],
+                icon: ['text-purple-500', 'dark:text-purple-400'],
                 progressBar: 'bg-purple-500',
                 launchButton: ['bg-purple-600', 'hover:bg-purple-700', 'focus:ring-purple-500'],
-                modal: ['bg-gray-800', 'border-purple-500/30', 'shadow-purple'],
+                modal: ['border-purple-500/10', 'dark:border-purple-500/30', 'shadow-purple'],
                 modalButtons: ['bg-purple-500', 'hover:bg-purple-600'],
-                selectModText: 'text-purple-300',
+                selectModText: ['text-purple-500', 'dark:text-purple-300'],
             },
             ModernFix: {
-                main: ['bg-gray-800', 'border-red-500/30', 'shadow-red'],
-                icon: 'text-red-400',
+                main: ['border-red-500/10', 'dark:border-red-500/30', 'shadow-red'],
+                icon: ['text-red-500', 'dark:text-red-400'],
                 progressBar: 'bg-red-500',
                 launchButton: ['bg-red-600', 'hover:bg-red-700', 'focus:ring-red-500'],
-                modal: ['bg-gray-800', 'border-red-500/30', 'shadow-red'],
+                modal: ['border-red-500/10', 'dark:border-red-500/30', 'shadow-red'],
                 modalButtons: ['bg-red-500', 'hover:bg-red-600'],
-                selectModText: 'text-red-300',
+                selectModText: ['text-red-500', 'dark:text-red-300'],
             }
         };
 
         function setTheme(themeName) {
             const oldThemeClasses = themes[currentTheme];
             const newThemeClasses = themes[themeName];
-
-            // Helper to swap classes
-            const swapClasses = (element, oldCls, newCls) => {
-                if(Array.isArray(oldCls)) element.classList.remove(...oldCls); else element.classList.remove(oldCls);
-                if(Array.isArray(newCls)) element.classList.add(...newCls); else element.classList.add(newCls);
+            const swapClasses = (el, oldCls, newCls) => {
+                if(Array.isArray(oldCls)) el.classList.remove(...oldCls); else el.classList.remove(oldCls);
+                if(Array.isArray(newCls)) el.classList.add(...newCls); else el.classList.add(newCls);
             };
-
             swapClasses(mainContainer, oldThemeClasses.main, newThemeClasses.main);
             swapClasses(modalContent, oldThemeClasses.modal, newThemeClasses.modal);
             swapClasses(mainIcon, oldThemeClasses.icon, newThemeClasses.icon);
             swapClasses(progressBar, oldThemeClasses.progressBar, newThemeClasses.progressBar);
             swapClasses(launchButton, oldThemeClasses.launchButton, newThemeClasses.launchButton);
             swapClasses(selectModButton, oldThemeClasses.selectModText, newThemeClasses.selectModText);
-            
-            modChoiceButtons.forEach(btn => {
-                swapClasses(btn, oldThemeClasses.modalButtons, newThemeClasses.modalButtons);
-            });
-
+            modChoiceButtons.forEach(btn => swapClasses(btn, oldThemeClasses.modalButtons, newThemeClasses.modalButtons));
             currentTheme = themeName;
         }
-        
-        // --- VIEW SWITCHING ---
-        function showMainView() {
-            profileContainer.classList.add('hidden');
-            mainContainer.classList.remove('hidden');
+
+        // --- ZARZĄDZANIE WIDOKAMI ---
+        function switchView(viewToShow) {
+            allViews.forEach(view => view.classList.add('hidden'));
+            viewToShow.classList.remove('hidden');
         }
 
-        function showProfileView() {
-            mainContainer.classList.add('hidden');
-            profileContainer.classList.remove('hidden');
+        // --- LOGIKA MOTYWU APLIKACJI (JASNY/CIEMNY) ---
+        function setAppTheme(theme) {
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+                darkThemeButton.classList.add('bg-indigo-600', 'text-white');
+                lightThemeButton.classList.remove('bg-indigo-600', 'text-white');
+            } else {
+                document.documentElement.classList.remove('dark');
+                lightThemeButton.classList.add('bg-indigo-600', 'text-white');
+                darkThemeButton.classList.remove('bg-indigo-600', 'text-white');
+            }
         }
+        lightThemeButton.addEventListener('click', () => setAppTheme('light'));
+        darkThemeButton.addEventListener('click', () => setAppTheme('dark'));
+        if (document.documentElement.classList.contains('dark')) { setAppTheme('dark'); } else { setAppTheme('light'); }
 
-        // --- SIDE MENU LOGIC ---
+        // --- LOGIKA MENU BOCZNEGO ---
         function toggleSideMenu() {
             if (sideMenu.classList.contains('-translate-x-full')) {
-                // Open menu
                 sideMenu.classList.remove('-translate-x-full');
                 menuOverlay.classList.remove('hidden');
                 menuButton.classList.add('opacity-0', 'pointer-events-none');
                 setTimeout(() => menuOverlay.classList.remove('opacity-0'), 10);
             } else {
-                // Close menu
                 sideMenu.classList.add('-translate-x-full');
                 menuOverlay.classList.add('opacity-0');
                 menuButton.classList.remove('opacity-0', 'pointer-events-none');
                 setTimeout(() => menuOverlay.classList.add('hidden'), 300);
             }
         }
-        
         menuButton.addEventListener('click', toggleSideMenu);
         menuOverlay.addEventListener('click', toggleSideMenu);
-        mainMenuButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            showMainView();
-            toggleSideMenu();
-        });
-        profileMenuButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            showProfileView();
-            toggleSideMenu();
-        });
-
-        // --- MODAL LOGIC ---
-        function showModal() {
-            modModal.classList.remove('hidden');
+        mainMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(mainContainer); toggleSideMenu(); });
+        profileMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(profileContainer); toggleSideMenu(); });
+        settingsMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(settingsContainer); toggleSideMenu(); });
+        tutorialMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(tutorialContainer); toggleSideMenu(); });
+        
+        // --- OGÓLNA LOGIKA MODALI ---
+        function showModal(modalElement) {
+            modalElement.classList.remove('hidden');
             setTimeout(() => {
-                modModal.classList.remove('opacity-0');
-                modalContent.classList.remove('scale-95');
+                modalElement.classList.remove('opacity-0');
+                modalElement.querySelector('.modal-content').classList.remove('scale-95');
             }, 10);
         }
 
-        function hideModal() {
-            modModal.classList.add('opacity-0');
-            modalContent.classList.add('scale-95');
-            setTimeout(() => modModal.classList.add('hidden'), 300);
+        function hideModal(modalElement) {
+            modalElement.classList.add('opacity-0');
+            modalElement.querySelector('.modal-content').classList.add('scale-95');
+            setTimeout(() => modalElement.classList.add('hidden'), 300);
         }
 
-        selectModButton.addEventListener('click', showModal);
-        closeModalButton.addEventListener('click', hideModal);
-        modModal.addEventListener('click', (event) => {
-            if (event.target === modModal) hideModal();
-        });
-
+        // --- LOGIKA MODALU WYBORU MODA ---
+        selectModButton.addEventListener('click', () => showModal(modModal));
+        closeModalButton.addEventListener('click', () => hideModal(modModal));
+        modModal.addEventListener('click', (e) => { if (e.target === modModal) hideModal(modModal); });
         modChoiceButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const modName = button.getAttribute('data-mod-name');
                 selectModButtonText.textContent = modName;
                 setTheme(modName);
-                hideModal();
+                hideModal(modModal);
             });
         });
 
-        // --- LOADER LOGIC ---
+        // --- LOGIKA MODALU PORADNIKA ---
+        const tutorialContent = {
+            'mod-usage': {
+                title: 'Obsługa Moda',
+                content: `<h4>Wybór i Uruchomienie</h4><p>Aby rozpocząć, kliknij przycisk "Wybierz Moda" na ekranie głównym. W oknie, które się pojawi, wybierz jedną z dostępnych optymalizacji: Sodium, Lithium lub ModernFix. Po dokonaniu wyboru, nazwa na przycisku zmieni się, a motyw kolorystyczny aplikacji dopasuje się do wybranego moda. Naciśnij "Uruchom", aby rozpocząć symulację ładowania.</p>`
+            },
+            'profile': {
+                title: 'Profil i Konto',
+                content: `<p>W menu bocznym znajdziesz zakładkę "Profil". Wyświetla ona podstawowe statystyki Twojego konta, takie jak nazwa gracza, data dołączenia i liczba użytych modyfikacji. W zakładce "Ustawienia" możesz zmienić swój adres e-mail oraz przełączać wygląd aplikacji między jasnym a ciemnym motywem.</p>`
+            },
+            'bypass': {
+                title: 'Metody Bypass',
+                content: `<p>Informacje na temat metod obchodzenia zabezpieczeń (bypass) są przeznaczone dla zaawansowanych użytkowników. Należy pamiętać, że nieprawidłowe użycie tych technik może prowadzić do niestabilności gry lub naruszenia regulaminów serwerów. Zalecamy ostrożność i korzystanie z tych opcji na własną odpowiedzialność.</p>`
+            }
+        };
+        
+        tutorialOptionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tutorialKey = button.dataset.tutorial;
+                const content = tutorialContent[tutorialKey];
+                if (content) {
+                    tutorialModalTitle.textContent = content.title;
+                    tutorialModalBody.innerHTML = content.content;
+                    showModal(tutorialModal);
+                }
+            });
+        });
+        closeTutorialModalButton.addEventListener('click', () => hideModal(tutorialModal));
+        tutorialModal.addEventListener('click', (e) => { if (e.target === tutorialModal) hideModal(tutorialModal); });
+
+
+        // --- LOGIKA LOADERA ---
         const loadingSteps = [
             { message: "Sprawdzanie aktualizacji...", progress: 10, delay: 500 },
             { message: "Weryfikacja plików gry...", progress: 30, delay: 1500 },
@@ -329,15 +413,12 @@
             { message: "Finalizowanie...", progress: 95, delay: 800 },
             { message: "Uruchamianie gry!", progress: 100, delay: 1200 }
         ];
-
         let currentStep = 0;
-
         function processStep() {
             if (currentStep >= loadingSteps.length) {
                 launchButton.disabled = false;
                 launchButton.textContent = "Uruchom ponownie";
-                currentStep = 0; 
-                return;
+                currentStep = 0; return;
             }
             const step = loadingSteps[currentStep];
             statusText.classList.add('opacity-0');
@@ -349,30 +430,24 @@
             currentStep++;
             setTimeout(processStep, step.delay);
         }
-
         launchButton.addEventListener('click', () => {
-        if (selectModButtonText && selectModButtonText.textContent === 'Wybierz Moda') {
-            statusText.textContent = 'Proszę, najpierw wybierz moda!';
-            return;
-        }
-
-        // Wyślij wiadomość do WinForms natychmiast (jeśli WebView2 jest dostępny)
-        if (window.chrome && window.chrome.webview) {
-            try {
-                window.chrome.webview.postMessage('startModDownload');
-                console.log('Sent: startModDownload');
-            } catch (err) {
-                console.warn('postMessage failed:', err);
+            if (selectModButtonText.textContent === 'Wybierz Moda') {
+                statusText.textContent = 'Proszę, najpierw wybierz moda!'; return;
             }
-        }
-
-        // UI lokalne
-        launchButton.disabled = true;
-        launchButton.textContent = "Ładowanie...";
-        progressBar.style.width = '0%';
-        currentStep = 0;
-        processStep();
-    });
+            if (window.chrome && window.chrome.webview) {
+                try {
+                    window.chrome.webview.postMessage('startModDownload');
+                    console.log('Sent: startModDownload');
+                } catch (err) {
+                    console.warn('postMessage failed:', err);
+                }
+            }
+            launchButton.disabled = true;
+            launchButton.textContent = "Ładowanie...";
+            progressBar.style.width = '0%';
+            currentStep = 0;
+            processStep();
+        });
     </script>
 </body>
 </html>
