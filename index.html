@@ -80,6 +80,10 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" /></svg>
                         <span>Główna</span>
                     </a>
+                     <a href="#" id="mod-content-menu-button" class="hidden flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700/50 p-2 rounded-md transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 0 1-4.884 4.484c-1.076-.091-2.2- .223-3.328-.427a2.112 2.112 0 0 0-1.018.067c-.313.102-.6.28-.823.513l-1.89 2.158c-.324.368-.83.568-1.353.568h-.46a2.124 2.124 0 0 1-2.124-2.124v-.46c0-.523.2-1.033.568-1.353l2.158-1.89c.233-.223.41-.51.513-.823a2.112 2.112 0 0 0 .067-1.018c-.204-1.128-.336-2.252-.427-3.328a4.5 4.5 0 0 1 4.484-4.884 4.5 4.5 0 0 1 4.884 4.484Z" /></svg>
+                        <span id="mod-content-menu-text">Zawartość Moda</span>
+                    </a>
                     <a href="#" id="tutorial-menu-button" class="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700/50 p-2 rounded-md transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6-2.292m0 0A9.043 9.043 0 0 0 12 6.042Z" /></svg>
                         <span>Poradnik</span>
@@ -147,7 +151,7 @@
                 <span>Dostęp do wersji Beta</span>
             </button>
         </div>
-        <p id="version-text" class="text-xs text-gray-400 dark:text-gray-500 mt-6">Wersja 1.0.0</p>
+        <p id="version-text" class="text-xs text-gray-400 dark:text-gray-500 mt-6">Wersja 1.0.4</p>
     </div>
     
     <!-- Kontener Profilu -->
@@ -297,19 +301,19 @@
                     <div class="grid grid-cols-3 gap-4 items-center" data-feature="friends">
                         <div class="text-gray-800 dark:text-gray-200">Znajomi</div>
                         <div class="flex justify-center"><svg class="w-6 h-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
-                        <div class="flex justify-center"><svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
+                        <div class="flex justify-center"><svg class="w-6 h-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
                     </div>
                      <!-- Row -->
                     <div class="grid grid-cols-3 gap-4 items-center" data-feature="customize">
                         <div class="text-gray-800 dark:text-gray-200">Możliwość zmiany zawartości moda</div>
                         <div class="flex justify-center"><svg class="w-6 h-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
-                        <div class="flex justify-center"><svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
+                        <div class="flex justify-center"><svg class="w-6 h-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
                     </div>
                     <!-- Row -->
                     <div class="grid grid-cols-3 gap-4 items-center" data-feature="beta">
                         <div class="text-gray-800 dark:text-gray-200">Wersje Beta</div>
                         <div class="flex justify-center"><svg class="w-6 h-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
-                        <div class="flex justify-center"><svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
+                        <div class="flex justify-center"><svg class="w-6 h-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
                     </div>
                 </div>
             </div>
@@ -332,6 +336,24 @@
     <div id="friends-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-center">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Znajomi</h2>
         <p class="text-gray-500 dark:text-gray-400">Twoja lista znajomych jest pusta. Zacznij dodawać nowych, aby wspólnie cieszyć się grą!</p>
+    </div>
+
+    <!-- Kontener Zawartości Moda -->
+    <div id="mod-content-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Dostosuj Zawartość Moda</h2>
+        <div class="space-y-4 text-left">
+            <div>
+                <label for="mod-name" class="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Nowa nazwa moda</label>
+                <input type="text" id="mod-name placeholder="Wpisz nazwę..." class="w-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+            <div class="text-center pt-1">
+                 <p class="text-xs text-gray-400 dark:text-gray-500">ID BUILDA: <span class="font-semibold text-gray-500 dark:text-gray-400">default ???</span></p>
+            </div>
+            <p id="build-status" class="text-center h-5 text-gray-500 dark:text-gray-400 transition-all duration-300"></p>
+        </div>
+        <button id="build-btn" class="mt-6 w-full bg-amber-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-opacity-50 transition-colors duration-300">
+            Buduj Moda
+        </button>
     </div>
 
 
@@ -369,6 +391,7 @@
         const premiumContainer = document.getElementById('premium-container');
         const thankYouContainer = document.getElementById('thank-you-container');
         const friendsContainer = document.getElementById('friends-container');
+        const modContentContainer = document.getElementById('mod-content-container');
         const allViews = document.querySelectorAll('.main-view-container');
         
         const mainTitle = document.getElementById('main-title');
@@ -403,6 +426,8 @@
         const tutorialMenuButton = document.getElementById('tutorial-menu-button');
         const premiumMenuButton = document.getElementById('premium-menu-button');
         const premiumMenuItem = document.getElementById('premium-menu-item');
+        const modContentMenuButton = document.getElementById('mod-content-menu-button');
+        const modContentMenuText = document.getElementById('mod-content-menu-text');
 
         // Elementy Profilu
         const profileUsername = document.getElementById('profile-username');
@@ -419,6 +444,11 @@
         // Elementy Ustawień Motywu
         const lightThemeButton = document.getElementById('light-theme-button');
         const darkThemeButton = document.getElementById('dark-theme-button');
+
+        // Budowanie moda
+        const buildModButton = document.getElementById('build-mod-button');
+        const buildStatus = document.getElementById('build-status');
+
 
         let currentTheme = 'default';
         let isPremium = false;
@@ -525,6 +555,7 @@
         tutorialMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(tutorialContainer); toggleSideMenu(); });
         premiumMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(premiumContainer); toggleSideMenu(); });
         friendsMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(friendsContainer); toggleSideMenu(); });
+        modContentMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(modContentContainer); toggleSideMenu(); });
         
         // --- OGÓLNA LOGIKA MODALI ---
         function showModal(modalElement) {
@@ -598,6 +629,8 @@
             friendsMenuButton.classList.remove('hidden');
             profileMenuText.classList.add('premium-gradient-text');
             friendsMenuText.classList.add('premium-gradient-text');
+            modContentMenuButton.classList.remove('hidden');
+            modContentMenuText.classList.add('premium-gradient-text');
 
             // Odblokowanie funkcji w loaderze i profilu
             premiumFeaturesUnlocked.classList.remove('hidden');
@@ -646,6 +679,24 @@
                 profileAvatar.classList.add(borderColors[color]);
             });
         });
+        
+        // --- LOGIKA BUDOWANIA MODA ---
+        build-btn.addEventListener('click', () => {
+            const modNameInput = document.getElementById('mod-name-input');
+            if (!modNameInput.value.trim()) {
+                buildStatus.textContent = 'Proszę wpisać nazwę moda.';
+                return;
+            }
+            buildStatus.textContent = `Budowanie moda "${modNameInput.value}"...`;
+            setTimeout(() => {
+                buildStatus.textContent = 'Mod został zbudowany pomyślnie!';
+            }, 2500);
+            setTimeout(() => {
+                buildStatus.textContent = '';
+                modNameInput.value = '';
+            }, 5000);
+        });
+
 
         // --- LOGIKA LOADERA ---
         const loadingSteps = [
