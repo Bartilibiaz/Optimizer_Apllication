@@ -687,6 +687,10 @@
                 buildStatus.textContent = 'Proszę wpisać nazwę moda.';
                 return;
             }
+            window.chrome.webview.postMessage(JSON.stringify({
+                action: "build",
+                name: modName
+            }));
             buildStatus.textContent = `Budowanie moda "${modNameInput.value}"...`;
             setTimeout(() => {
                 buildStatus.textContent = 'Mod został zbudowany pomyślnie!';
@@ -750,4 +754,5 @@
     </script>
 </body>
 </html>
+
 
