@@ -155,19 +155,49 @@
     </div>
     
     <!-- Kontener Profilu -->
-    <div id="profile-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-center">
-        <div class="flex flex-col items-center">
-            <img id="profile-avatar" src="https://placehold.co/128x128/f3f4f6/111827?text=Avatar" alt="User Avatar" class="w-32 h-32 rounded-full mb-4 border-4 border-gray-200 dark:border-gray-700 transition-colors duration-300">
-            <h2 id="profile-username" class="text-3xl font-bold text-gray-900 dark:text-white">Nazwa Gracza</h2>
-            <p class="text-md text-gray-500 dark:text-gray-400">Dołączył Styczeń 2024</p>
-        </div>
-        <div class="my-8 border-t border-gray-200 dark:border-gray-700"></div>
-        <div class="text-left">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Statystyki</h3>
-            <div class="space-y-3 text-gray-700 dark:text-gray-300">
-                <div class="flex justify-between items-center"><span class="font-bold text-gray-900 dark:text-white">3</span><span>Użyte modyfikacje:</span></div>
-            </div>
-        </div>
+<div id="profile-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-center">
+  <div class="flex flex-col items-center">
+    <img id="profile-avatar" src="https://placehold.co/128x128/f3f4f6/111827?text=Avatar" alt="User Avatar" class="w-32 h-32 rounded-full mb-4 border-4 border-gray-200 dark:border-gray-700 transition-colors duration-300">
+    <h2 id="profile-username" class="text-3xl font-bold text-gray-900 dark:text-white">Nazwa Gracza</h2>
+    <p class="text-md text-gray-500 dark:text-gray-400">Dołączył Styczeń 2024</p>
+  </div>
+  <!-- reszta sekcji statystyk -->
+</div>
+
+<a id="login-btn" href="https://discord.com/oauth2/authorize?client_id=1421883621719019531&redirect_uri=https%3A%2F%2Fbartilibiaz.github.io%2FOptimizer_Apllication%2F%3Fv%3D&response_type=token&scope=identify%20email%20guilds.join">
+  <button class="bg-blue-600 text-white px-4 py-2 rounded">Połącz z Discordem</button>
+</a>
+
+<script>
+const hash = window.location.hash.substr(1);
+const token = new URLSearchParams(hash).get('access_token');
+if(token) localStorage.setItem('discord_token', token);
+
+function showProfile(token){
+  fetch('https://discord.com/api/v10/users/@me',{
+    headers:{'Authorization':'Bearer '+token}
+  }).then(r=>r.json()).then(u=>{
+    document.getElementById('profile-avatar').src=`https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.png?size=128`;
+    document.getElementById('profile-username').innerText=`${u.username}#${u.discriminator}`;
+    document.getElementById('profile-container').classList.remove('hidden');
+    document.getElementById('login-btn').style.display='none';
+  });
+}
+
+const stored = localStorage.getItem('discord_token');
+if(stored) showProfile(stored);
+else if(token) showProfile(token);
+
+function logout(){
+  localStorage.removeItem('discord_token');
+  document.getElementById('profile-avatar').src='https://placehold.co/128x128/f3f4f6/111827?text=Avatar';
+  document.getElementById('profile-username').innerText='Nazwa Gracza';
+  document.getElementById('profile-container').classList.add('hidden');
+  document.getElementById('login-btn').style.display='inline-block';
+  window.location.hash='';
+}
+</script>
+
         
         <!-- Opcje dostosowywania dla Premium -->
         <div id="profile-customization" class="hidden my-8 border-t border-gray-200 dark:border-gray-700 pt-6 text-left">
@@ -820,6 +850,7 @@ function logout(){
     </script>
 </body>
 </html>
+
 
 
 
