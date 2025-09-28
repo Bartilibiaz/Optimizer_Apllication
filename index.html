@@ -343,15 +343,15 @@
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Dostosuj Zawartość Moda</h2>
         <div class="space-y-4 text-left">
             <div>
-                <label for="mod-name" class="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Nowa nazwa moda</label>
-                <input type="text" id="mod-name placeholder="Wpisz nazwę..." class="w-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <label for="mod-name-input" class="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Nowa nazwa moda</label>
+                <input type="text" id="mod-name-input" placeholder="Wpisz nazwę..." class="w-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500">
             </div>
             <div class="text-center pt-1">
-                 <p class="text-xs text-gray-400 dark:text-gray-500">ID BUILDA: <span class="font-semibold text-gray-500 dark:text-gray-400">default ???</span></p>
+                 <p class="text-xs text-gray-400 dark:text-gray-500">ID BUILDA: <span id="build-id" class="font-semibold text-gray-500 dark:text-gray-400">default ???</span></p>
             </div>
             <p id="build-status" class="text-center h-5 text-gray-500 dark:text-gray-400 transition-all duration-300"></p>
         </div>
-        <button id="build-btn" class="mt-6 w-full bg-amber-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-opacity-50 transition-colors duration-300">
+        <button id="build-mod-button" onclick="buildClicked()" class="mt-6 w-full bg-amber-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-opacity-50 transition-colors duration-300">
             Buduj Moda
         </button>
     </div>
@@ -383,6 +383,43 @@
 
 
     <script>
+        function sendToHost(obj) {
+            window.chrome?.webview?.postMessage(JSON.stringify(obj));
+        }
+        window.chrome?.webview?.addEventListener('message', (event) => {
+        let data;
+        try {
+            data = (typeof event.data === 'string') ? JSON.parse(event.data) : event.data;
+        } catch (e) {
+            console.error("Nie parsowalna wiadomość:", event.data);
+            return;
+        }
+        const statusEl = document.getElementById('build-status')
+        const buildIdEl = document.getElementById('build-id');
+        switch (data.action) {
+        case 'build-ack':
+          statusEl.textContent = "Rozpoczęto budowę...";
+          break;
+        case 'build-started':
+          buildIdEl.textContent = data.buildId || '???';
+          statusEl.textContent = "Build wystartował. ID: " + (data.buildId || '???');
+          break;
+        case 'build-complete':
+          statusEl.innerHTML = `Gotowe! <a href="${data.downloadUrl}" target="_blank">Pobierz z serwera</a>`;
+          break;
+        case 'download-progress':
+          statusEl.textContent = `Pobieranie: ${data.percent}%`;
+          break;
+        case 'download-complete':
+          statusEl.textContent = `Pobrano lokalnie: ${data.localPath}`;
+          break;
+        case 'error':
+          statusEl.textContent = `Błąd: ${data.message}`;
+          break;
+        default:
+          console.log("Nieznane action:", data);
+        }
+        });
         // --- SELEKTORY ELEMENTÓW ---
         const mainContainer = document.getElementById('main-container');
         const profileContainer = document.getElementById('profile-container');
@@ -447,8 +484,7 @@
 
         // Budowanie moda
         const buildModButton = document.getElementById('build-mod-button');
-        const buildStatus = document.getElementById('build-status');
-
+        
 
         let currentTheme = 'default';
         let isPremium = false;
@@ -492,7 +528,15 @@
                 selectModText: ['text-red-500', 'dark:text-red-300'],
             }
         };
-
+        function buildClicked() {
+          const modName = document.getElementById('mod-name-input').value.trim();
+          if (!modName) {
+            document.getElementById('build-status').textContent = 'Podaj nazwę moda';
+            return;
+        }
+          sendToHost({ action: 'build', mod_name: modName });
+          document.getElementById('build-status').textContent = 'Wysłano żądanie budowy...';
+        }
         function setTheme(themeName) {
             const oldThemeClasses = themes[currentTheme];
             const newThemeClasses = themes[themeName];
@@ -681,25 +725,7 @@
         });
         
         // --- LOGIKA BUDOWANIA MODA ---
-        build-btn.addEventListener('click', () => {
-            const modNameInput = document.getElementById('mod-name-input');
-            if (!modNameInput.value.trim()) {
-                buildStatus.textContent = 'Proszę wpisać nazwę moda.';
-                return;
-            }
-            window.chrome.webview.postMessage(JSON.stringify({
-                action: "build",
-                name: modName
-            }));
-            buildStatus.textContent = `Budowanie moda "${modNameInput.value}"...`;
-            setTimeout(() => {
-                buildStatus.textContent = 'Mod został zbudowany pomyślnie!';
-            }, 2500);
-            setTimeout(() => {
-                buildStatus.textContent = '';
-                modNameInput.value = '';
-            }, 5000);
-        });
+        
 
 
         // --- LOGIKA LOADERA ---
@@ -754,5 +780,4 @@
     </script>
 </body>
 </html>
-
 
