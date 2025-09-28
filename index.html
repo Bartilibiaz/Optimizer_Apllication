@@ -183,10 +183,42 @@
 
         <div class="my-8 border-t border-gray-200 dark:border-gray-700"></div>
         
-<a href="https://discord.com/oauth2/authorize?client_id=1421883621719019531&redirect_uri=https%3A%2F%2Fbartilibiaz.github.io%2FOptimizer_Apllication%2F%3Fv%3D&response_type=token&scope=identify%20email%20guilds.join">
-<button class="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition-colors duration-300">
-            Połącz z cwelcordem
+<div id="user-info" class="mb-2 font-bold"></div>
+
+<a id="login-btn" href="https://discord.com/oauth2/authorize?client_id=1421883621719019531&redirect_uri=https%3A%2F%2Fbartilibiaz.github.io%2FOptimizer_Apllication%2F%3Fv%3D&response_type=token&scope=identify%20email%20guilds.join">
+  <button class="w-full bg-blue-600 text-white py-2 rounded-lg">Połącz z cwelcordem</button>
 </a>
+
+<button id="logout-btn" onclick="logout()" class="w-full bg-red-600 text-white py-2 rounded-lg" style="display:none;">Wyloguj</button>
+
+<script>
+const hash = window.location.hash.substr(1);
+const token = new URLSearchParams(hash).get('access_token');
+if(token) localStorage.setItem('discord_token', token);
+
+function showUser(token){
+  fetch('https://discord.com/api/v10/users/@me',{headers:{'Authorization':'Bearer '+token}})
+    .then(r=>r.json())
+    .then(u=>{
+      document.getElementById('user-info').innerText=`Zalogowano jako: ${u.username}#${u.discriminator}`;
+      document.getElementById('login-btn').style.display='none';
+      document.getElementById('logout-btn').style.display='inline-block';
+    });
+}
+
+const stored = localStorage.getItem('discord_token');
+if(stored) showUser(stored);
+else if(token) showUser(token);
+
+function logout(){
+  localStorage.removeItem('discord_token');
+  document.getElementById('login-btn').style.display='inline-block';
+  document.getElementById('logout-btn').style.display='none';
+  document.getElementById('user-info').innerText='';
+  window.location.hash='';
+}
+</script>
+
 </div>
     <!-- Kontener Ustawień -->
     <div id="settings-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-left">
@@ -780,6 +812,7 @@
     </script>
 </body>
 </html>
+
 
 
 
