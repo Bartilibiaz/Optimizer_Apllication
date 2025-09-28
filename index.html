@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Ustawiamy domyślny motyw jako ciemny -->
 <html lang="pl" class="dark">
 <head>
     <meta charset="UTF-8">
@@ -59,17 +58,14 @@
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 flex items-center justify-center min-h-screen p-4 overflow-x-hidden">
 
-    <!-- Przycisk Menu -->
     <button id="menu-button" class="fixed top-6 left-6 z-40 p-2 rounded-full text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700/50 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
     </button>
 
-    <!-- Nakładka Menu Bocznego -->
     <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-60 z-20 hidden opacity-0 transition-opacity duration-300"></div>
 
-    <!-- Menu Boczne -->
     <div id="side-menu" class="fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-800 shadow-2xl z-30 transform -translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col">
         <div>
             <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">Menu</h2>
@@ -81,7 +77,7 @@
                         <span>Główna</span>
                     </a>
                      <a href="#" id="mod-content-menu-button" class="hidden flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700/50 p-2 rounded-md transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 0 1-4.884 4.484c-1.076-.091-2.2- .223-3.328-.427a2.112 2.112 0 0 0-1.018.067c-.313.102-.6.28-.823.513l-1.89 2.158c-.324.368-.83.568-1.353.568h-.46a2.124 2.124 0 0 1-2.124-2.124v-.46c0-.523.2-1.033.568-1.353l2.158-1.89c.233-.223.41-.51.513-.823a2.112 2.112 0 0 0 .067-1.018c-.204-1.128-.336-2.252-.427-3.328a4.5 4.5 0 0 1 4.484-4.884 4.5 4.5 0 0 1 4.884 4.484Z" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 0 1-4.884 4.484c-1.076-.091-2.2-.223-3.328-.427a2.112 2.112 0 0 0-1.018.067c-.313.102-.6.28-.823.513l-1.89 2.158c-.324.368-.83.568-1.353.568h-.46a2.124 2.124 0 0 1-2.124-2.124v-.46c0-.523.2-1.033.568-1.353l2.158-1.89c.233-.223.41-.51.513-.823a2.112 2.112 0 0 0 .067-1.018c-.204-1.128-.336-2.252-.427-3.328a4.5 4.5 0 0 1 4.484-4.884 4.5 4.5 0 0 1 4.884 4.484Z" /></svg>
                         <span id="mod-content-menu-text">Zawartość Moda</span>
                     </a>
                     <a href="#" id="tutorial-menu-button" class="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700/50 p-2 rounded-md transition-colors">
@@ -89,6 +85,7 @@
                         <span>Poradnik</span>
                     </a>
                 </div>
+                
                 <div>
                     <h3 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Konto</h3>
                     <a href="#" id="profile-menu-button" class="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700/50 p-2 rounded-md transition-colors">
@@ -116,7 +113,6 @@
         </div>
     </div>
 
-    <!-- Główny kontener loadera -->
     <div id="main-container" class="main-view-container relative w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-indigo-500/10 dark:border-indigo-500/30 loader-shadow text-center">
         <div class="flex justify-center items-center mb-4">
             <svg id="main-icon" class="w-12 h-12 text-indigo-500 dark:text-indigo-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -139,7 +135,6 @@
         <button id="launch-button" class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition-all duration-300 btn-glow disabled:bg-gray-500 disabled:cursor-not-allowed disabled:shadow-none">
             Uruchom
         </button>
-        <!-- Odblokowane funkcje premium -->
         <div id="premium-features-unlocked" class="hidden mt-6 border-t border-gray-200 dark:border-gray-700 pt-4 space-y-3 text-left">
              <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider text-center mb-2">Funkcje Premium</h4>
              <button class="w-full text-left p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors flex items-center gap-3">
@@ -154,40 +149,57 @@
         <p id="version-text" class="text-xs text-gray-400 dark:text-gray-500 mt-6">Wersja 1.0.4</p>
     </div>
     
-    <!-- Kontener Profilu -->
     <div id="profile-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-center">
-        <div class="flex flex-col items-center">
-            <img id="profile-avatar" src="https://placehold.co/128x128/f3f4f6/111827?text=Avatar" alt="User Avatar" class="w-32 h-32 rounded-full mb-4 border-4 border-gray-200 dark:border-gray-700 transition-colors duration-300">
-            <h2 id="profile-username" class="text-3xl font-bold text-gray-900 dark:text-white">Nazwa Gracza</h2>
-            <p class="text-md text-gray-500 dark:text-gray-400">Dołączył Styczeń 2024</p>
-        </div>
-        <div class="my-8 border-t border-gray-200 dark:border-gray-700"></div>
-        <div class="text-left">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Statystyki</h3>
-            <div class="space-y-3 text-gray-700 dark:text-gray-300">
-                <div class="flex justify-between items-center"><span class="font-bold text-gray-900 dark:text-white">3</span><span>Użyte modyfikacje:</span></div>
-            </div>
-        </div>
         
-        <!-- Opcje dostosowywania dla Premium -->
-        <div id="profile-customization" class="hidden my-8 border-t border-gray-200 dark:border-gray-700 pt-6 text-left">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 text-center">Dostosuj profil</h3>
-            <p class="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-3 text-center">Kolor obramówki awatara</p>
-            <div class="flex justify-center gap-4">
-                <button class="color-swatch w-10 h-10 rounded-full bg-indigo-500 border-2 border-transparent hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-transform" data-color="indigo"></button>
-                <button class="color-swatch w-10 h-10 rounded-full bg-green-500 border-2 border-transparent hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-transform" data-color="green"></button>
-                <button class="color-swatch w-10 h-10 rounded-full bg-purple-500 border-2 border-transparent hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-transform" data-color="purple"></button>
-                <button class="color-swatch w-10 h-10 rounded-full bg-red-500 border-2 border-transparent hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-transform" data-color="red"></button>
+        <div id="logged-in-view" class="hidden">
+            <div class="flex flex-col items-center">
+                <img id="profile-avatar" src="https://placehold.co/128x128/f3f4f6/111827?text=Avatar" alt="User Avatar" class="w-32 h-32 rounded-full mb-4 border-4 border-gray-200 dark:border-gray-700 transition-colors duration-300">
+                <h2 id="profile-username" class="text-3xl font-bold text-gray-900 dark:text-white">Witaj, <span id="display-username">Gracz</span></h2>
+                <p class="text-md text-gray-500 dark:text-gray-400">Status: <span id="premium-status" class="font-bold text-green-500">Standard</span></p>
             </div>
+            
+            <div class="my-8 border-t border-gray-200 dark:border-gray-700"></div>
+
+            <div class="text-left">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Twoje Statystyki</h3>
+                <div class="space-y-3 text-gray-700 dark:text-gray-300">
+                    <div class="flex justify-between items-center"><span class="font-bold text-gray-900 dark:text-white">0</span><span>Użyte modyfikacje:</span></div>
+                </div>
+            </div>
+
+            <div id="profile-customization" class="hidden my-8 border-t border-gray-200 dark:border-gray-700 pt-6 text-left">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 text-center">Dostosuj obramówkę (Premium)</h3>
+                <p class="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-3 text-center">Kolor obramówki awatara</p>
+                <div class="flex justify-center gap-4">
+                    <button class="color-swatch w-10 h-10 rounded-full bg-indigo-500 border-2 border-transparent hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-transform" data-color="indigo"></button>
+                    <button class="color-swatch w-10 h-10 rounded-full bg-green-500 border-2 border-transparent hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-transform" data-color="green"></button>
+                    <button class="color-swatch w-10 h-10 rounded-full bg-purple-500 border-2 border-transparent hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-transform" data-color="purple"></button>
+                    <button class="color-swatch w-10 h-10 rounded-full bg-red-500 border-2 border-transparent hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-transform" data-color="red"></button>
+                </div>
+            </div>
+
+            <div class="my-8 border-t border-gray-200 dark:border-gray-700"></div>
+            <button id="logout-button" class="w-full bg-red-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition-colors duration-300">
+                Wyloguj się z Discord
+            </button>
         </div>
 
-        <div class="my-8 border-t border-gray-200 dark:border-gray-700"></div>
-        <button class="w-full bg-red-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition-colors duration-300">
-            Wyloguj się
-        </button>
+        <div id="logged-out-view">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Połącz swoje konto</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-8">Połącz się z Discord, aby zweryfikować status Premium i spersonalizować profil.</p>
+
+            <a href="https://discord.com/oauth2/authorize?client_id=1421883621719019531&redirect_uri=https%3A%2F%2Ftwoj-api-url.com%2Fauth%2Fdiscord%2Fcallback&response_type=code&scope=identify%20email%20guilds.join" 
+                class="w-full bg-[#5865F2] text-white font-bold py-3 px-4 rounded-lg hover:bg-[#4752C4] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition-colors duration-300 flex items-center justify-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512" class="w-5 h-5">
+                    <path d="M400 0H48C21.49 0 0 21.49 0 48v416c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V48c0-26.51-21.49-48-48-48zm-88 336h-80v-48h80c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16h-80V176c0-8.84-7.16-16-16-16h-16c-8.84 0-16 7.16-16 16v160H144c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h80v48h-80c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h80v48h-80c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h80c8.84 0 16-7.16 16-16v-16h80c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16z"/>
+                </svg>
+                <span>Połącz przez Discord</span>
+            </a>
+
+            <p id="error-message" class="mt-4 text-sm text-red-500 hidden">Wystąpił błąd weryfikacji. Spróbuj ponownie.</p>
+        </div>
     </div>
 
-    <!-- Kontener Ustawień -->
     <div id="settings-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-left">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Ustawienia</h2>
         
@@ -215,7 +227,6 @@
         </button>
     </div>
 
-    <!-- Kontener Poradnika -->
     <div id="tutorial-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-center">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Poradnik</h2>
         <div class="space-y-4 text-left">
@@ -233,539 +244,584 @@
             </button>
         </div>
     </div>
-    
-    <!-- Kontener Premium -->
+
     <div id="premium-container" class="main-view-container hidden w-full max-w-4xl bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-center">
         <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-2">Odblokuj <span class="premium-gradient-text">PREMIUM</span></h2>
         <p class="text-gray-600 dark:text-gray-400 mb-10">Zyskaj dostęp do ekskluzywnych funkcji i wspieraj rozwój projektu.</p>
-
         <div class="grid md:grid-cols-3 gap-8">
-            <!-- Plan 1 -->
             <div class="flex flex-col p-6 bg-gray-100 dark:bg-gray-900/50 rounded-lg border border-gray-200 dark:border-gray-700">
-                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">1 Miesiąc</h3>
-                <p class="mt-2 text-gray-600 dark:text-gray-400 flex-grow">Idealny na start</p>
-                <p class="my-6">
-                    <span class="text-5xl font-bold text-gray-900 dark:text-white">10</span>
-                    <span class="text-lg text-gray-500 dark:text-gray-400">zł</span>
-                </p>
-                <button class="buy-premium-button w-full bg-indigo-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition-colors">Kup teraz</button>
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Miesięczny</h3>
+                <p class="text-4xl font-extrabold text-indigo-600 mb-4">$4.99<span class="text-lg font-medium text-gray-500 dark:text-gray-400">/mies.</span></p>
+                <ul class="text-left space-y-3 text-gray-700 dark:text-gray-300 flex-grow mb-8">
+                    <li class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-green-500"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>
+                        <span>Pełny dostęp do modów</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-green-500"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>
+                        <span>Priorytetowe wsparcie</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-green-500"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>
+                        <span>Dostęp do wersji Beta</span>
+                    </li>
+                </ul>
+                <button class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 transition-colors">Wybierz Plan</button>
             </div>
-            <!-- Plan 2 (Wyróżniony) -->
-            <div class="relative flex flex-col p-6 bg-gray-100 dark:bg-gray-900/50 rounded-lg border-2 border-amber-400 transform scale-105">
-                 <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2">
-                    <span class="inline-flex items-center px-3 py-1 text-sm font-semibold text-white bg-amber-500 rounded-full">Najlepszy Wybór</span>
-                </div>
-                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Lifetime</h3>
-                <p class="mt-2 text-gray-600 dark:text-gray-400 flex-grow">Jednorazowy zakup</p>
-                <p class="my-6">
-                    <span class="text-5xl font-bold text-gray-900 dark:text-white">40</span>
-                    <span class="text-lg text-gray-500 dark:text-gray-400">zł</span>
-                </p>
-                <button class="buy-premium-button w-full bg-amber-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-opacity-50 transition-colors">Kup teraz</button>
+            <div class="flex flex-col p-6 bg-white dark:bg-gray-700/50 rounded-lg border-4 border-amber-500 loader-shadow shadow-amber-500/50 relative">
+                <div class="absolute top-0 right-0 bg-amber-500 text-gray-900 text-xs font-bold px-3 py-1 rounded-bl-lg">NAJLEPSZY WYBÓR</div>
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Półroczny</h3>
+                <p class="text-4xl font-extrabold text-amber-500 mb-4">$24.99<span class="text-lg font-medium text-gray-500 dark:text-gray-400">/6 mies.</span></p>
+                 <ul class="text-left space-y-3 text-gray-700 dark:text-gray-300 flex-grow mb-8">
+                    <li class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-green-500"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>
+                        <span>Wszystko z planu Miesięcznego</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-green-500"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>
+                        <span>Ekskluzywna rola na Discord</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-green-500"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>
+                        <span>20% oszczędności</span>
+                    </li>
+                </ul>
+                <button class="w-full bg-amber-500 text-gray-900 font-bold py-3 px-4 rounded-lg hover:bg-amber-600 transition-colors">Wybierz Plan</button>
             </div>
-            <!-- Plan 3 -->
             <div class="flex flex-col p-6 bg-gray-100 dark:bg-gray-900/50 rounded-lg border border-gray-200 dark:border-gray-700">
-                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">3 Miesiące</h3>
-                <p class="mt-2 text-gray-600 dark:text-gray-400 flex-grow">Więcej za mniej</p>
-                <p class="my-6">
-                    <span class="text-5xl font-bold text-gray-900 dark:text-white">20</span>
-                    <span class="text-lg text-gray-500 dark:text-gray-400">zł</span>
-                </p>
-                <button class="buy-premium-button w-full bg-indigo-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition-colors">Kup teraz</button>
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Wieczysty</h3>
+                <p class="text-4xl font-extrabold text-indigo-600 mb-4">$49.99<span class="text-lg font-medium text-gray-500 dark:text-gray-400">/na zawsze</span></p>
+                <ul class="text-left space-y-3 text-gray-700 dark:text-gray-300 flex-grow mb-8">
+                    <li class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-green-500"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>
+                        <span>Wszystko bez limitu czasu</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-green-500"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>
+                        <span>Dożywotnie aktualizacje</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-green-500"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>
+                        <span>Wczesny dostęp do wszystkich nowości</span>
+                    </li>
+                </ul>
+                <button class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 transition-colors">Wybierz Plan</button>
             </div>
         </div>
-        
-        <!-- Tabela porównawcza -->
-        <div class="mt-16">
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Porównanie planów</h3>
-            <div class="max-w-2xl mx-auto bg-gray-100 dark:bg-gray-900/50 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-                <div class="grid grid-cols-3 gap-4 text-left font-semibold text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700 pb-4 mb-4">
-                    <div>Funkcja</div>
-                    <div class="text-center">Free</div>
-                    <div class="text-center">Premium</div>
+    </div>
+
+    <div id="mod-select-modal" class="modal fixed inset-0 flex items-center justify-center p-4 bg-black bg-opacity-70 z-50 hidden">
+        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-8 w-full max-w-md shadow-2xl relative">
+            <button id="close-modal-button" class="absolute top-4 right-4 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
+            </button>
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Wybierz Moda</h3>
+            <div id="mod-choices-container" class="space-y-4">
+                <button data-mod-id="mod1" data-mod-name="Bypass V2" class="mod-choice-button w-full text-left p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <span class="font-semibold">Bypass V2</span>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Najnowszy bypass, zalecany dla większości użytkowników.</p>
+                </button>
+                <button data-mod-id="mod2" data-mod-name="Fast Injector" class="mod-choice-button w-full text-left p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <span class="font-semibold">Fast Injector</span>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Szybka iniekcja, starszy, ale stabilny.</p>
+                </button>
+                <button data-mod-id="mod3" data-mod-name="Premium Beta" class="mod-choice-button w-full text-left p-4 bg-amber-100 dark:bg-amber-900/50 rounded-lg text-gray-800 dark:text-gray-200 border-2 border-amber-500 hover:bg-amber-200 dark:hover:bg-amber-800 transition-colors">
+                    <div class="flex items-center gap-2">
+                        <span class="font-semibold">Premium Beta</span>
+                        <span class="text-xs font-bold text-gray-900 bg-amber-400 px-2 rounded-full">PREMIUM</span>
+                    </div>
+                    <p class="text-sm text-gray-700 dark:text-gray-300">Dla użytkowników z aktywną subskrypcją.</p>
+                </button>
+            </div>
+            <p id="mod-select-error" class="text-red-500 text-sm mt-4 hidden">Proszę, wybierz moda, aby kontynuować.</p>
+        </div>
+    </div>
+
+    <div id="mod-content-modal" class="modal fixed inset-0 flex items-center justify-center p-4 bg-black bg-opacity-70 z-50 hidden">
+        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-8 w-full max-w-md shadow-2xl relative">
+            <button id="close-content-modal-button" class="absolute top-4 right-4 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
+            </button>
+            <h3 id="mod-content-title" class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Zawartość: Bypass V2</h3>
+            <div id="mod-content-details" class="space-y-4 text-left">
+                 <div class="p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                    <h4 class="font-semibold text-gray-900 dark:text-white">Funkcja 1: Ulepszony Anti-Cheat</h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Najnowsze metody omijania detekcji.</p>
                 </div>
-                <div id="comparison-table-body" class="space-y-4">
-                    <!-- Row -->
-                    <div class="grid grid-cols-3 gap-4 items-center">
-                        <div class="text-gray-800 dark:text-gray-200">Podstawowa wersja moda</div>
-                        <div class="flex justify-center"><svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
-                        <div class="flex justify-center"><svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
-                    </div>
-                     <!-- Row -->
-                    <div class="grid grid-cols-3 gap-4 items-center">
-                        <div class="text-gray-800 dark:text-gray-200">Podstawowy profil użytkownika</div>
-                        <div class="flex justify-center"><svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
-                        <div class="flex justify-center"><svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
-                    </div>
-                     <!-- Row -->
-                    <div class="grid grid-cols-3 gap-4 items-center" data-feature="friends">
-                        <div class="text-gray-800 dark:text-gray-200">Znajomi</div>
-                        <div class="flex justify-center"><svg class="w-6 h-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
-                        <div class="flex justify-center"><svg class="w-6 h-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
-                    </div>
-                     <!-- Row -->
-                    <div class="grid grid-cols-3 gap-4 items-center" data-feature="customize">
-                        <div class="text-gray-800 dark:text-gray-200">Możliwość zmiany zawartości moda</div>
-                        <div class="flex justify-center"><svg class="w-6 h-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
-                        <div class="flex justify-center"><svg class="w-6 h-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
-                    </div>
-                    <!-- Row -->
-                    <div class="grid grid-cols-3 gap-4 items-center" data-feature="beta">
-                        <div class="text-gray-800 dark:text-gray-200">Wersje Beta</div>
-                        <div class="flex justify-center"><svg class="w-6 h-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
-                        <div class="flex justify-center"><svg class="w-6 h-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
-                    </div>
+                 <div class="p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                    <h4 class="font-semibold text-gray-900 dark:text-white">Funkcja 2: Optymalizacja RAM</h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Zmniejszenie zużycia pamięci, poprawa FPS.</p>
                 </div>
             </div>
-        </div>
-    </div>
-    
-    <!-- Kontener podziękowania za zakup -->
-    <div id="thank-you-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-amber-400 text-center">
-        <div class="flex justify-center mb-4">
-            <svg class="w-16 h-16 text-amber-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-            </svg>
-        </div>
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Dziękujemy!</h2>
-        <p class="text-gray-600 dark:text-gray-400 mb-8">Twoje konto zostało ulepszone do wersji Premium. Wszystkie funkcje są już dostępne.</p>
-        <button id="back-to-loader-button" class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition-colors">Wróć do loadera</button>
-    </div>
-
-    <!-- Kontener Znajomych -->
-    <div id="friends-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-center">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Znajomi</h2>
-        <p class="text-gray-500 dark:text-gray-400">Twoja lista znajomych jest pusta. Zacznij dodawać nowych, aby wspólnie cieszyć się grą!</p>
-    </div>
-
-    <!-- Kontener Zawartości Moda -->
-    <div id="mod-content-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-center">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Dostosuj Zawartość Moda</h2>
-        <div class="space-y-4 text-left">
-            <div>
-                <label for="mod-name-input" class="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Nowa nazwa moda</label>
-                <input type="text" id="mod-name-input" placeholder="Wpisz nazwę..." class="w-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <div class="mt-6 border-t border-gray-200 dark:border-gray-700 pt-6">
+                <button id="go-to-main-from-content" class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 transition-colors">Wróć do Głównej</button>
             </div>
-            <div class="text-center pt-1">
-                 <p class="text-xs text-gray-400 dark:text-gray-500">ID BUILDA: <span id="build-id" class="font-semibold text-gray-500 dark:text-gray-400">default ???</span></p>
-            </div>
-            <p id="build-status" class="text-center h-5 text-gray-500 dark:text-gray-400 transition-all duration-300"></p>
-        </div>
-        <button id="build-mod-button" onclick="buildClicked()" class="mt-6 w-full bg-amber-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-opacity-50 transition-colors duration-300">
-            Buduj Moda
-        </button>
-    </div>
-
-
-    <!-- Modal Wyboru Moda -->
-    <div id="mod-modal" class="modal hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 opacity-0 transition-opacity duration-300">
-        <div id="modal-content" class="modal-content bg-white dark:bg-gray-800 rounded-2xl p-8 border border-indigo-500/10 dark:border-indigo-500/30 loader-shadow w-full max-w-sm text-center transform transition-transform duration-300 scale-95">
-            <h2 id="modal-title" class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Wybierz swojego moda</h2>
-            <div class="flex flex-col gap-4">
-                <button data-mod-name="Sodium" class="mod-choice-button w-full bg-indigo-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-600 transition-colors duration-300">Sodium</button>
-                <button data-mod-name="Lithium" class="mod-choice-button w-full bg-indigo-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-600 transition-colors duration-300">Lithium</button>
-                <button data-mod-name="ModernFix" class="mod-choice-button w-full bg-indigo-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-600 transition-colors duration-300">ModernFix</button>
-            </div>
-            <button id="close-modal-button" class="mt-6 text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors duration-300">Zamknij</button>
-        </div>
-    </div>
-    
-    <!-- Modal Poradnika -->
-    <div id="tutorial-modal" class="modal hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 opacity-0 transition-opacity duration-300">
-        <div id="tutorial-modal-content" class="modal-content bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 w-full max-w-lg text-center transform transition-transform duration-300 scale-95">
-            <h2 id="tutorial-modal-title" class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Tytuł Poradnika</h2>
-            <div id="tutorial-modal-body" class="mt-4 text-left text-gray-600 dark:text-gray-400 prose dark:prose-invert max-w-none">
-                <p>Treść poradnika pojawi się tutaj...</p>
-            </div>
-            <button id="close-tutorial-modal-button" class="mt-8 bg-indigo-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-indigo-700 transition-colors duration-300">Rozumiem</button>
         </div>
     </div>
 
+    <div id="tutorial-content-modal" class="modal fixed inset-0 flex items-center justify-center p-4 bg-black bg-opacity-70 z-50 hidden">
+        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-8 w-full max-w-md shadow-2xl relative">
+            <button id="close-tutorial-modal-button" class="absolute top-4 right-4 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
+            </button>
+            <h3 id="tutorial-content-title" class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center"></h3>
+            <div id="tutorial-content-details" class="space-y-4 text-left text-gray-700 dark:text-gray-300">
+                </div>
+            <div class="mt-6 border-t border-gray-200 dark:border-gray-700 pt-6">
+                <button id="go-to-tutorial-menu" class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 transition-colors">Wróć do Menu Poradnika</button>
+            </div>
+        </div>
+    </div>
 
     <script>
-        function sendToHost(obj) {
-            window.chrome?.webview?.postMessage(JSON.stringify(obj));
-        }
-        window.chrome?.webview?.addEventListener('message', (event) => {
-        let data;
-        try {
-            data = (typeof event.data === 'string') ? JSON.parse(event.data) : event.data;
-        } catch (e) {
-            console.error("Nie parsowalna wiadomość:", event.data);
-            return;
-        }
-        const statusEl = document.getElementById('build-status')
-        const buildIdEl = document.getElementById('build-id');
-        switch (data.action) {
-        case 'build-ack':
-          statusEl.textContent = "Rozpoczęto budowę...";
-          break;
-        case 'build-started':
-          buildIdEl.textContent = data.buildId || '???';
-          statusEl.textContent = "Build wystartował. ID: " + (data.buildId || '???');
-          break;
-        case 'build-complete':
-          statusEl.innerHTML = `Gotowe! <a href="${data.downloadUrl}" target="_blank">Pobierz z serwera</a>`;
-          break;
-        case 'download-progress':
-          statusEl.textContent = `Pobieranie: ${data.percent}%`;
-          break;
-        case 'download-complete':
-          statusEl.textContent = `Pobrano lokalnie: ${data.localPath}`;
-          break;
-        case 'error':
-          statusEl.textContent = `Błąd: ${data.message}`;
-          break;
-        default:
-          console.log("Nieznane action:", data);
-        }
-        });
-        // --- SELEKTORY ELEMENTÓW ---
+        const body = document.body;
         const mainContainer = document.getElementById('main-container');
         const profileContainer = document.getElementById('profile-container');
         const settingsContainer = document.getElementById('settings-container');
         const tutorialContainer = document.getElementById('tutorial-container');
         const premiumContainer = document.getElementById('premium-container');
-        const thankYouContainer = document.getElementById('thank-you-container');
-        const friendsContainer = document.getElementById('friends-container');
-        const modContentContainer = document.getElementById('mod-content-container');
-        const allViews = document.querySelectorAll('.main-view-container');
         
-        const mainTitle = document.getElementById('main-title');
-        const mainIcon = document.getElementById('main-icon');
-        const launchButton = document.getElementById('launch-button');
-        const progressBar = document.getElementById('progress-bar');
-        const statusText = document.getElementById('status-text');
-        const selectModButton = document.getElementById('select-mod-button');
-        const selectModButtonText = document.getElementById('select-mod-button-text');
-        
-        // Modale
-        const modModal = document.getElementById('mod-modal');
-        const modalContent = document.getElementById('modal-content');
-        const closeModalButton = document.getElementById('close-modal-button');
-        const modChoiceButtons = document.querySelectorAll('.mod-choice-button');
-        const tutorialModal = document.getElementById('tutorial-modal');
-        const tutorialModalTitle = document.getElementById('tutorial-modal-title');
-        const tutorialModalBody = document.getElementById('tutorial-modal-body');
-        const closeTutorialModalButton = document.getElementById('close-tutorial-modal-button');
-        const tutorialOptionButtons = document.querySelectorAll('.tutorial-option-button');
+        const views = {
+            'main': mainContainer,
+            'profile': profileContainer,
+            'settings': settingsContainer,
+            'tutorial': tutorialContainer,
+            'premium': premiumContainer
+        };
+        let currentView = 'main';
 
         // Elementy Menu
         const menuButton = document.getElementById('menu-button');
         const sideMenu = document.getElementById('side-menu');
         const menuOverlay = document.getElementById('menu-overlay');
-        const mainMenuButton = document.getElementById('main-menu-button');
-        const profileMenuButton = document.getElementById('profile-menu-button');
-        const profileMenuText = document.getElementById('profile-menu-text');
-        const friendsMenuButton = document.getElementById('friends-menu-button');
-        const friendsMenuText = document.getElementById('friends-menu-text');
-        const settingsMenuButton = document.getElementById('settings-menu-button');
-        const tutorialMenuButton = document.getElementById('tutorial-menu-button');
+
+        const mainButton = document.getElementById('main-menu-button');
+        const profileButton = document.getElementById('profile-menu-button');
+        const settingsButton = document.getElementById('settings-menu-button');
+        const tutorialButton = document.getElementById('tutorial-menu-button');
         const premiumMenuButton = document.getElementById('premium-menu-button');
-        const premiumMenuItem = document.getElementById('premium-menu-item');
+
+        // Elementy loadera
+        const mainIcon = document.getElementById('main-icon');
+        const mainTitle = document.getElementById('main-title');
+        const selectModButton = document.getElementById('select-mod-button');
+        const selectModButtonText = document.getElementById('select-mod-button-text');
+        const launchButton = document.getElementById('launch-button');
+        const progressBar = document.getElementById('progress-bar');
+        const statusText = document.getElementById('status-text');
+        const premiumFeaturesUnlocked = document.getElementById('premium-features-unlocked');
+
+        // Elementy Modalu Wyboru Moda
+        const modSelectModal = document.getElementById('mod-select-modal');
+        const closeModalButton = document.getElementById('close-modal-button');
+        const modChoiceButtons = document.querySelectorAll('.mod-choice-button');
         const modContentMenuButton = document.getElementById('mod-content-menu-button');
         const modContentMenuText = document.getElementById('mod-content-menu-text');
 
-        // Elementy Profilu
-        const profileUsername = document.getElementById('profile-username');
-        const profileAvatar = document.getElementById('profile-avatar');
-        const profileCustomization = document.getElementById('profile-customization');
-        const colorSwatches = document.querySelectorAll('.color-swatch');
+        // Elementy Modalu Zawartości Moda
+        const modContentModal = document.getElementById('mod-content-modal');
+        const closeContentModalButton = document.getElementById('close-content-modal-button');
+        const modContentTitle = document.getElementById('mod-content-title');
+        const modContentDetails = document.getElementById('mod-content-details');
+        const goToMainFromContentButton = document.getElementById('go-to-main-from-content');
 
-        // Elementy Premium
-        const buyPremiumButtons = document.querySelectorAll('.buy-premium-button');
-        const premiumFeaturesUnlocked = document.getElementById('premium-features-unlocked');
-        const comparisonTableBody = document.getElementById('comparison-table-body');
-        const backToLoaderButton = document.getElementById('back-to-loader-button');
-        
-        // Elementy Ustawień Motywu
+        // Elementy Ustawień
         const lightThemeButton = document.getElementById('light-theme-button');
         const darkThemeButton = document.getElementById('dark-theme-button');
 
-        // Budowanie moda
-        const buildModButton = document.getElementById('build-mod-button');
-        
+        // Elementy Poradnika
+        const tutorialOptionButtons = document.querySelectorAll('.tutorial-option-button');
+        const tutorialContentModal = document.getElementById('tutorial-content-modal');
+        const closeTutorialModalButton = document.getElementById('close-tutorial-modal-button');
+        const tutorialContentTitle = document.getElementById('tutorial-content-title');
+        const tutorialContentDetails = document.getElementById('tutorial-content-details');
+        const goToTutorialMenu = document.getElementById('go-to-tutorial-menu');
 
-        let currentTheme = 'default';
-        let isPremium = false;
+        // --- FUNKCJE POMOCNICZE ---
 
-        // --- DEFINICJE MOTYWÓW (KOLORY AKCENTÓW) ---
-        const themes = {
-            default: {
-                main: ['border-indigo-500/10', 'dark:border-indigo-500/30', 'loader-shadow'],
-                icon: ['text-indigo-500', 'dark:text-indigo-400'],
-                progressBar: 'bg-indigo-500',
-                launchButton: ['bg-indigo-600', 'hover:bg-indigo-700', 'focus:ring-indigo-500'],
-                modal: ['border-indigo-500/10', 'dark:border-indigo-500/30', 'loader-shadow'],
-                modalButtons: ['bg-indigo-500', 'hover:bg-indigo-600'],
-                selectModText: ['text-indigo-500', 'dark:text-indigo-300'],
-            },
-            Sodium: {
-                main: ['border-green-500/10', 'dark:border-green-500/30', 'shadow-green'],
-                icon: ['text-green-500', 'dark:text-green-400'],
-                progressBar: 'bg-green-500',
-                launchButton: ['bg-green-600', 'hover:bg-green-700', 'focus:ring-green-500'],
-                modal: ['border-green-500/10', 'dark:border-green-500/30', 'shadow-green'],
-                modalButtons: ['bg-green-500', 'hover:bg-green-600'],
-                selectModText: ['text-green-500', 'dark:text-green-300'],
-            },
-            Lithium: {
-                main: ['border-purple-500/10', 'dark:border-purple-500/30', 'shadow-purple'],
-                icon: ['text-purple-500', 'dark:text-purple-400'],
-                progressBar: 'bg-purple-500',
-                launchButton: ['bg-purple-600', 'hover:bg-purple-700', 'focus:ring-purple-500'],
-                modal: ['border-purple-500/10', 'dark:border-purple-500/30', 'shadow-purple'],
-                modalButtons: ['bg-purple-500', 'hover:bg-purple-600'],
-                selectModText: ['text-purple-500', 'dark:text-purple-300'],
-            },
-            ModernFix: {
-                main: ['border-red-500/10', 'dark:border-red-500/30', 'shadow-red'],
-                icon: ['text-red-500', 'dark:text-red-400'],
-                progressBar: 'bg-red-500',
-                launchButton: ['bg-red-600', 'hover:bg-red-700', 'focus:ring-red-500'],
-                modal: ['border-red-500/10', 'dark:border-red-500/30', 'shadow-red'],
-                modalButtons: ['bg-red-500', 'hover:bg-red-600'],
-                selectModText: ['text-red-500', 'dark:text-red-300'],
+        function showView(viewId) {
+            if (currentView === viewId) return;
+
+            // Ukryj bieżący widok
+            if (views[currentView]) {
+                views[currentView].classList.add('hidden');
             }
-        };
-        function buildClicked() {
-          const modName = document.getElementById('mod-name-input').value.trim();
-          if (!modName) {
-            document.getElementById('build-status').textContent = 'Podaj nazwę moda';
-            return;
-        }
-          sendToHost({ action: 'build', mod_name: modName });
-          document.getElementById('build-status').textContent = 'Wysłano żądanie budowy...';
-        }
-        function setTheme(themeName) {
-            const oldThemeClasses = themes[currentTheme];
-            const newThemeClasses = themes[themeName];
-            const swapClasses = (el, oldCls, newCls) => {
-                if(!el) return;
-                if(Array.isArray(oldCls)) el.classList.remove(...oldCls); else el.classList.remove(oldCls);
-                if(Array.isArray(newCls)) el.classList.add(...newCls); else el.classList.add(newCls);
-            };
-            swapClasses(mainContainer, oldThemeClasses.main, newThemeClasses.main);
-            swapClasses(modalContent, oldThemeClasses.modal, newThemeClasses.modal);
-            swapClasses(mainIcon, oldThemeClasses.icon, newThemeClasses.icon);
-            swapClasses(progressBar, oldThemeClasses.progressBar, newThemeClasses.progressBar);
-            swapClasses(launchButton, oldThemeClasses.launchButton, newThemeClasses.launchButton);
-            swapClasses(selectModButton, oldThemeClasses.selectModText, newThemeClasses.selectModText);
-            modChoiceButtons.forEach(btn => swapClasses(btn, oldThemeClasses.modalButtons, newThemeClasses.modalButtons));
-            currentTheme = themeName;
-        }
-
-        // --- ZARZĄDZANIE WIDOKAMI ---
-        function switchView(viewToShow) {
-            allViews.forEach(view => view.classList.add('hidden'));
-            viewToShow.classList.remove('hidden');
-        }
-
-        // --- LOGIKA MOTYWU APLIKACJI (JASNY/CIEMNY) ---
-        function setAppTheme(theme) {
-            if (theme === 'dark') {
-                document.documentElement.classList.add('dark');
-                darkThemeButton.classList.add('bg-indigo-600', 'text-white');
-                lightThemeButton.classList.remove('bg-indigo-600', 'text-white');
-            } else {
-                document.documentElement.classList.remove('dark');
-                lightThemeButton.classList.add('bg-indigo-600', 'text-white');
-                darkThemeButton.classList.remove('bg-indigo-600', 'text-white');
+            
+            // Pokaż nowy widok
+            if (views[viewId]) {
+                views[viewId].classList.remove('hidden');
+                currentView = viewId;
             }
         }
-        lightThemeButton.addEventListener('click', () => setAppTheme('light'));
-        darkThemeButton.addEventListener('click', () => setAppTheme('dark'));
-        if (document.documentElement.classList.contains('dark')) { setAppTheme('dark'); } else { setAppTheme('light'); }
 
-        // --- LOGIKA MENU BOCZNEGO ---
-        function toggleSideMenu() {
-            if (sideMenu.classList.contains('-translate-x-full')) {
-                sideMenu.classList.remove('-translate-x-full');
-                menuOverlay.classList.remove('hidden');
-                menuButton.classList.add('opacity-0', 'pointer-events-none');
-                setTimeout(() => menuOverlay.classList.remove('opacity-0'), 10);
-            } else {
+        function toggleMenu() {
+            const isMenuOpen = sideMenu.classList.contains('translate-x-0');
+            if (isMenuOpen) {
                 sideMenu.classList.add('-translate-x-full');
-                menuOverlay.classList.add('opacity-0');
-                menuButton.classList.remove('opacity-0', 'pointer-events-none');
-                setTimeout(() => menuOverlay.classList.add('hidden'), 300);
+                sideMenu.classList.remove('translate-x-0');
+                menuOverlay.classList.add('hidden', 'opacity-0');
+                menuOverlay.classList.remove('opacity-100');
+            } else {
+                sideMenu.classList.remove('-translate-x-full');
+                sideMenu.classList.add('translate-x-0');
+                menuOverlay.classList.remove('hidden', 'opacity-0');
+                // Dodaj klasę opacity-100 po krótkiej chwili, aby zadziałała animacja
+                setTimeout(() => menuOverlay.classList.add('opacity-100'), 10);
             }
         }
-        menuButton.addEventListener('click', toggleSideMenu);
-        menuOverlay.addEventListener('click', toggleSideMenu);
-        mainMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(mainContainer); toggleSideMenu(); });
-        profileMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(profileContainer); toggleSideMenu(); });
-        settingsMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(settingsContainer); toggleSideMenu(); });
-        tutorialMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(tutorialContainer); toggleSideMenu(); });
-        premiumMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(premiumContainer); toggleSideMenu(); });
-        friendsMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(friendsContainer); toggleSideMenu(); });
-        modContentMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(modContentContainer); toggleSideMenu(); });
+
+        function activatePremium() {
+            // Zmień ikonę i tytuł na zielony premium
+            mainContainer.classList.add('shadow-green');
+            mainContainer.classList.remove('loader-shadow');
+
+            mainIcon.classList.remove('text-indigo-500', 'dark:text-indigo-400');
+            mainIcon.classList.add('text-green-500', 'dark:text-green-400');
+
+            progressBar.classList.remove('bg-indigo-500');
+            progressBar.classList.add('bg-green-500');
+            
+            // Pokaż sekcję odblokowanych funkcji
+            premiumFeaturesUnlocked.classList.remove('hidden');
+
+            // Pokaż premium w menu bocznym
+            premiumMenuButton.querySelector('.premium-gradient-text').textContent = 'AKTYWNE';
+            premiumMenuButton.classList.remove('bg-gray-900');
+            premiumMenuButton.classList.add('bg-green-800');
+        }
+
+        function deactivatePremium() {
+            // Przywróć domyślne style
+            mainContainer.classList.remove('shadow-green', 'shadow-purple', 'shadow-red');
+            mainContainer.classList.add('loader-shadow');
+
+            mainIcon.classList.remove('text-green-500', 'dark:text-green-400', 'text-purple-500', 'dark:text-purple-400', 'text-red-500', 'dark:text-red-400');
+            mainIcon.classList.add('text-indigo-500', 'dark:text-indigo-400');
+
+            progressBar.classList.remove('bg-green-500', 'bg-purple-500', 'bg-red-500');
+            progressBar.classList.add('bg-indigo-500');
+            
+            premiumFeaturesUnlocked.classList.add('hidden');
+
+             // Przywróć menu boczne
+            premiumMenuButton.querySelector('.premium-gradient-text').textContent = 'PREMIUM';
+            premiumMenuButton.classList.add('bg-gray-900');
+            premiumMenuButton.classList.remove('bg-green-800');
+        }
+
+        function setLoaderColor(color, premium = true) {
+            const colorMap = {
+                'indigo': { class: 'loader-shadow', icon: 'text-indigo-500 dark:text-indigo-400', progress: 'bg-indigo-500' },
+                'green': { class: 'shadow-green', icon: 'text-green-500 dark:text-green-400', progress: 'bg-green-500' },
+                'purple': { class: 'shadow-purple', icon: 'text-purple-500 dark:text-purple-400', progress: 'bg-purple-500' },
+                'red': { class: 'shadow-red', icon: 'text-red-500 dark:text-red-400', progress: 'bg-red-500' },
+            };
+
+            // Resetuj klasy cienia
+            mainContainer.classList.remove('loader-shadow', 'shadow-green', 'shadow-purple', 'shadow-red');
+            // Resetuj klasy ikony i paska postępu
+            mainIcon.className = mainIcon.className.split(' ').filter(c => !c.startsWith('text-') || c.startsWith('text-gray')).join(' ');
+            progressBar.className = progressBar.className.split(' ').filter(c => !c.startsWith('bg-')).join(' ');
+
+            // Ustaw nowe klasy
+            const newColor = colorMap[color];
+            mainContainer.classList.add(newColor.class);
+            mainIcon.classList.add(newColor.icon);
+            progressBar.classList.add(newColor.progress);
+
+            // Zmień kolor ramki w profilu (do implementacji)
+            const avatar = document.getElementById('profile-avatar');
+            avatar.className = avatar.className.split(' ').filter(c => !c.startsWith('border-')).join(' ');
+            avatar.classList.add('border-4', `border-${color}-500`);
+
+            // Włącz/wyłącz funkcje premium w zależności od flagi
+            if (premium) {
+                premiumFeaturesUnlocked.classList.remove('hidden');
+            } else {
+                premiumFeaturesUnlocked.classList.add('hidden');
+            }
+        }
         
-        // --- OGÓLNA LOGIKA MODALI ---
-        function showModal(modalElement) {
-            modalElement.classList.remove('hidden');
-            setTimeout(() => {
-                modalElement.classList.remove('opacity-0');
-                modalElement.querySelector('.modal-content').classList.remove('scale-95');
-            }, 10);
+        // --- FUNKCJE DLA WIDOKU PROFILU DISCORD ---
+        const loggedInView = document.getElementById('logged-in-view');
+        const loggedOutView = document.getElementById('logged-out-view');
+        const displayUsername = document.getElementById('display-username');
+        const premiumStatus = document.getElementById('premium-status');
+        const profileAvatar = document.getElementById('profile-avatar');
+        const logoutButton = document.getElementById('logout-button');
+        const errorMessage = document.getElementById('error-message');
+        const profileCustomization = document.getElementById('profile-customization');
+        const colorSwatches = document.querySelectorAll('.color-swatch');
+
+
+        function toggleDiscordStatus(isLoggedIn, userData = null) {
+            if (isLoggedIn) {
+                loggedOutView.classList.add('hidden');
+                loggedInView.classList.remove('hidden');
+                
+                if (userData) {
+                    displayUsername.textContent = userData.user || 'Gracz';
+                    profileAvatar.src = userData.avatar_url || 'https://placehold.co/128x128/f3f4f6/111827?text=Avatar';
+                    
+                    // Ustaw status Premium
+                    if (userData.isPremium) {
+                        premiumStatus.textContent = 'Aktywny Premium';
+                        premiumStatus.classList.remove('text-red-500');
+                        premiumStatus.classList.add('text-green-500');
+                        profileCustomization.classList.remove('hidden');
+                        activatePremium(); // Ustaw też Premium w loaderze
+                    } else {
+                        premiumStatus.textContent = 'Standard';
+                        premiumStatus.classList.remove('text-green-500');
+                        premiumStatus.classList.add('text-red-500');
+                        profileCustomization.classList.add('hidden');
+                        deactivatePremium(); // Upewnij się, że nie ma premium w loaderze
+                    }
+                }
+
+            } else {
+                loggedInView.classList.add('hidden');
+                loggedOutView.classList.remove('hidden');
+                // Wyczyść ewentualne dane sesji
+                sessionStorage.removeItem('discord_user');
+                deactivatePremium();
+            }
         }
 
-        function hideModal(modalElement) {
-            modalElement.classList.add('opacity-0');
-            modalElement.querySelector('.modal-content').classList.add('scale-95');
-            setTimeout(() => modalElement.classList.add('hidden'), 300);
-        }
+        // --- NASŁUCHIWANIE ZDARZEŃ ---
 
-        // --- LOGIKA MODALU WYBORU MODA ---
-        selectModButton.addEventListener('click', () => showModal(modModal));
-        closeModalButton.addEventListener('click', () => hideModal(modModal));
-        modModal.addEventListener('click', (e) => { if (e.target === modModal) hideModal(modModal); });
-        modChoiceButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const modName = button.getAttribute('data-mod-name');
-                selectModButtonText.textContent = modName;
-                setTheme(modName);
-                hideModal(modModal);
-            });
+        // Przycisk Menu
+        menuButton.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+
+        // Nawigacja
+        mainButton.addEventListener('click', (e) => { e.preventDefault(); showView('main'); toggleMenu(); });
+        profileButton.addEventListener('click', (e) => { e.preventDefault(); showView('profile'); toggleMenu(); });
+        settingsButton.addEventListener('click', (e) => { e.preventDefault(); showView('settings'); toggleMenu(); });
+        tutorialButton.addEventListener('click', (e) => { e.preventDefault(); showView('tutorial'); toggleMenu(); });
+        premiumMenuButton.addEventListener('click', (e) => { e.preventDefault(); showView('premium'); toggleMenu(); });
+
+        // Wylogowanie z Profilu
+        logoutButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleDiscordStatus(false);
+            // Czyści parametry statusu z URL
+            window.history.pushState({}, document.title, window.location.pathname);
         });
-
-        // --- LOGIKA MODALU PORADNIKA ---
-        const tutorialContent = {
-            'mod-usage': {
-                title: 'Obsługa Moda',
-                content: `<h4>Wybór i Uruchomienie</h4><p>Aby rozpocząć, kliknij przycisk "Wybierz Moda" na ekranie głównym. W oknie, które się pojawi, wybierz jedną z dostępnych optymalizacji: Sodium, Lithium lub ModernFix. Po dokonaniu wyboru, nazwa na przycisku zmieni się, a motyw kolorystyczny aplikacji dopasuje się do wybranego moda. Naciśnij "Uruchom", aby rozpocząć symulację ładowania.</p>`
-            },
-            'profile': {
-                title: 'Profil i Konto',
-                content: `<p>W menu bocznym znajdziesz zakładkę "Profil". Wyświetla ona podstawowe statystyki Twojego konta, takie jak nazwa gracza, data dołączenia i liczba użytych modyfikacji. W zakładce "Ustawienia" możesz zmienić swój adres e-mail oraz przełączać wygląd aplikacji między jasnym a ciemnym motywem.</p>`
-            },
-            'bypass': {
-                title: 'Metody Bypass',
-                content: `<p>Informacje na temat metod obchodzenia zabezpieczeń (bypass) są przeznaczone dla zaawansowanych użytkowników. Należy pamiętać, że nieprawidłowe użycie tych technik może prowadzić do niestabilności gry lub naruszenia regulaminów serwerów. Zalecamy ostrożność i korzystanie z tych opcji na własną odpowiedzialność.</p>`
-            }
-        };
         
-        tutorialOptionButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const tutorialKey = button.dataset.tutorial;
-                const content = tutorialContent[tutorialKey];
-                if (content) {
-                    tutorialModalTitle.textContent = content.title;
-                    tutorialModalBody.innerHTML = content.content;
-                    showModal(tutorialModal);
+        // Zmiana koloru w profilu
+        colorSwatches.forEach(swatch => {
+            swatch.addEventListener('click', () => {
+                const color = swatch.getAttribute('data-color');
+                // Na potrzeby demo, premium jest aktywne, jeśli jesteśmy w widoku zalogowanym i Premium
+                const isPremiumActive = !profileCustomization.classList.contains('hidden'); 
+                if(isPremiumActive) {
+                    setLoaderColor(color, true);
+                    // Opcjonalnie: Zapisz wybrany kolor w LocalStorage
                 }
             });
         });
-        closeTutorialModalButton.addEventListener('click', () => hideModal(tutorialModal));
-        tutorialModal.addEventListener('click', (e) => { if (e.target === tutorialModal) hideModal(tutorialModal); });
 
 
-        // --- LOGIKA PREMIUM ---
-        const checkmarkIcon = `<svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>`;
-        
-        // Ta funkcja może być wywołana z zewnątrz, aby aktywować premium
-        function activatePremium() {
-            if (isPremium) return;
-            isPremium = true;
+        // Logika Modalu Wyboru Moda
+        selectModButton.addEventListener('click', () => {
+            modSelectModal.classList.remove('hidden');
+        });
 
-            // Zmiana w menu bocznym
-            premiumMenuItem.classList.add('hidden');
-            friendsMenuButton.classList.remove('hidden');
-            profileMenuText.classList.add('premium-gradient-text');
-            friendsMenuText.classList.add('premium-gradient-text');
-            modContentMenuButton.classList.remove('hidden');
-            modContentMenuText.classList.add('premium-gradient-text');
+        closeModalButton.addEventListener('click', () => {
+            modSelectModal.classList.add('hidden');
+        });
 
-            // Odblokowanie funkcji w loaderze i profilu
-            premiumFeaturesUnlocked.classList.remove('hidden');
-            profileUsername.classList.add('premium-gradient-text');
-            profileCustomization.classList.remove('hidden');
-            
-            // Aktualizacja tabeli porównawczej
-            comparisonTableBody.querySelectorAll('[data-feature]').forEach(row => {
-                const premiumCell = row.children[2];
-                premiumCell.innerHTML = checkmarkIcon;
-            });
-
-            // Pokaż ekran podziękowania, jeśli użytkownik jest w widoku premium
-            if (!premiumContainer.classList.contains('hidden')) {
-                switchView(thankYouContainer);
-            }
-        }
-
-        // Przyciski "Kup teraz" przekierowują na Discorda
-        buyPremiumButtons.forEach(button => {
+        // Wybór Moda
+        modChoiceButtons.forEach(button => {
             button.addEventListener('click', () => {
-                window.open('https://discord.gg/H6GapFWgEy', '_blank');
+                const modName = button.getAttribute('data-mod-name');
+                const isPremium = button.getAttribute('data-mod-id') === 'mod3';
+
+                if (isPremium && premiumStatus.textContent !== 'Aktywny Premium') {
+                    statusText.textContent = 'Błąd: Ten mod wymaga konta Premium!';
+                    statusText.classList.remove('text-gray-500', 'dark:text-gray-400');
+                    statusText.classList.add('text-red-500', 'dark:text-red-400');
+                    setTimeout(() => {
+                        statusText.textContent = 'Gotowy do uruchomienia.';
+                        statusText.classList.add('text-gray-500', 'dark:text-gray-400');
+                        statusText.classList.remove('text-red-500', 'dark:text-red-400');
+                    }, 3000);
+                    return;
+                }
+
+                selectModButtonText.textContent = modName;
+                modContentMenuText.textContent = modName;
+                modContentMenuButton.classList.remove('hidden');
+                modSelectModal.classList.add('hidden');
             });
         });
 
-        backToLoaderButton.addEventListener('click', () => {
-            switchView(mainContainer);
+        // Logika Modalu Zawartości Moda
+        modContentMenuButton.addEventListener('click', (e) => {
+             e.preventDefault();
+             toggleMenu(); // Zamknij menu
+             
+             const modName = modContentMenuText.textContent;
+             modContentTitle.textContent = 'Zawartość: ' + modName;
+             
+             // Dynamiczne ładowanie treści (demo)
+             modContentDetails.innerHTML = `
+                 <div class="p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                    <h4 class="font-semibold text-gray-900 dark:text-white">Opis:</h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Szczegółowe funkcje i ustawienia dla moda <strong>${modName}</strong>.</p>
+                </div>
+             `;
+             modContentModal.classList.remove('hidden');
         });
 
-        // --- LOGIKA CUSTOMIZACJI PROFILU ---
-        const borderColors = {
-            indigo: 'border-indigo-500',
-            green: 'border-green-500',
-            purple: 'border-purple-500',
-            red: 'border-red-500'
+        closeContentModalButton.addEventListener('click', () => {
+            modContentModal.classList.add('hidden');
+        });
+
+        goToMainFromContentButton.addEventListener('click', () => {
+             modContentModal.classList.add('hidden');
+             showView('main');
+        });
+
+        // Logika Poradnika
+        const tutorialContents = {
+            'mod-usage': {
+                title: 'Jak używać moda',
+                content: `
+                    <p>1. Wybierz moda z listy. Zwróć uwagę na wymagania Premium.</p>
+                    <p>2. Kliknij "Uruchom". Loader automatycznie zainstaluje pliki.</p>
+                    <p>3. Po wczytaniu moda, gra zostanie uruchomiona. Możesz grać!</p>
+                `
+            },
+             'profile': {
+                title: 'Profil i weryfikacja',
+                content: `
+                    <p>1. Kliknij "Połącz przez Discord" w zakładce Profil.</p>
+                    <p>2. Zostaniesz przekierowany na serwer. Potwierdź połączenie.</p>
+                    <p>3. Po powrocie loader zweryfikuje Twój status Premium i odblokuje funkcje.</p>
+                `
+            },
+             'bypass': {
+                title: 'Metody Bypass',
+                content: `
+                    <p>Aktualnie używamy bezpiecznej metody omijania detekcji poprzez opóźnioną iniekcję.</p>
+                    <p class="mt-3 text-red-500 font-semibold">Ostrzeżenie: Zawsze używaj modów na własne ryzyko. Unikaj korzystania z innych programów jednocześnie!</p>
+                `
+            },
         };
 
-        colorSwatches.forEach(swatch => {
-            swatch.addEventListener('click', () => {
-                const color = swatch.dataset.color;
+        tutorialOptionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tutorialId = button.getAttribute('data-tutorial');
+                const content = tutorialContents[tutorialId];
+
+                tutorialContentTitle.textContent = content.title;
+                tutorialContentDetails.innerHTML = content.content;
                 
-                // Usuń wszystkie inne klasy kolorów obramowania
-                profileAvatar.classList.remove('border-gray-200', 'dark:border-gray-700', ...Object.values(borderColors));
-                
-                // Dodaj nową klasę koloru
-                profileAvatar.classList.add(borderColors[color]);
+                tutorialContentModal.classList.remove('hidden');
+                showView('tutorial'); // Upewnij się, że widok tutorial jest widoczny, jeśli jeszcze nie jest
             });
         });
+
+        closeTutorialModalButton.addEventListener('click', () => {
+            tutorialContentModal.classList.add('hidden');
+        });
         
-        // --- LOGIKA BUDOWANIA MODA ---
-        
+        goToTutorialMenu.addEventListener('click', () => {
+            tutorialContentModal.classList.add('hidden');
+        });
 
 
-        // --- LOGIKA LOADERA ---
+        // Zmiana motywu
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                body.classList.add('dark');
+                lightThemeButton.classList.remove('bg-gray-200');
+                darkThemeButton.classList.add('bg-gray-800', 'text-white');
+                darkThemeButton.classList.remove('text-gray-800');
+            } else {
+                body.classList.remove('dark');
+                lightThemeButton.classList.add('bg-white', 'text-gray-900');
+                lightThemeButton.classList.remove('text-gray-600');
+                darkThemeButton.classList.remove('bg-gray-800', 'text-white');
+                darkThemeButton.classList.add('text-gray-600');
+            }
+             // Zapisz wybór w Local Storage
+            localStorage.setItem('theme', theme);
+        }
+
+        // Ładowanie motywu z Local Storage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else {
+            setTheme('dark'); // Domyślny motyw
+        }
+
+        lightThemeButton.addEventListener('click', () => setTheme('light'));
+        darkThemeButton.addEventListener('click', () => setTheme('dark'));
+
+
+        // Logika paska ładowania
         const loadingSteps = [
-            { message: "Sprawdzanie aktualizacji...", progress: 10, delay: 500 },
-            { message: "Weryfikacja plików gry...", progress: 30, delay: 1500 },
-            { message: "Przygotowywanie moda...", progress: 50, delay: 1000 },
-            { message: "Wstrzykiwanie bibliotek...", progress: 80, delay: 2000 },
+            { message: "Inicjalizowanie połączenia...", progress: 5, delay: 500 },
+            { message: "Weryfikacja licencji...", progress: 20, delay: 1000 },
+            { message: "Pobieranie plików moda...", progress: 45, delay: 1500 },
+            { message: `Iniekcja ${selectModButtonText.textContent}...`, progress: 70, delay: 1000 },
+            { message: "Omijanie zabezpieczeń...", progress: 90, delay: 800 },
             { message: "Finalizowanie...", progress: 95, delay: 800 },
             { message: "Uruchamianie gry!", progress: 100, delay: 1200 }
         ];
+
         let currentStep = 0;
+
         function processStep() {
             if (currentStep >= loadingSteps.length) {
                 launchButton.disabled = false;
                 launchButton.textContent = "Uruchom ponownie";
                 currentStep = 0; return;
             }
+
             const step = loadingSteps[currentStep];
+            
+            // Animacja zanikania statusu
             statusText.classList.add('opacity-0');
             setTimeout(() => {
                 statusText.textContent = step.message;
                 progressBar.style.width = `${step.progress}%`;
                 statusText.classList.remove('opacity-0');
             }, 300);
+
             currentStep++;
             setTimeout(processStep, step.delay);
         }
+
         launchButton.addEventListener('click', () => {
+            // Walidacja wyboru moda
             if (selectModButtonText.textContent === 'Wybierz Moda') {
-                statusText.textContent = 'Proszę, najpierw wybierz moda!'; return;
+                statusText.textContent = 'Proszę, najpierw wybierz moda!'; 
+                statusText.classList.remove('text-gray-500', 'dark:text-gray-400');
+                statusText.classList.add('text-red-500', 'dark:text-red-400');
+                setTimeout(() => {
+                    statusText.textContent = 'Gotowy do uruchomienia.';
+                    statusText.classList.add('text-gray-500', 'dark:text-gray-400');
+                    statusText.classList.remove('text-red-500', 'dark:text-red-400');
+                }, 3000);
+                return;
             }
-            if (window.chrome && window.chrome.webview) {
+            
+            // Wysłanie wiadomości do WebView (jeśli aplikacja jest w kontenerze)
+             if (window.chrome && window.chrome.webview) {
                 try {
-                    window.chrome.webview.postMessage('startModDownload');
-                    console.log('Sent: startModDownload');
+                    // Wysłanie nazwy moda do backendu/aplikacji natywnej
+                    window.chrome.webview.postMessage(`startModDownload:${selectModButtonText.textContent}`);
+                    console.log(`Sent: startModDownload:${selectModButtonText.textContent}`);
                 } catch (err) {
                     console.warn('postMessage failed:', err);
                 }
             }
+
             launchButton.disabled = true;
             launchButton.textContent = "Ładowanie...";
             progressBar.style.width = '0%';
@@ -773,12 +829,59 @@
             processStep();
         });
 
-        // --- DO TESTOWANIA ---
-        // Aby przetestować wygląd premium, możesz odkomentować poniższą linię:
-        // activatePremium();
+
+        // Sprawdzenie stanu po załadowaniu strony (po powrocie z Discorda)
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const status = params.get('status');
+            const usernameFromURL = params.get('user');
+            const errorMsg = params.get('msg');
+            
+            // Sprawdź, czy wrócono po autoryzacji
+            if (status === 'role_success') {
+                // Zakładamy, że po sukcesie uzytkownik jest Premium (rola została nadana)
+                const userData = {
+                    user: usernameFromURL,
+                    isPremium: true,
+                    // Używamy inicjału jako placeholder avatara
+                    avatar_url: 'https://placehold.co/128x128/3b82f6/ffffff?text=' + (usernameFromURL ? usernameFromURL[0].toUpperCase() : 'G') 
+                };
+                
+                toggleDiscordStatus(true, userData);
+                
+                // Pokaż komunikat w głównej zakładce
+                 statusText.textContent = `Witaj, ${usernameFromURL}! Status Premium zweryfikowany.`;
+                 statusText.classList.add('text-green-500', 'dark:text-green-400');
+                 setTimeout(() => {
+                    statusText.textContent = 'Gotowy do uruchomienia.';
+                    statusText.classList.remove('text-green-500', 'dark:text-green-400');
+                 }, 5000);
+            
+            } else if (status === 'role_error' || status === 'server_error' || errorMsg) {
+                // Wystąpił błąd
+                toggleDiscordStatus(false);
+                if (errorMessage) {
+                    errorMessage.textContent = 'Błąd weryfikacji: ' + (errorMsg ? decodeURIComponent(errorMsg).replace(/_/g, ' ') : 'Wystąpił nieznany błąd.');
+                    errorMessage.classList.remove('hidden');
+                }
+                
+                // Ukryj błąd po 5 sekundach i wyczyść URL
+                setTimeout(() => {
+                    errorMessage.classList.add('hidden');
+                    window.history.pushState({}, document.title, window.location.pathname);
+                }, 5000);
+
+            } else {
+                // Domyślne sprawdzenie (np. czy użytkownik jest już zalogowany)
+                const storedUser = sessionStorage.getItem('discord_user');
+                if (storedUser) {
+                    toggleDiscordStatus(true, JSON.parse(storedUser));
+                } else {
+                    toggleDiscordStatus(false);
+                }
+            }
+        });
 
     </script>
 </body>
 </html>
-
-
