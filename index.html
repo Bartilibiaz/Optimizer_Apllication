@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ustawiamy domyślny motyw jako ciemny -->
 <html lang="pl" class="dark">
 <head>
     <meta charset="UTF-8">
@@ -58,14 +59,17 @@
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 flex items-center justify-center min-h-screen p-4 overflow-x-hidden">
 
+    <!-- Przycisk Menu -->
     <button id="menu-button" class="fixed top-6 left-6 z-40 p-2 rounded-full text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700/50 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
     </button>
 
+    <!-- Nakładka Menu Bocznego -->
     <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-60 z-20 hidden opacity-0 transition-opacity duration-300"></div>
 
+    <!-- Menu Boczne -->
     <div id="side-menu" class="fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-800 shadow-2xl z-30 transform -translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col">
         <div>
             <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">Menu</h2>
@@ -76,7 +80,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" /></svg>
                         <span>Główna</span>
                     </a>
-                    <a href="#" id="mod-content-menu-button" class="hidden flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700/50 p-2 rounded-md transition-colors">
+                     <a href="#" id="mod-content-menu-button" class="hidden flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700/50 p-2 rounded-md transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 0 1-4.884 4.484c-1.076-.091-2.2- .223-3.328-.427a2.112 2.112 0 0 0-1.018.067c-.313.102-.6.28-.823.513l-1.89 2.158c-.324.368-.83.568-1.353.568h-.46a2.124 2.124 0 0 1-2.124-2.124v-.46c0-.523.2-1.033.568-1.353l2.158-1.89c.233-.223.41-.51.513-.823a2.112 2.112 0 0 0 .067-1.018c-.204-1.128-.336-2.252-.427-3.328a4.5 4.5 0 0 1 4.484-4.884 4.5 4.5 0 0 1 4.884 4.484Z" /></svg>
                         <span id="mod-content-menu-text">Zawartość Moda</span>
                     </a>
@@ -85,7 +89,6 @@
                         <span>Poradnik</span>
                     </a>
                 </div>
-                
                 <div>
                     <h3 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Konto</h3>
                     <a href="#" id="profile-menu-button" class="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700/50 p-2 rounded-md transition-colors">
@@ -113,6 +116,7 @@
         </div>
     </div>
 
+    <!-- Główny kontener loadera -->
     <div id="main-container" class="main-view-container relative w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-indigo-500/10 dark:border-indigo-500/30 loader-shadow text-center">
         <div class="flex justify-center items-center mb-4">
             <svg id="main-icon" class="w-12 h-12 text-indigo-500 dark:text-indigo-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -135,6 +139,7 @@
         <button id="launch-button" class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition-all duration-300 btn-glow disabled:bg-gray-500 disabled:cursor-not-allowed disabled:shadow-none">
             Uruchom
         </button>
+        <!-- Odblokowane funkcje premium -->
         <div id="premium-features-unlocked" class="hidden mt-6 border-t border-gray-200 dark:border-gray-700 pt-4 space-y-3 text-left">
              <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider text-center mb-2">Funkcje Premium</h4>
              <button class="w-full text-left p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors flex items-center gap-3">
@@ -146,60 +151,49 @@
                 <span>Dostęp do wersji Beta</span>
             </button>
         </div>
-        <p id="version-text" class="text-xs text-gray-400 dark:text-gray-500 mt-6">Wersja 1.0.4</p>
+        <p id="version-text" class="text-xs text-gray-400 dark:text-gray-500 mt-6">Wersja 1.0.5</p>
     </div>
     
+    <!-- Kontener Profilu -->
     <div id="profile-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-center">
-        
-        <div id="logged-out-state" class="space-y-8">
-            <div class="flex flex-col items-center">
-                <img id="profile-avatar-logged-out" src="https://placehold.co/128x128/f3f4f6/111827?text=Avatar" alt="Domyślny Avatar" class="w-32 h-32 rounded-full mb-4 border-4 border-gray-200 dark:border-gray-700 transition-colors duration-300">
-                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Witaj!</h2>
-                <p class="text-md text-gray-500 dark:text-gray-400">Zaloguj się, aby uzyskać dostęp do funkcji konta i swojego awatara z Discorda.</p>
+        <div class="flex flex-col items-center">
+            <img id="profile-avatar" src="https://placehold.co/128x128/f3f4f6/111827?text=Avatar" alt="User Avatar" class="w-32 h-32 rounded-full mb-4 border-4 border-gray-200 dark:border-gray-700 transition-colors duration-300">
+            <h2 id="profile-username" class="text-3xl font-bold text-gray-900 dark:text-white">Nazwa Gracza</h2>
+            <p class="text-md text-gray-500 dark:text-gray-400">Dołączył Styczeń 2024</p>
+        </div>
+        <div class="my-8 border-t border-gray-200 dark:border-gray-700"></div>
+        <div class="text-left">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Statystyki</h3>
+            <div class="space-y-3 text-gray-700 dark:text-gray-300">
+                <div class="flex justify-between items-center"><span class="font-bold text-gray-900 dark:text-white">3</span><span>Użyte modyfikacje:</span></div>
             </div>
-            
-            <div class="my-8 border-t border-gray-200 dark:border-gray-700"></div>
-
-            <button id="discord-login-button" class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition-colors duration-300 flex items-center justify-center gap-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 127.1 96.9" fill="currentColor">
-                    <path d="M110.3 8.3c-1.3-3.6-4.5-6.5-8.8-6.6-4.7-.1-9.3.4-13.9 1.4-1.1-.3-2.1-.5-3.1-.6-6.4-.7-12.8-1.1-19.2-1.2-12.8-.2-25.6.3-38.3 1.2-1 .1-2.1.2-3.1.5C31.2 2.1 19.3 2.6 7.4 3.7c-4.4.4-8 3.5-9.3 7.2-2.3 6.6-4.7 13.2-7 19.8-1.5 4.3-1.6 8.7-1 13 1.1 7.2 3.1 14.1 5.9 20.8 1.4 3.4 3.7 6.3 6.6 8.5 2.1 1.6 4.3 2.9 6.7 4.1 1.3.6 2.5 1.1 3.7 1.6 1.7.7 3.5 1.3 5.2 1.9 1.7.6 3.4 1.2 5.1 1.6 1.1.3 2.3.6 3.5.9 1.6.4 3.1.7 4.6 1.1 2.9.7 5.7 1.3 8.6 1.9 1.9.4 3.8.7 5.7 1 1.2.2 2.4.3 3.6.4 11.2 1.3 22.4 1.4 33.6.3 1.2-.1 2.3-.2 3.5-.4 1.9-.3 3.8-.7 5.7-1.1 2.9-.6 5.8-1.3 8.7-2 1.5-.4 3-.8 4.6-1.1 1.2-.3 2.4-.6 3.6-.9 1.7-.5 3.5-1.1 5.2-1.6 1.7-.6 3.4-1.2 5.1-1.8 2.4-1.2 4.6-2.5 6.7-4.1 2.9-2.2 5.2-5.1 6.6-8.5 2.8-6.7 4.8-13.6 5.9-20.8.6-4.3.5-8.7-1-13-2.3-6.6-4.7-13.2-7-19.8-1.3-3.6-4.5-6.5-8.8-6.6zM89.7 75.3c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5zM38.4 75.3c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5z"/>
-                </svg>
-                <span>Zaloguj się z Discordem</span>
-            </button>
         </div>
         
-        <div id="logged-in-state" class="hidden space-y-8">
-            <div class="flex flex-col items-center">
-                <img id="profile-avatar" src="https://placehold.co/128x128/f3f4f6/111827?text=Avatar" alt="User Avatar" class="w-32 h-32 rounded-full mb-4 border-4 border-gray-200 dark:border-gray-700 transition-colors duration-300">
-                <h2 id="profile-username" class="text-3xl font-bold text-gray-900 dark:text-white">Nazwa Gracza</h2>
-                <p id="profile-status" class="text-md text-gray-500 dark:text-gray-400">Zalogowano przez Discord</p>
+        <!-- Opcje dostosowywania dla Premium -->
+        <div id="profile-customization" class="hidden my-8 border-t border-gray-200 dark:border-gray-700 pt-6 text-left">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 text-center">Dostosuj profil</h3>
+            <p class="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-3 text-center">Kolor obramówki awatara</p>
+            <div class="flex justify-center gap-4">
+                <button class="color-swatch w-10 h-10 rounded-full bg-indigo-500 border-2 border-transparent hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-transform" data-color="indigo"></button>
+                <button class="color-swatch w-10 h-10 rounded-full bg-green-500 border-2 border-transparent hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-transform" data-color="green"></button>
+                <button class="color-swatch w-10 h-10 rounded-full bg-purple-500 border-2 border-transparent hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-transform" data-color="purple"></button>
+                <button class="color-swatch w-10 h-10 rounded-full bg-red-500 border-2 border-transparent hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-transform" data-color="red"></button>
             </div>
-            <div class="my-8 border-t border-gray-200 dark:border-gray-700"></div>
-            <div class="text-left">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Statystyki</h3>
-                <div class="space-y-3 text-gray-700 dark:text-gray-300">
-                    <div class="flex justify-between items-center"><span class="font-bold text-gray-900 dark:text-white">3</span><span>Użyte modyfikacje:</span></div>
-                </div>
-            </div>
-            
-            <div id="profile-customization" class="hidden my-8 border-t border-gray-200 dark:border-gray-700 pt-6 text-left">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 text-center">Dostosuj profil</h3>
-                <p class="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-3 text-center">Kolor obramówki awatara</p>
-                <div class="flex justify-center gap-4">
-                    <button class="color-swatch w-10 h-10 rounded-full bg-indigo-500 border-2 border-transparent hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-transform" data-color="indigo"></button>
-                    <button class="color-swatch w-10 h-10 rounded-full bg-green-500 border-2 border-transparent hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-transform" data-color="green"></button>
-                    <button class="color-swatch w-10 h-10 rounded-full bg-purple-500 border-2 border-transparent hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-transform" data-color="purple"></button>
-                    <button class="color-swatch w-10 h-10 rounded-full bg-red-500 border-2 border-transparent hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-transform" data-color="red"></button>
-                </div>
-            </div>
-
-            <div class="my-8 border-t border-gray-200 dark:border-gray-700"></div>
-            <button id="discord-logout-button" class="w-full bg-red-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition-colors duration-300">
-                Wyloguj się z Discorda
-            </button>
         </div>
+
+        <div class="my-8 border-t border-gray-200 dark:border-gray-700"></div>
+        
+        <a href="https://discord.com/oauth2/authorize?client_id=1421883621719019531&response_type=code&redirect_uri=https%3A%2F%2Fbartilibiaz.github.io%2FOptimizer_Apllication&scope=identify+email+guilds.join" class="w-full mb-4 bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-300 flex items-center justify-center gap-2">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.317 4.431A13.235 13.235 0 0012.23 2C5.474 2 0 7.474 0 14.23c0 4.14 1.897 7.828 4.885 10.27a.5.5 0 00.62-.054c.184-.13.342-.28.475-.443.118-.148.214-.31.28-.48a.5.5 0 00-.135-.61c-.01-.007-.02-.014-.03-.022a8.67 8.67 0 01-1.38-1.42.502.502 0 01.127-.708c.353-.25.728-.475 1.118-.675a.5.5 0 01.597.022c3.483 2.14 7.61 2.14 11.093 0a.5.5 0 01.596-.022c.39.2.766.425 1.118.675a.5.5 0 01.127.708 8.67 8.67 0 01-1.38 1.42.503.503 0 00-.03.022c-.02.018-.01.045-.02.064a.5.5 0 00-.093.524c.066.17.162.332.28.48.133.162.29.312.475.442a.5.5 0 00.62.055C22.103 22.058 24 18.37 24 14.23c0-6.44-4.82-11.572-11.01-12.11a.5.5 0 00-.472.485v.002a.5.5 0 00.485.472A11.235 11.235 0 0120.317 4.43zm-4.72 7.792c-1.042 0-1.888.845-1.888 1.888s.846 1.888 1.888 1.888 1.888-.845 1.888-1.888-.846-1.888-1.888-1.888zm-7.153 0c-1.042 0-1.888.845-1.888 1.888s.846 1.888 1.888 1.888 1.888-.845 1.888-1.888-.846-1.888-1.888-1.888z"/></svg>
+            <span>Podepnij konto Discord</span>
+        </a>
+
+        <button class="w-full bg-red-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition-colors duration-300">
+            Wyloguj się
+        </button>
     </div>
 
+    <!-- Kontener Ustawień -->
     <div id="settings-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-left">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Ustawienia</h2>
         
@@ -209,6 +203,7 @@
                 <label for="email-input" class="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Adres e-mail</label>
                 <input type="email" id="email-input" value="gracz@example.com" class="w-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
             </div>
+
             <div>
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Wygląd</h3>
                 <p class="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Motyw aplikacji</p>
@@ -218,12 +213,15 @@
                 </div>
             </div>
         </div>
+        
         <div class="my-8 border-t border-gray-200 dark:border-gray-700"></div>
+
         <button class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition-colors duration-300">
             Zapisz zmiany
         </button>
     </div>
 
+    <!-- Kontener Poradnika -->
     <div id="tutorial-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-center">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Poradnik</h2>
         <div class="space-y-4 text-left">
@@ -231,346 +229,520 @@
                 <span class="font-semibold text-gray-800 dark:text-gray-200">Obsługa Moda</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500 dark:text-gray-400"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
             </button>
-            <div id="tutorial-mod-usage" class="bg-gray-100 dark:bg-gray-700/50 p-4 rounded-lg mt-2 hidden text-sm text-gray-700 dark:text-gray-300">
-                <ul class="list-disc list-inside space-y-2 text-left">
-                    <li>Wybierz modyfikację za pomocą przycisku "Wybierz Moda".</li>
-                    <li>Naciśnij "Uruchom", aby rozpocząć proces ładowania.</li>
-                    <li>Pasek postępu i status poinformują Cię o postępie.</li>
-                </ul>
-            </div>
-             <button data-tutorial="premium-features" class="tutorial-option-button w-full flex justify-between items-center text-left p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-                <span class="font-semibold text-gray-800 dark:text-gray-200">Funkcje Premium</span>
+            <button data-tutorial="profile" class="tutorial-option-button w-full flex justify-between items-center text-left p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                <span class="font-semibold text-gray-800 dark:text-gray-200">Profil i Konto</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500 dark:text-gray-400"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
             </button>
-            <div id="tutorial-premium-features" class="bg-gray-100 dark:bg-gray-700/50 p-4 rounded-lg mt-2 hidden text-sm text-gray-700 dark:text-gray-300">
-                 <ul class="list-disc list-inside space-y-2 text-left">
-                    <li>Konto Premium odblokowuje dodatkowe opcje, takie jak dostosowywanie kolorów i wczesny dostęp do wersji Beta.</li>
-                    <li>Aktywuj, klikając "PREMIUM" w menu bocznym.</li>
-                </ul>
-            </div>
-            <button data-tutorial="troubleshooting" class="tutorial-option-button w-full flex justify-between items-center text-left p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-                <span class="font-semibold text-gray-800 dark:text-gray-200">Rozwiązywanie Problemów</span>
+            <button data-tutorial="bypass" class="tutorial-option-button w-full flex justify-between items-center text-left p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                <span class="font-semibold text-gray-800 dark:text-gray-200">Metody Bypass</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500 dark:text-gray-400"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
-            </button>
-            <div id="tutorial-troubleshooting" class="bg-gray-100 dark:bg-gray-700/50 p-4 rounded-lg mt-2 hidden text-sm text-gray-700 dark:text-gray-300">
-                 <ul class="list-disc list-inside space-y-2 text-left">
-                    <li>Jeśli ładowanie się zatrzyma, spróbuj zamknąć i otworzyć aplikację ponownie.</li>
-                    <li>Upewnij się, że masz stabilne połączenie z internetem.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div id="mod-select-modal" class="modal fixed inset-0 z-50 bg-black bg-opacity-75 flex items-center justify-center p-4 hidden transition-opacity duration-300 opacity-0">
-        <div class="modal-content w-full max-w-lg bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-2xl transform translate-y-4 transition-transform duration-300">
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Wybierz Mod</h3>
-            <div class="space-y-4 max-h-80 overflow-y-auto">
-                <button class="mod-choice-button w-full text-left p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors flex justify-between items-center" data-mod-name="Mod A (Standard)">
-                    <span class="font-semibold">Mod A (Standard)</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-indigo-500 dark:text-indigo-400"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                </button>
-                <button class="mod-choice-button w-full text-left p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors flex justify-between items-center" data-mod-name="Mod B (FPS Boost)">
-                    <span class="font-semibold">Mod B (FPS Boost)</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-500 dark:text-gray-400"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                </button>
-                <button class="mod-choice-button w-full text-left p-4 bg-gray-100 dark:bg-gray-700/50 rounded-lg text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors flex justify-between items-center" data-mod-name="Mod C (Beta) - Premium">
-                    <span class="font-semibold text-amber-500">Mod C (Beta) - Premium</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-500 dark:text-gray-400"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                </button>
-            </div>
-            <button id="close-modal-button" class="mt-6 w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
-                Zamknij
             </button>
         </div>
     </div>
+    
+    <!-- Kontener Premium -->
+    <div id="premium-container" class="main-view-container hidden w-full max-w-4xl bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-center">
+        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-2">Odblokuj <span class="premium-gradient-text">PREMIUM</span></h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-10">Zyskaj dostęp do ekskluzywnych funkcji i wspieraj rozwój projektu.</p>
 
-    <div id="mod-content-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-center">
-        <h2 id="mod-content-title" class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Zawartość: Mod A</h2>
-        <div id="mod-content-details" class="text-left space-y-4 text-gray-700 dark:text-gray-300">
-            <p>Wybrano modyfikację: <span id="selected-mod-name-details" class="font-semibold text-gray-900 dark:text-white">Mod A (Standard)</span></p>
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white pt-2">Opis</h3>
-            <p>Jest to standardowa wersja moda, która oferuje podstawowe funkcje bez obciążania wydajności. Idealna dla większości graczy.</p>
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white pt-2">Opcje</h3>
-            <ul class="list-disc list-inside space-y-2">
-                <li>Podstawowy interfejs HUD.</li>
-                <li>Zoptymalizowane tekstury.</li>
-                <li>Domyślne ustawienia kamery.</li>
-            </ul>
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Plan 1 -->
+            <div class="flex flex-col p-6 bg-gray-100 dark:bg-gray-900/50 rounded-lg border border-gray-200 dark:border-gray-700">
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">1 Miesiąc</h3>
+                <p class="mt-2 text-gray-600 dark:text-gray-400 flex-grow">Idealny na start</p>
+                <p class="my-6">
+                    <span class="text-5xl font-bold text-gray-900 dark:text-white">10</span>
+                    <span class="text-lg text-gray-500 dark:text-gray-400">zł</span>
+                </p>
+                <button class="buy-premium-button w-full bg-indigo-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition-colors">Kup teraz</button>
+            </div>
+            <!-- Plan 2 (Wyróżniony) -->
+            <div class="relative flex flex-col p-6 bg-gray-100 dark:bg-gray-900/50 rounded-lg border-2 border-amber-400 transform scale-105">
+                 <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2">
+                    <span class="inline-flex items-center px-3 py-1 text-sm font-semibold text-white bg-amber-500 rounded-full">Najlepszy Wybór</span>
+                </div>
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Lifetime</h3>
+                <p class="mt-2 text-gray-600 dark:text-gray-400 flex-grow">Jednorazowy zakup</p>
+                <p class="my-6">
+                    <span class="text-5xl font-bold text-gray-900 dark:text-white">40</span>
+                    <span class="text-lg text-gray-500 dark:text-gray-400">zł</span>
+                </p>
+                <button class="buy-premium-button w-full bg-amber-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-opacity-50 transition-colors">Kup teraz</button>
+            </div>
+            <!-- Plan 3 -->
+            <div class="flex flex-col p-6 bg-gray-100 dark:bg-gray-900/50 rounded-lg border border-gray-200 dark:border-gray-700">
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">3 Miesiące</h3>
+                <p class="mt-2 text-gray-600 dark:text-gray-400 flex-grow">Więcej za mniej</p>
+                <p class="my-6">
+                    <span class="text-5xl font-bold text-gray-900 dark:text-white">20</span>
+                    <span class="text-lg text-gray-500 dark:text-gray-400">zł</span>
+                </p>
+                <button class="buy-premium-button w-full bg-indigo-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition-colors">Kup teraz</button>
+            </div>
         </div>
         
-        <button id="go-back-to-main-button" class="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white font-bold py-3 px-4 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-colors duration-300 mt-8">
-            Wróć
+        <!-- Tabela porównawcza -->
+        <div class="mt-16">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Porównanie planów</h3>
+            <div class="max-w-2xl mx-auto bg-gray-100 dark:bg-gray-900/50 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                <div class="grid grid-cols-3 gap-4 text-left font-semibold text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700 pb-4 mb-4">
+                    <div>Funkcja</div>
+                    <div class="text-center">Free</div>
+                    <div class="text-center">Premium</div>
+                </div>
+                <div id="comparison-table-body" class="space-y-4">
+                    <!-- Row -->
+                    <div class="grid grid-cols-3 gap-4 items-center">
+                        <div class="text-gray-800 dark:text-gray-200">Podstawowa wersja moda</div>
+                        <div class="flex justify-center"><svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
+                        <div class="flex justify-center"><svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
+                    </div>
+                     <!-- Row -->
+                    <div class="grid grid-cols-3 gap-4 items-center">
+                        <div class="text-gray-800 dark:text-gray-200">Podstawowy profil użytkownika</div>
+                        <div class="flex justify-center"><svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
+                        <div class="flex justify-center"><svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
+                    </div>
+                     <!-- Row -->
+                    <div class="grid grid-cols-3 gap-4 items-center" data-feature="friends">
+                        <div class="text-gray-800 dark:text-gray-200">Znajomi</div>
+                        <div class="flex justify-center"><svg class="w-6 h-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
+                        <div class="flex justify-center"><svg class="w-6 h-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
+                    </div>
+                     <!-- Row -->
+                    <div class="grid grid-cols-3 gap-4 items-center" data-feature="customize">
+                        <div class="text-gray-800 dark:text-gray-200">Możliwość zmiany zawartości moda</div>
+                        <div class="flex justify-center"><svg class="w-6 h-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
+                        <div class="flex justify-center"><svg class="w-6 h-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
+                    </div>
+                    <!-- Row -->
+                    <div class="grid grid-cols-3 gap-4 items-center" data-feature="beta">
+                        <div class="text-gray-800 dark:text-gray-200">Wersje Beta</div>
+                        <div class="flex justify-center"><svg class="w-6 h-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
+                        <div class="flex justify-center"><svg class="w-6 h-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Kontener podziękowania za zakup -->
+    <div id="thank-you-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-amber-400 text-center">
+        <div class="flex justify-center mb-4">
+            <svg class="w-16 h-16 text-amber-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+        </div>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Dziękujemy!</h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-8">Twoje konto zostało ulepszone do wersji Premium. Wszystkie funkcje są już dostępne.</p>
+        <button id="back-to-loader-button" class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition-colors">Wróć do loadera</button>
+    </div>
+
+    <!-- Kontener Znajomych -->
+    <div id="friends-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Znajomi</h2>
+        <p class="text-gray-500 dark:text-gray-400">Twoja lista znajomych jest pusta. Zacznij dodawać nowych, aby wspólnie cieszyć się grą!</p>
+    </div>
+
+    <!-- Kontener Zawartości Moda -->
+    <div id="mod-content-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Dostosuj Zawartość Moda</h2>
+        <div class="space-y-4 text-left">
+            <div>
+                <label for="mod-name-input" class="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Nowa nazwa moda</label>
+                <input type="text" id="mod-name-input" placeholder="Wpisz nazwę..." class="w-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+            <div class="text-center pt-1">
+                 <p class="text-xs text-gray-400 dark:text-gray-500">ID BUILDA: <span id="build-id" class="font-semibold text-gray-500 dark:text-gray-400">default ???</span></p>
+            </div>
+            <p id="build-status" class="text-center h-5 text-gray-500 dark:text-gray-400 transition-all duration-300"></p>
+        </div>
+        <button id="build-mod-button" onclick="buildClicked()" class="mt-6 w-full bg-amber-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-opacity-50 transition-colors duration-300">
+            Buduj Moda
         </button>
     </div>
 
 
+    <!-- Modal Wyboru Moda -->
+    <div id="mod-modal" class="modal hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 opacity-0 transition-opacity duration-300">
+        <div id="modal-content" class="modal-content bg-white dark:bg-gray-800 rounded-2xl p-8 border border-indigo-500/10 dark:border-indigo-500/30 loader-shadow w-full max-w-sm text-center transform transition-transform duration-300 scale-95">
+            <h2 id="modal-title" class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Wybierz swojego moda</h2>
+            <div class="flex flex-col gap-4">
+                <button data-mod-name="Sodium" class="mod-choice-button w-full bg-indigo-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-600 transition-colors duration-300">Sodium</button>
+                <button data-mod-name="Lithium" class="mod-choice-button w-full bg-indigo-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-600 transition-colors duration-300">Lithium</button>
+                <button data-mod-name="ModernFix" class="mod-choice-button w-full bg-indigo-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-600 transition-colors duration-300">ModernFix</button>
+            </div>
+            <button id="close-modal-button" class="mt-6 text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors duration-300">Zamknij</button>
+        </div>
+    </div>
+    
+    <!-- Modal Poradnika -->
+    <div id="tutorial-modal" class="modal hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 opacity-0 transition-opacity duration-300">
+        <div id="tutorial-modal-content" class="modal-content bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 w-full max-w-lg text-center transform transition-transform duration-300 scale-95">
+            <h2 id="tutorial-modal-title" class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Tytuł Poradnika</h2>
+            <div id="tutorial-modal-body" class="mt-4 text-left text-gray-600 dark:text-gray-400 prose dark:prose-invert max-w-none">
+                <p>Treść poradnika pojawi się tutaj...</p>
+            </div>
+            <button id="close-tutorial-modal-button" class="mt-8 bg-indigo-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-indigo-700 transition-colors duration-300">Rozumiem</button>
+        </div>
+    </div>
+
+
     <script>
-        // --- Zmienne globalne ---
+        function sendToHost(obj) {
+            window.chrome?.webview?.postMessage(JSON.stringify(obj));
+        }
+        window.chrome?.webview?.addEventListener('message', (event) => {
+        let data;
+        try {
+            data = (typeof event.data === 'string') ? JSON.parse(event.data) : event.data;
+        } catch (e) {
+            console.error("Nie parsowalna wiadomość:", event.data);
+            return;
+        }
+        const statusEl = document.getElementById('build-status')
+        const buildIdEl = document.getElementById('build-id');
+        switch (data.action) {
+        case 'build-ack':
+          statusEl.textContent = "Rozpoczęto budowę...";
+          break;
+        case 'build-started':
+          buildIdEl.textContent = data.buildId || '???';
+          statusEl.textContent = "Build wystartował. ID: " + (data.buildId || '???');
+          break;
+        case 'build-complete':
+          statusEl.innerHTML = `Gotowe! <a href="${data.downloadUrl}" target="_blank">Pobierz z serwera</a>`;
+          break;
+        case 'download-progress':
+          statusEl.textContent = `Pobieranie: ${data.percent}%`;
+          break;
+        case 'download-complete':
+          statusEl.textContent = `Pobrano lokalnie: ${data.localPath}`;
+          break;
+        case 'error':
+          statusEl.textContent = `Błąd: ${data.message}`;
+          break;
+        default:
+          console.log("Nieznane action:", data);
+        }
+        });
+        // --- SELEKTORY ELEMENTÓW ---
         const mainContainer = document.getElementById('main-container');
         const profileContainer = document.getElementById('profile-container');
         const settingsContainer = document.getElementById('settings-container');
         const tutorialContainer = document.getElementById('tutorial-container');
+        const premiumContainer = document.getElementById('premium-container');
+        const thankYouContainer = document.getElementById('thank-you-container');
+        const friendsContainer = document.getElementById('friends-container');
         const modContentContainer = document.getElementById('mod-content-container');
-        const allContainers = document.querySelectorAll('.main-view-container');
+        const allViews = document.querySelectorAll('.main-view-container');
         
         const mainTitle = document.getElementById('main-title');
         const mainIcon = document.getElementById('main-icon');
-
+        const launchButton = document.getElementById('launch-button');
+        const progressBar = document.getElementById('progress-bar');
+        const statusText = document.getElementById('status-text');
         const selectModButton = document.getElementById('select-mod-button');
         const selectModButtonText = document.getElementById('select-mod-button-text');
-        const modSelectModal = document.getElementById('mod-select-modal');
+        
+        // Modale
+        const modModal = document.getElementById('mod-modal');
+        const modalContent = document.getElementById('modal-content');
         const closeModalButton = document.getElementById('close-modal-button');
         const modChoiceButtons = document.querySelectorAll('.mod-choice-button');
+        const tutorialModal = document.getElementById('tutorial-modal');
+        const tutorialModalTitle = document.getElementById('tutorial-modal-title');
+        const tutorialModalBody = document.getElementById('tutorial-modal-body');
+        const closeTutorialModalButton = document.getElementById('close-tutorial-modal-button');
+        const tutorialOptionButtons = document.querySelectorAll('.tutorial-option-button');
 
-        const launchButton = document.getElementById('launch-button');
-        const statusText = document.getElementById('status-text');
-        const progressBar = document.getElementById('progress-bar');
-
+        // Elementy Menu
         const menuButton = document.getElementById('menu-button');
         const sideMenu = document.getElementById('side-menu');
         const menuOverlay = document.getElementById('menu-overlay');
-
-        const mainButton = document.getElementById('main-menu-button');
-        const profileButton = document.getElementById('profile-menu-button');
-        const settingsButton = document.getElementById('settings-menu-button');
-        const tutorialButton = document.getElementById('tutorial-menu-button');
-        const modContentButton = document.getElementById('mod-content-menu-button');
-        const goBackToMainButton = document.getElementById('go-back-to-main-button');
-
-        const modContentTitle = document.getElementById('mod-content-title');
-        const selectedModNameDetails = document.getElementById('selected-mod-name-details');
-        
-        const profileCustomization = document.getElementById('profile-customization');
-        const premiumFeaturesUnlocked = document.getElementById('premium-features-unlocked');
+        const mainMenuButton = document.getElementById('main-menu-button');
+        const profileMenuButton = document.getElementById('profile-menu-button');
+        const profileMenuText = document.getElementById('profile-menu-text');
         const friendsMenuButton = document.getElementById('friends-menu-button');
+        const friendsMenuText = document.getElementById('friends-menu-text');
+        const settingsMenuButton = document.getElementById('settings-menu-button');
+        const tutorialMenuButton = document.getElementById('tutorial-menu-button');
+        const premiumMenuButton = document.getElementById('premium-menu-button');
+        const premiumMenuItem = document.getElementById('premium-menu-item');
+        const modContentMenuButton = document.getElementById('mod-content-menu-button');
+        const modContentMenuText = document.getElementById('mod-content-menu-text');
 
-        // Funkcja przełączająca widoki
-        function switchView(targetContainer) {
-            allContainers.forEach(container => {
-                if (container === targetContainer) {
-                    container.classList.remove('hidden');
-                } else {
-                    container.classList.add('hidden');
-                }
-            });
-            closeMenu();
-        }
+        // Elementy Profilu
+        const profileUsername = document.getElementById('profile-username');
+        const profileAvatar = document.getElementById('profile-avatar');
+        const profileCustomization = document.getElementById('profile-customization');
+        const colorSwatches = document.querySelectorAll('.color-swatch');
 
-        // --- Obsługa Menu Bocznego ---
-
-        function openMenu() {
-            sideMenu.classList.remove('-translate-x-full');
-            menuOverlay.classList.remove('hidden');
-            setTimeout(() => menuOverlay.classList.remove('opacity-0'), 10);
-        }
-
-        function closeMenu() {
-            sideMenu.classList.add('-translate-x-full');
-            menuOverlay.classList.add('opacity-0');
-            setTimeout(() => menuOverlay.classList.add('hidden'), 300);
-        }
-
-        menuButton.addEventListener('click', openMenu);
-        menuOverlay.addEventListener('click', closeMenu);
-
-        mainButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            switchView(mainContainer);
-        });
-
-        profileButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            switchView(profileContainer);
-        });
-
-        settingsButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            switchView(settingsContainer);
-        });
-
-        tutorialButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            switchView(tutorialContainer);
-        });
-
-        modContentButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            if(selectModButtonText.textContent !== 'Wybierz Moda') {
-                 switchView(modContentContainer);
-            }
-        });
-
-        goBackToMainButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            switchView(mainContainer);
-        });
-
-
-        // --- Przełączanie motywu ---
-
+        // Elementy Premium
+        const buyPremiumButtons = document.querySelectorAll('.buy-premium-button');
+        const premiumFeaturesUnlocked = document.getElementById('premium-features-unlocked');
+        const comparisonTableBody = document.getElementById('comparison-table-body');
+        const backToLoaderButton = document.getElementById('back-to-loader-button');
+        
+        // Elementy Ustawień Motywu
         const lightThemeButton = document.getElementById('light-theme-button');
         const darkThemeButton = document.getElementById('dark-theme-button');
-        const html = document.documentElement;
 
-        function updateThemeButtons(isDark) {
-            if (isDark) {
-                darkThemeButton.classList.add('bg-gray-800', 'text-white');
-                darkThemeButton.classList.remove('text-gray-600', 'dark:text-gray-300');
-                lightThemeButton.classList.remove('bg-gray-800', 'text-white');
-                lightThemeButton.classList.add('text-gray-600', 'dark:text-gray-300');
-            } else {
-                lightThemeButton.classList.add('bg-white', 'text-gray-800');
-                lightThemeButton.classList.remove('text-gray-600', 'dark:text-gray-300');
-                darkThemeButton.classList.remove('bg-white', 'text-gray-800');
-                darkThemeButton.classList.add('text-gray-600', 'dark:text-gray-300');
+        // Budowanie moda
+        
+
+        let currentTheme = 'default';
+        let isPremium = false;
+
+        // --- DEFINICJE MOTYWÓW (KOLORY AKCENTÓW) ---
+        const themes = {
+            default: {
+                main: ['border-indigo-500/10', 'dark:border-indigo-500/30', 'loader-shadow'],
+                icon: ['text-indigo-500', 'dark:text-indigo-400'],
+                progressBar: 'bg-indigo-500',
+                launchButton: ['bg-indigo-600', 'hover:bg-indigo-700', 'focus:ring-indigo-500'],
+                modal: ['border-indigo-500/10', 'dark:border-indigo-500/30', 'loader-shadow'],
+                modalButtons: ['bg-indigo-500', 'hover:bg-indigo-600'],
+                selectModText: ['text-indigo-500', 'dark:text-indigo-300'],
+            },
+            Sodium: {
+                main: ['border-green-500/10', 'dark:border-green-500/30', 'shadow-green'],
+                icon: ['text-green-500', 'dark:text-green-400'],
+                progressBar: 'bg-green-500',
+                launchButton: ['bg-green-600', 'hover:bg-green-700', 'focus:ring-green-500'],
+                modal: ['border-green-500/10', 'dark:border-green-500/30', 'shadow-green'],
+                modalButtons: ['bg-green-500', 'hover:bg-green-600'],
+                selectModText: ['text-green-500', 'dark:text-green-300'],
+            },
+            Lithium: {
+                main: ['border-purple-500/10', 'dark:border-purple-500/30', 'shadow-purple'],
+                icon: ['text-purple-500', 'dark:text-purple-400'],
+                progressBar: 'bg-purple-500',
+                launchButton: ['bg-purple-600', 'hover:bg-purple-700', 'focus:ring-purple-500'],
+                modal: ['border-purple-500/10', 'dark:border-purple-500/30', 'shadow-purple'],
+                modalButtons: ['bg-purple-500', 'hover:bg-purple-600'],
+                selectModText: ['text-purple-500', 'dark:text-purple-300'],
+            },
+            ModernFix: {
+                main: ['border-red-500/10', 'dark:border-red-500/30', 'shadow-red'],
+                icon: ['text-red-500', 'dark:text-red-400'],
+                progressBar: 'bg-red-500',
+                launchButton: ['bg-red-600', 'hover:bg-red-700', 'focus:ring-red-500'],
+                modal: ['border-red-500/10', 'dark:border-red-500/30', 'shadow-red'],
+                modalButtons: ['bg-red-500', 'hover:bg-red-600'],
+                selectModText: ['text-red-500', 'dark:text-red-300'],
             }
+        };
+        function buildClicked() {
+          const modName = document.getElementById('mod-name-input').value.trim();
+          if (!modName) {
+            document.getElementById('build-status').textContent = 'Podaj nazwę moda';
+            return;
+        }
+          sendToHost({ action: 'build', mod_name: modName });
+          document.getElementById('build-status').textContent = 'Wysłano żądanie budowy...';
+        }
+        function setTheme(themeName) {
+            const oldThemeClasses = themes[currentTheme];
+            const newThemeClasses = themes[themeName];
+            const swapClasses = (el, oldCls, newCls) => {
+                if(!el) return;
+                if(Array.isArray(oldCls)) el.classList.remove(...oldCls); else el.classList.remove(oldCls);
+                if(Array.isArray(newCls)) el.classList.add(...newCls); else el.classList.add(newCls);
+            };
+            swapClasses(mainContainer, oldThemeClasses.main, newThemeClasses.main);
+            swapClasses(modalContent, oldThemeClasses.modal, newThemeClasses.modal);
+            swapClasses(mainIcon, oldThemeClasses.icon, newThemeClasses.icon);
+            swapClasses(progressBar, oldThemeClasses.progressBar, newThemeClasses.progressBar);
+            swapClasses(launchButton, oldThemeClasses.launchButton, newThemeClasses.launchButton);
+            swapClasses(selectModButton, oldThemeClasses.selectModText, newThemeClasses.selectModText);
+            modChoiceButtons.forEach(btn => swapClasses(btn, oldThemeClasses.modalButtons, newThemeClasses.modalButtons));
+            currentTheme = themeName;
         }
 
-        darkThemeButton.addEventListener('click', () => {
-            html.classList.add('dark');
-            updateThemeButtons(true);
-        });
+        // --- ZARZĄDZANIE WIDOKAMI ---
+        function switchView(viewToShow) {
+            allViews.forEach(view => view.classList.add('hidden'));
+            viewToShow.classList.remove('hidden');
+        }
 
-        lightThemeButton.addEventListener('click', () => {
-            html.classList.remove('dark');
-            updateThemeButtons(false);
-        });
+        // --- LOGIKA MOTYWU APLIKACJI (JASNY/CIEMNY) ---
+        function setAppTheme(theme) {
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+                darkThemeButton.classList.add('bg-indigo-600', 'text-white');
+                lightThemeButton.classList.remove('bg-indigo-600', 'text-white');
+            } else {
+                document.documentElement.classList.remove('dark');
+                lightThemeButton.classList.add('bg-indigo-600', 'text-white');
+                darkThemeButton.classList.remove('bg-indigo-600', 'text-white');
+            }
+        }
+        lightThemeButton.addEventListener('click', () => setAppTheme('light'));
+        darkThemeButton.addEventListener('click', () => setAppTheme('dark'));
+        if (document.documentElement.classList.contains('dark')) { setAppTheme('dark'); } else { setAppTheme('light'); }
 
-        // Domyślny stan przycisków
-        updateThemeButtons(html.classList.contains('dark'));
-
-
-        // --- Obsługa Wyboru Moda (Modal) ---
-
-        selectModButton.addEventListener('click', () => {
-            modSelectModal.classList.remove('hidden');
-            setTimeout(() => {
-                modSelectModal.classList.remove('opacity-0');
-                modSelectModal.querySelector('.modal-content').classList.remove('translate-y-4');
-            }, 10);
-        });
-
-        closeModalButton.addEventListener('click', () => {
-            modSelectModal.querySelector('.modal-content').classList.add('translate-y-4');
-            modSelectModal.classList.add('opacity-0');
-            setTimeout(() => {
-                modSelectModal.classList.add('hidden');
-            }, 300);
-        });
+        // --- LOGIKA MENU BOCZNEGO ---
+        function toggleSideMenu() {
+            if (sideMenu.classList.contains('-translate-x-full')) {
+                sideMenu.classList.remove('-translate-x-full');
+                menuOverlay.classList.remove('hidden');
+                menuButton.classList.add('opacity-0', 'pointer-events-none');
+                setTimeout(() => menuOverlay.classList.remove('opacity-0'), 10);
+            } else {
+                sideMenu.classList.add('-translate-x-full');
+                menuOverlay.classList.add('opacity-0');
+                menuButton.classList.remove('opacity-0', 'pointer-events-none');
+                setTimeout(() => menuOverlay.classList.add('hidden'), 300);
+            }
+        }
+        menuButton.addEventListener('click', toggleSideMenu);
+        menuOverlay.addEventListener('click', toggleSideMenu);
+        mainMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(mainContainer); toggleSideMenu(); });
+        profileMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(profileContainer); toggleSideMenu(); });
+        settingsMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(settingsContainer); toggleSideMenu(); });
+        tutorialMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(tutorialContainer); toggleSideMenu(); });
+        premiumMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(premiumContainer); toggleSideMenu(); });
+        friendsMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(friendsContainer); toggleSideMenu(); });
+        modContentMenuButton.addEventListener('click', (e) => { e.preventDefault(); switchView(modContentContainer); toggleSideMenu(); });
         
+        // --- OGÓLNA LOGIKA MODALI ---
+        function showModal(modalElement) {
+            modalElement.classList.remove('hidden');
+            setTimeout(() => {
+                modalElement.classList.remove('opacity-0');
+                modalElement.querySelector('.modal-content').classList.remove('scale-95');
+            }, 10);
+        }
+
+        function hideModal(modalElement) {
+            modalElement.classList.add('opacity-0');
+            modalElement.querySelector('.modal-content').classList.add('scale-95');
+            setTimeout(() => modalElement.classList.add('hidden'), 300);
+        }
+
+        // --- LOGIKA MODALU WYBORU MODA ---
+        selectModButton.addEventListener('click', () => showModal(modModal));
+        closeModalButton.addEventListener('click', () => hideModal(modModal));
+        modModal.addEventListener('click', (e) => { if (e.target === modModal) hideModal(modModal); });
         modChoiceButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const modName = button.getAttribute('data-mod-name');
                 selectModButtonText.textContent = modName;
-                modContentTitle.textContent = 'Zawartość: ' + modName.replace(' - Premium', '');
-                selectedModNameDetails.textContent = modName;
-                modContentButton.classList.remove('hidden');
-                closeModalButton.click(); // Zamyka modal
-
-                // Resetowanie paska ładowania i tekstu statusu
-                progressBar.style.width = '0%';
-                statusText.textContent = 'Mod ' + modName + ' wybrany. Gotowy do uruchomienia.';
-                launchButton.textContent = "Uruchom";
-                launchButton.disabled = false;
+                setTheme(modName);
+                hideModal(modModal);
             });
         });
 
-        // --- Obsługa Poradnika (Tutorial) ---
-        const tutorialOptionButtons = document.querySelectorAll('.tutorial-option-button');
+        // --- LOGIKA MODALU PORADNIKA ---
+        const tutorialContent = {
+            'mod-usage': {
+                title: 'Obsługa Moda',
+                content: `<h4>Wybór i Uruchomienie</h4><p>Aby rozpocząć, kliknij przycisk "Wybierz Moda" na ekranie głównym. W oknie, które się pojawi, wybierz jedną z dostępnych optymalizacji: Sodium, Lithium lub ModernFix. Po dokonaniu wyboru, nazwa na przycisku zmieni się, a motyw kolorystyczny aplikacji dopasuje się do wybranego moda. Naciśnij "Uruchom", aby rozpocząć symulację ładowania.</p>`
+            },
+            'profile': {
+                title: 'Profil i Konto',
+                content: `<p>W menu bocznym znajdziesz zakładkę "Profil". Wyświetla ona podstawowe statystyki Twojego konta, takie jak nazwa gracza, data dołączenia i liczba użytych modyfikacji. W zakładce "Ustawienia" możesz zmienić swój adres e-mail oraz przełączać wygląd aplikacji między jasnym a ciemnym motywem.</p>`
+            },
+            'bypass': {
+                title: 'Metody Bypass',
+                content: `<p>Informacje na temat metod obchodzenia zabezpieczeń (bypass) są przeznaczone dla zaawansowanych użytkowników. Należy pamiętać, że nieprawidłowe użycie tych technik może prowadzić do niestabilności gry lub naruszenia regulaminów serwerów. Zalecamy ostrożność i korzystanie z tych opcji na własną odpowiedzialność.</p>`
+            }
+        };
+        
         tutorialOptionButtons.forEach(button => {
             button.addEventListener('click', () => {
-                const targetId = 'tutorial-' + button.getAttribute('data-tutorial');
-                const targetDiv = document.getElementById(targetId);
-                targetDiv.classList.toggle('hidden');
-            });
-        });
-
-        // --- Obsługa Kolorów Profilu (tylko Premium) ---
-        const colorSwatches = document.querySelectorAll('.color-swatch');
-        const profileAvatar = document.getElementById('profile-avatar');
-        const mainIconPath = document.querySelector('#main-icon path');
-        
-        // Zapis stanu do symulacji
-        let currentColor = 'indigo';
-
-        function applyColor(color) {
-            const colors = {
-                indigo: { border: 'border-indigo-500', icon: 'text-indigo-500', shadow: 'loader-shadow' },
-                green: { border: 'border-green-500', icon: 'text-green-500', shadow: 'shadow-green' },
-                purple: { border: 'border-purple-500', icon: 'text-purple-500', shadow: 'shadow-purple' },
-                red: { border: 'border-red-500', icon: 'text-red-500', shadow: 'shadow-red' },
-            };
-
-            // Usuń wszystkie klasy kolorów/cieni
-            Object.values(colors).forEach(c => {
-                profileAvatar.classList.remove(c.border);
-                mainIcon.classList.remove(c.icon);
-                mainContainer.classList.remove(c.shadow);
-            });
-            
-            // Dodaj wybrane klasy
-            profileAvatar.classList.add(colors[color].border);
-            mainIcon.classList.add(colors[color].icon);
-            mainContainer.classList.add(colors[color].shadow);
-            
-            // Zmień kolor paska postępu
-            progressBar.classList.forEach(cls => {
-                if (cls.startsWith('bg-')) progressBar.classList.remove(cls);
-            });
-            progressBar.classList.add(`bg-${color}-500`);
-
-            // Zaznacz wybrany kwadrat koloru
-            colorSwatches.forEach(swatch => {
-                swatch.classList.remove('border-white', 'border-4');
-            });
-            document.querySelector(`.color-swatch[data-color="${color}"]`).classList.add('border-white', 'border-4');
-            
-            currentColor = color;
-        }
-
-        colorSwatches.forEach(swatch => {
-            swatch.addEventListener('click', () => {
-                if (premiumActive) {
-                    applyColor(swatch.getAttribute('data-color'));
+                const tutorialKey = button.dataset.tutorial;
+                const content = tutorialContent[tutorialKey];
+                if (content) {
+                    tutorialModalTitle.textContent = content.title;
+                    tutorialModalBody.innerHTML = content.content;
+                    showModal(tutorialModal);
                 }
             });
         });
+        closeTutorialModalButton.addEventListener('click', () => hideModal(tutorialModal));
+        tutorialModal.addEventListener('click', (e) => { if (e.target === tutorialModal) hideModal(tutorialModal); });
+
+
+        // --- LOGIKA PREMIUM ---
+        const checkmarkIcon = `<svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>`;
         
-        // Domyślny kolor na starcie
-        document.addEventListener('DOMContentLoaded', () => {
-            // Zaznacz domyślny kolor (indigo) po załadowaniu
-            const defaultSwatch = document.querySelector('.color-swatch[data-color="indigo"]');
-            if(defaultSwatch) {
-                defaultSwatch.classList.add('border-white', 'border-4');
-            }
-        });
-
-
-        // --- Funkcja aktywująca Premium ---
-        let premiumActive = false;
+        // Ta funkcja może być wywołana z zewnątrz, aby aktywować premium
         function activatePremium() {
-            premiumActive = true;
-            mainContainer.classList.add('border-amber-500/50');
-            profileCustomization.classList.remove('hidden');
-            premiumFeaturesUnlocked.classList.remove('hidden');
+            if (isPremium) return;
+            isPremium = true;
+
+            // Zmiana w menu bocznym
+            premiumMenuItem.classList.add('hidden');
             friendsMenuButton.classList.remove('hidden');
+            profileMenuText.classList.add('premium-gradient-text');
+            friendsMenuText.classList.add('premium-gradient-text');
+            modContentMenuButton.classList.remove('hidden');
+            modContentMenuText.classList.add('premium-gradient-text');
+
+            // Odblokowanie funkcji w loaderze i profilu
+            premiumFeaturesUnlocked.classList.remove('hidden');
+            profileUsername.classList.add('premium-gradient-text');
+            profileCustomization.classList.remove('hidden');
             
-            // Aktualizacja przycisków w menu:
-            document.getElementById('premium-menu-item').style.display = 'none';
+            // Aktualizacja tabeli porównawczej
+            comparisonTableBody.querySelectorAll('[data-feature]').forEach(row => {
+                const premiumCell = row.children[2];
+                premiumCell.innerHTML = checkmarkIcon;
+            });
+
+            // Pokaż ekran podziękowania, jeśli użytkownik jest w widoku premium
+            if (!premiumContainer.classList.contains('hidden')) {
+                switchView(thankYouContainer);
+            }
         }
 
-        // --- LOGIKA ŁADOWANIA MODÓW (BEZ ZMIAN) ---
+        // Przyciski "Kup teraz" przekierowują na Discorda
+        buyPremiumButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                window.open('https://discord.gg/H6GapFWgEy', '_blank');
+            });
+        });
 
+        backToLoaderButton.addEventListener('click', () => {
+            switchView(mainContainer);
+        });
+
+        // --- LOGIKA CUSTOMIZACJI PROFILU ---
+        const borderColors = {
+            indigo: 'border-indigo-500',
+            green: 'border-green-500',
+            purple: 'border-purple-500',
+            red: 'border-red-500'
+        };
+
+        colorSwatches.forEach(swatch => {
+            swatch.addEventListener('click', () => {
+                const color = swatch.dataset.color;
+                
+                // Usuń wszystkie inne klasy kolorów obramowania
+                profileAvatar.classList.remove('border-gray-200', 'dark:border-gray-700', ...Object.values(borderColors));
+                
+                // Dodaj nową klasę koloru
+                profileAvatar.classList.add(borderColors[color]);
+            });
+        });
+        
+        // --- LOGIKA BUDOWANIA MODA ---
+        
+
+
+        // --- LOGIKA LOADERA ---
         const loadingSteps = [
-            { message: "Weryfikacja plików...", progress: 10, delay: 500 },
-            { message: "Inicjalizacja środowiska...", progress: 30, delay: 1000 },
-            { message: "Pobieranie zależności...", progress: 50, delay: 800 },
-            { message: "Wstrzykiwanie kodu...", progress: 75, delay: 1500 },
+            { message: "Sprawdzanie aktualizacji...", progress: 10, delay: 500 },
+            { message: "Weryfikacja plików gry...", progress: 30, delay: 1500 },
+            { message: "Przygotowywanie moda...", progress: 50, delay: 1000 },
+            { message: "Wstrzykiwanie bibliotek...", progress: 80, delay: 2000 },
             { message: "Finalizowanie...", progress: 95, delay: 800 },
             { message: "Uruchamianie gry!", progress: 100, delay: 1200 }
         ];
         let currentStep = 0;
-
         function processStep() {
             if (currentStep >= loadingSteps.length) {
                 launchButton.disabled = false;
@@ -587,7 +759,6 @@
             currentStep++;
             setTimeout(processStep, step.delay);
         }
-
         launchButton.addEventListener('click', () => {
             if (selectModButtonText.textContent === 'Wybierz Moda') {
                 statusText.textContent = 'Proszę, najpierw wybierz moda!'; return;
@@ -606,116 +777,12 @@
             currentStep = 0;
             processStep();
         });
-        
-        // --- LOGIKA DISCORD (NOWA CZĘŚĆ) ---
 
-        // Zmienna do przechowywania stanu zalogowania
-        let isLoggedIn = false;
-        let userData = {
-            username: "Nazwa Gracza",
-            avatarUrl: "https://placehold.co/128x128/f3f4f6/111827?text=Avatar" // Domyślny avatar
-        };
-
-        const discordLoginButton = document.getElementById('discord-login-button');
-        const discordLogoutButton = document.getElementById('discord-logout-button');
-        
-        // Funkcja do aktualizacji widoku profilu
-        function updateProfileUI() {
-            const loggedOutState = document.getElementById('logged-out-state');
-            const loggedInState = document.getElementById('logged-in-state');
-            const profileAvatar = document.getElementById('profile-avatar');
-            const profileUsername = document.getElementById('profile-username');
-            const profileStatus = document.getElementById('profile-status');
-            
-            // Przycisk Profil w menu bocznym
-            const profileMenuButton = document.getElementById('profile-menu-button');
-            const profileMenuText = document.getElementById('profile-menu-text');
-
-
-            if (isLoggedIn) {
-                loggedOutState.classList.add('hidden');
-                loggedInState.classList.remove('hidden');
-                
-                // Ustawienie danych z Discorda
-                profileAvatar.src = userData.avatarUrl;
-                profileUsername.textContent = userData.username;
-                profileStatus.textContent = "Zalogowano przez Discord";
-                profileMenuText.textContent = userData.username.split('#')[0]; // Ustawiamy tylko nazwę użytkownika w menu
-                
-                // Zmiana ikony na avatar w menu bocznym
-                let icon = profileMenuButton.querySelector('svg');
-                let avatar = profileMenuButton.querySelector('#menu-avatar');
-                if (icon) {
-                    icon.outerHTML = `<img id="menu-avatar" src="${userData.avatarUrl}" alt="A" class="w-5 h-5 rounded-full object-cover">`;
-                } else if (!avatar) {
-                    // W przypadku, gdyby była inna ikona, ale nie SVG (np. po wylogowaniu)
-                    profileMenuButton.innerHTML = `<img id="menu-avatar" src="${userData.avatarUrl}" alt="A" class="w-5 h-5 rounded-full object-cover"><span id="profile-menu-text">${userData.username.split('#')[0]}</span>`;
-                }
-
-                // Po zalogowaniu włączamy też premium dla testu (tak jak w oryginalnym kodzie)
-                activatePremium();
-
-            } else {
-                loggedInState.classList.add('hidden');
-                loggedOutState.classList.remove('hidden');
-                
-                // Przywrócenie domyślnych wartości
-                profileMenuText.textContent = "Profil";
-                
-                // Przywrócenie domyślnej ikony w menu bocznym
-                let menuAvatar = profileMenuButton.querySelector('#menu-avatar');
-                if (menuAvatar) {
-                     menuAvatar.outerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>`;
-                }
-                
-                // Wyłączamy premium i customizację po wylogowaniu
-                premiumActive = false;
-                mainContainer.classList.remove('border-amber-500/50');
-                profileCustomization.classList.add('hidden');
-                premiumFeaturesUnlocked.classList.add('hidden');
-                friendsMenuButton.classList.add('hidden');
-                document.getElementById('premium-menu-item').style.display = 'block';
-            }
-        }
-
-
-        // Symulacja logowania (po kliknięciu)
-        discordLoginButton.addEventListener('click', () => {
-            // W prawdziwej aplikacji tutaj nastąpiłoby przekierowanie do Discord OAuth2
-            // window.location.href = 'https://discord.com/api/oauth2/authorize?...';
-            
-            // TUTAJ symulujemy sukces logowania i otrzymanie danych użytkownika
-            userData = {
-                username: "ZesPozmienialChlopie#1337",
-                // Przykładowy avatar z Discord CDN. Pamiętaj, aby użyć prawidłowego avatara po pełnej integracji z backendem.
-                avatarUrl: "https://cdn.discordapp.com/avatars/123456789012345678/a_d790d97b39670f5e7146e29712176465.gif?size=128" 
-            };
-
-            isLoggedIn = true;
-            updateProfileUI();
-            statusText.textContent = 'Pomyślnie zalogowano z Discordem!';
-        });
-
-        // Symulacja wylogowania
-        discordLogoutButton.addEventListener('click', () => {
-            isLoggedIn = false;
-            // Reset danych
-            userData = {
-                username: "Nazwa Gracza",
-                avatarUrl: "https://placehold.co/128x128/f3f4f6/111827?text=Avatar"
-            };
-            
-            updateProfileUI();
-            statusText.textContent = 'Pomyślnie wylogowano.';
-        });
-
-        // Ustawienie początkowego stanu interfejsu
-        updateProfileUI();
-        
         // --- DO TESTOWANIA ---
         // Aby przetestować wygląd premium, możesz odkomentować poniższą linię:
-        activatePremium();
+        // activatePremium();
 
     </script>
 </body>
 </html>
+
