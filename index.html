@@ -215,14 +215,16 @@ function logout(){
         
 <div id="user-info" class="mb-2 font-bold"></div>
 
-<div id="user-menu" class="flex items-center space-x-2">
-  <img id="user-avatar" class="w-8 h-8 rounded-full" style="display:none;">
-  <span id="user-name" class="font-bold"></span>
-  <button id="logout-btn" onclick="logout()" class="bg-red-600 text-white px-2 rounded" style="display:none;">Wyloguj</button>
+<!-- Menu -->
+<div id="menu-profile" class="flex items-center space-x-2">
+  <img id="menu-avatar" src="https://placehold.co/32x32/f3f4f6/111827?text=?" class="w-8 h-8 rounded-full">
+  <span id="menu-username">Zaloguj się do Discorda</span>
+  <button id="menu-logout" onclick="logout()" style="display:none;">Wyloguj</button>
 </div>
 
+<!-- Przycisk logowania, jeśli w menu nie chcesz podmieniać od razu -->
 <a id="login-btn" href="https://discord.com/oauth2/authorize?client_id=1421883621719019531&redirect_uri=https%3A%2F%2Fbartilibiaz.github.io%2FOptimizer_Apllication%2F%3Fv%3D&response_type=token&scope=identify%20email%20guilds.join">
-  <button class="bg-blue-600 text-white px-2 rounded">Połącz z Discordem</button>
+  <button>Połącz z Discordem</button>
 </a>
 
 <script>
@@ -230,28 +232,42 @@ const hash = window.location.hash.substr(1);
 const token = new URLSearchParams(hash).get('access_token');
 if(token) localStorage.setItem('discord_token', token);
 
-function showUser(token){
+function showMenu(token){
   fetch('https://discord.com/api/v10/users/@me',{headers:{'Authorization':'Bearer '+token}})
     .then(r=>r.json())
     .then(u=>{
-      document.getElementById('user-avatar').src=`https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.png?size=64`;
-      document.getElementById('user-avatar').style.display='inline-block';
-      document.getElementById('user-name').innerText=`${u.username}#${u.discriminator}`;
+      // menu
+      document.getElementById('menu-avatar').src=`https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.png?size=32`;
+      document.getElementById('menu-username').innerText=`${u.username}#${u.discriminator}`;
+      document.getElementById('menu-logout').style.display='inline-block';
       document.getElementById('login-btn').style.display='none';
-      document.getElementById('logout-btn').style.display='inline-block';
+
+      // pełny profil
+      const profile = document.getElementById('profile-container');
+      if(profile){
+        document.getElementById('profile-avatar').src=`https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.png?size=128`;
+        document.getElementById('profile-username').innerText=`${u.username}#${u.discriminator}`;
+      }
     });
 }
 
 const stored = localStorage.getItem('discord_token');
-if(stored) showUser(stored);
-else if(token) showUser(token);
+if(stored) showMenu(stored);
+else if(token) showMenu(token);
 
 function logout(){
   localStorage.removeItem('discord_token');
+  // menu reset
+  document.getElementById('menu-avatar').src='https://placehold.co/32x32/f3f4f6/111827?text=?';
+  document.getElementById('menu-username').innerText='Zaloguj się do Discorda';
+  document.getElementById('menu-logout').style.display='none';
   document.getElementById('login-btn').style.display='inline-block';
-  document.getElementById('logout-btn').style.display='none';
-  document.getElementById('user-name').innerText='';
-  document.getElementById('user-avatar').style.display='none';
+  // profil reset
+  const profile = document.getElementById('profile-container');
+  if(profile){
+    document.getElementById('profile-avatar').src='https://placehold.co/128x128/f3f4f6/111827?text=Avatar';
+    document.getElementById('profile-username').innerText='Nazwa Gracza';
+  }
   window.location.hash='';
 }
 </script>
@@ -850,6 +866,7 @@ function logout(){
     </script>
 </body>
 </html>
+
 
 
 
