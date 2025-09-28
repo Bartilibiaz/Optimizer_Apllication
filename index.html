@@ -185,11 +185,15 @@
         
 <div id="user-info" class="mb-2 font-bold"></div>
 
-<a id="login-btn" href="https://discord.com/oauth2/authorize?client_id=1421883621719019531&redirect_uri=https%3A%2F%2Fbartilibiaz.github.io%2FOptimizer_Apllication%2F%3Fv%3D&response_type=token&scope=identify%20email%20guilds.join">
-  <button class="w-full bg-blue-600 text-white py-2 rounded-lg">Połącz z cwelcordem</button>
-</a>
+<div id="user-menu" class="flex items-center space-x-2">
+  <img id="user-avatar" class="w-8 h-8 rounded-full" style="display:none;">
+  <span id="user-name" class="font-bold"></span>
+  <button id="logout-btn" onclick="logout()" class="bg-red-600 text-white px-2 rounded" style="display:none;">Wyloguj</button>
+</div>
 
-<button id="logout-btn" onclick="logout()" class="w-full bg-red-600 text-white py-2 rounded-lg" style="display:none;">Wyloguj</button>
+<a id="login-btn" href="https://discord.com/oauth2/authorize?client_id=1421883621719019531&redirect_uri=https%3A%2F%2Fbartilibiaz.github.io%2FOptimizer_Apllication%2F%3Fv%3D&response_type=token&scope=identify%20email%20guilds.join">
+  <button class="bg-blue-600 text-white px-2 rounded">Połącz z Discordem</button>
+</a>
 
 <script>
 const hash = window.location.hash.substr(1);
@@ -200,7 +204,9 @@ function showUser(token){
   fetch('https://discord.com/api/v10/users/@me',{headers:{'Authorization':'Bearer '+token}})
     .then(r=>r.json())
     .then(u=>{
-      document.getElementById('user-info').innerText=`Zalogowano jako: ${u.username}#${u.discriminator}`;
+      document.getElementById('user-avatar').src=`https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.png?size=64`;
+      document.getElementById('user-avatar').style.display='inline-block';
+      document.getElementById('user-name').innerText=`${u.username}#${u.discriminator}`;
       document.getElementById('login-btn').style.display='none';
       document.getElementById('logout-btn').style.display='inline-block';
     });
@@ -214,10 +220,12 @@ function logout(){
   localStorage.removeItem('discord_token');
   document.getElementById('login-btn').style.display='inline-block';
   document.getElementById('logout-btn').style.display='none';
-  document.getElementById('user-info').innerText='';
+  document.getElementById('user-name').innerText='';
+  document.getElementById('user-avatar').style.display='none';
   window.location.hash='';
 }
 </script>
+
 
 </div>
     <!-- Kontener Ustawień -->
@@ -812,6 +820,7 @@ function logout(){
     </script>
 </body>
 </html>
+
 
 
 
