@@ -154,7 +154,7 @@
                 <span>Dostęp do wersji Beta</span>
             </button>
         </div>
-        <p id="version-text" class="text-xs text-gray-400 dark:text-gray-500 mt-6">Wersja 1.0.6</p>
+        <p id="version-text" class="text-xs text-gray-400 dark:text-gray-500 mt-6">Wersja 1.0.7</p>
     </div>
     
     <!-- Kontener Profilu -->
@@ -381,6 +381,13 @@
                 <div class="flex gap-2">
                     <input type="text" id="build-id-input" placeholder="Wpisz ID Builda..." class="w-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-amber-500">
                     <button id="load-build-button" class="bg-amber-500 text-white font-semibold py-3 px-5 rounded-lg hover:bg-amber-600 transition-colors duration-300">Wczytaj</button>
+                </div>
+                 <div class="mt-6 border-t border-gray-200 dark:border-gray-700 pt-6">
+                    <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Twoje Buildy</h4>
+                    <div id="user-builds-list" class="space-y-2 text-left max-h-32 overflow-y-auto">
+                        <!-- Build rows will be inserted here by JS -->
+                        <p id="no-builds-message" class="text-gray-500 dark:text-gray-400 text-center italic">Nie posiadasz żadnego builda.</p>
+                    </div>
                 </div>
             </div>
 
@@ -819,10 +826,9 @@
 
         // --- DO TESTOWANIA ---
         // Aby przetestować wygląd premium, możesz odkomentować poniższą linię:
-        //activatePremium();
+        activatePremium();
 
     </script>
 </body>
 </html>
-
 
