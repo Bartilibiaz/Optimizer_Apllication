@@ -33,6 +33,9 @@
         .shadow-red {
             box-shadow: 0 0 25px rgba(239, 68, 68, 0.5), 0 0 50px rgba(153, 27, 27, 0.3);
         }
+        .shadow-amber {
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.5), 0 0 50px rgba(180, 83, 9, 0.3);
+        }
         /* Ukrywanie modalu */
         .modal.hidden {
             pointer-events: none;
@@ -151,12 +154,23 @@
                 <span>Dostęp do wersji Beta</span>
             </button>
         </div>
-        <p id="version-text" class="text-xs text-gray-400 dark:text-gray-500 mt-6">Wersja 1.0.5</p>
+        <p id="version-text" class="text-xs text-gray-400 dark:text-gray-500 mt-6">Wersja 1.0.6</p>
     </div>
     
     <!-- Kontener Profilu -->
-<div id="profile-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-center"> <div class="flex flex-col items-center"> <img id="profile-avatar" src="https://placehold.co/128x128/f3f4f6/111827?text=Avatar" alt="User Avatar" class="w-32 h-32 rounded-full mb-4 border-4 border-gray-200 dark:border-gray-700 transition-colors duration-300"> <h2 id="profile-username" class="text-3xl font-bold text-gray-900 dark:text-white">Nazwa Gracza</h2> <p class="text-md text-gray-500 dark:text-gray-400">Dołączył Styczeń 2024</p> </div> <div class="my-8 border-t border-gray-200 dark:border-gray-700"></div> <div class="text-left"> <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Statystyki</h3> <div class="space-y-3 text-gray-700 dark:text-gray-300"> <div class="flex justify-between items-center"><span class="font-bold text-gray-900 dark:text-white">3</span><span>Użyte modyfikacje:</span></div> </div> </div>
-
+    <div id="profile-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-center">
+        <div class="flex flex-col items-center">
+            <img id="profile-avatar" src="https://placehold.co/128x128/f3f4f6/111827?text=Avatar" alt="User Avatar" class="w-32 h-32 rounded-full mb-4 border-4 border-gray-200 dark:border-gray-700 transition-colors duration-300">
+            <h2 id="profile-username" class="text-3xl font-bold text-gray-900 dark:text-white">Nazwa Gracza</h2>
+            <p class="text-md text-gray-500 dark:text-gray-400">Dołączył Styczeń 2024</p>
+        </div>
+        <div class="my-8 border-t border-gray-200 dark:border-gray-700"></div>
+        <div class="text-left">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Statystyki</h3>
+            <div class="space-y-3 text-gray-700 dark:text-gray-300">
+                <div class="flex justify-between items-center"><span class="font-bold text-gray-900 dark:text-white">3</span><span>Użyte modyfikacje:</span></div>
+            </div>
+        </div>
         
         <!-- Opcje dostosowywania dla Premium -->
         <div id="profile-customization" class="hidden my-8 border-t border-gray-200 dark:border-gray-700 pt-6 text-left">
@@ -172,67 +186,16 @@
 
         <div class="my-8 border-t border-gray-200 dark:border-gray-700"></div>
         
-<div id="user-info" class="mb-2 font-bold"></div>
+        <a href="https://discord.com/oauth2/authorize?client_id=1421883621719019531&response_type=code&redirect_uri=https%3A%2F%2Fbartilibiaz.github.io%2FOptimizer_Apllication&scope=identify+email+guilds.join" class="w-full mb-4 bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-300 flex items-center justify-center gap-2">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.317 4.431A13.235 13.235 0 0012.23 2C5.474 2 0 7.474 0 14.23c0 4.14 1.897 7.828 4.885 10.27a.5.5 0 00.62-.054c.184-.13.342-.28.475-.443.118-.148.214-.31.28-.48a.5.5 0 00-.135-.61c-.01-.007-.02-.014-.03-.022a8.67 8.67 0 01-1.38-1.42.502.502 0 01.127-.708c.353-.25.728-.475 1.118-.675a.5.5 0 01.597.022c3.483 2.14 7.61 2.14 11.093 0a.5.5 0 01.596-.022c.39.2.766.425 1.118.675a.5.5 0 01.127.708 8.67 8.67 0 01-1.38 1.42.503.503 0 00-.03.022c-.02.018-.01.045-.02.064a.5.5 0 00-.093.524c.066.17.162.332.28.48.133.162.29.312.475.442a.5.5 0 00.62.055C22.103 22.058 24 18.37 24 14.23c0-6.44-4.82-11.572-11.01-12.11a.5.5 0 00-.472.485v.002a.5.5 0 00.485.472A11.235 11.235 0 0120.317 4.43zm-4.72 7.792c-1.042 0-1.888.845-1.888 1.888s.846 1.888 1.888 1.888 1.888-.845 1.888-1.888-.846-1.888-1.888-1.888zm-7.153 0c-1.042 0-1.888.845-1.888 1.888s.846 1.888 1.888 1.888 1.888-.845 1.888-1.888-.846-1.888-1.888-1.888z"/></svg>
+            <span>Podepnij konto Discord</span>
+        </a>
 
-<!-- Menu -->
-<div id="menu-profile" class="flex items-center space-x-2">
-  <img id="menu-avatar" src="https://placehold.co/32x32/f3f4f6/111827?text=?" class="w-8 h-8 rounded-full">
-  <span id="menu-username">Zaloguj się do Discorda</span>
-  <button id="menu-logout" onclick="logout()" style="display:none;">Wyloguj</button>
-</div>
+        <button class="w-full bg-red-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition-colors duration-300">
+            Wyloguj się
+        </button>
+    </div>
 
-<!-- Przycisk logowania, jeśli w menu nie chcesz podmieniać od razu -->
-<a id="login-btn" href="https://discord.com/oauth2/authorize?client_id=1421883621719019531&redirect_uri=https%3A%2F%2Fbartilibiaz.github.io%2FOptimizer_Apllication%2F%3Fv%3D&response_type=token&scope=identify%20email%20guilds.join">
-  <button>Połącz z Discordem</button>
-</a>
-
-<script>
-const hash = window.location.hash.substr(1);
-const token = new URLSearchParams(hash).get('access_token');
-if(token) localStorage.setItem('discord_token', token);
-
-function showMenu(token){
-  fetch('https://discord.com/api/v10/users/@me',{headers:{'Authorization':'Bearer '+token}})
-    .then(r=>r.json())
-    .then(u=>{
-      // menu
-      document.getElementById('menu-avatar').src=`https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.png?size=32`;
-      document.getElementById('menu-username').innerText=`${u.username}#${u.discriminator}`;
-      document.getElementById('menu-logout').style.display='inline-block';
-      document.getElementById('login-btn').style.display='none';
-
-      // pełny profil
-      const profile = document.getElementById('profile-container');
-      if(profile){
-        document.getElementById('profile-avatar').src=`https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.png?size=128`;
-        document.getElementById('profile-username').innerText=`${u.username}#${u.discriminator}`;
-      }
-    });
-}
-
-const stored = localStorage.getItem('discord_token');
-if(stored) showMenu(stored);
-else if(token) showMenu(token);
-
-function logout(){
-  localStorage.removeItem('discord_token');
-  // menu reset
-  document.getElementById('menu-avatar').src='https://placehold.co/32x32/f3f4f6/111827?text=?';
-  document.getElementById('menu-username').innerText='Zaloguj się do Discorda';
-  document.getElementById('menu-logout').style.display='none';
-  document.getElementById('login-btn').style.display='inline-block';
-  // profil reset
-  const profile = document.getElementById('profile-container');
-  if(profile){
-    document.getElementById('profile-avatar').src='https://placehold.co/128x128/f3f4f6/111827?text=Avatar';
-    document.getElementById('profile-username').innerText='Nazwa Gracza';
-  }
-  window.location.hash='';
-}
-</script>
-
-
-</div>
     <!-- Kontener Ustawień -->
     <div id="settings-container" class="main-view-container hidden w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-left">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Ustawienia</h2>
@@ -412,7 +375,16 @@ function logout(){
                 <button data-mod-name="Lithium" class="mod-choice-button w-full bg-indigo-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-600 transition-colors duration-300">Lithium</button>
                 <button data-mod-name="ModernFix" class="mod-choice-button w-full bg-indigo-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-indigo-600 transition-colors duration-300">ModernFix</button>
             </div>
-            <button id="close-modal-button" class="mt-6 text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors duration-300">Zamknij</button>
+            
+            <div id="custom-build-section" class="hidden mt-6 border-t border-gray-200 dark:border-gray-700 pt-6">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Własny Build <span class="text-sm font-normal text-amber-500">(Premium)</span></h3>
+                <div class="flex gap-2">
+                    <input type="text" id="build-id-input" placeholder="Wpisz ID Builda..." class="w-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    <button id="load-build-button" class="bg-amber-500 text-white font-semibold py-3 px-5 rounded-lg hover:bg-amber-600 transition-colors duration-300">Wczytaj</button>
+                </div>
+            </div>
+
+            <button id="close-modal-button" class="mt-8 text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors duration-300">Zamknij</button>
         </div>
     </div>
     
@@ -495,6 +467,9 @@ function logout(){
         const tutorialModalBody = document.getElementById('tutorial-modal-body');
         const closeTutorialModalButton = document.getElementById('close-tutorial-modal-button');
         const tutorialOptionButtons = document.querySelectorAll('.tutorial-option-button');
+        const customBuildSection = document.getElementById('custom-build-section');
+        const loadBuildButton = document.getElementById('load-build-button');
+        const buildIdInput = document.getElementById('build-id-input');
 
         // Elementy Menu
         const menuButton = document.getElementById('menu-button');
@@ -529,7 +504,9 @@ function logout(){
         const darkThemeButton = document.getElementById('dark-theme-button');
 
         // Budowanie moda
-        
+        const buildModButton = document.getElementById('build-mod-button');
+        const buildStatus = document.getElementById('build-status');
+
 
         let currentTheme = 'default';
         let isPremium = false;
@@ -571,6 +548,15 @@ function logout(){
                 modal: ['border-red-500/10', 'dark:border-red-500/30', 'shadow-red'],
                 modalButtons: ['bg-red-500', 'hover:bg-red-600'],
                 selectModText: ['text-red-500', 'dark:text-red-300'],
+            },
+            Custom: {
+                main: ['border-amber-500/10', 'dark:border-amber-500/30', 'shadow-amber'],
+                icon: ['text-amber-500', 'dark:text-amber-400'],
+                progressBar: 'bg-amber-500',
+                launchButton: ['bg-amber-600', 'hover:bg-amber-700', 'focus:ring-amber-500'],
+                modal: ['border-amber-500/10', 'dark:border-amber-500/30', 'shadow-amber'],
+                modalButtons: ['bg-amber-500', 'hover:bg-amber-600'],
+                selectModText: ['text-amber-500', 'dark:text-amber-300'],
             }
         };
         function buildClicked() {
@@ -673,6 +659,18 @@ function logout(){
                 hideModal(modModal);
             });
         });
+        
+        loadBuildButton.addEventListener('click', () => {
+            const buildId = buildIdInput.value.trim();
+            if (buildId) {
+                selectModButtonText.textContent = `Własny: ${buildId}`;
+                setTheme('Custom');
+                hideModal(modModal);
+                buildIdInput.value = '';
+            } else {
+                buildIdInput.focus();
+            }
+        });
 
         // --- LOGIKA MODALU PORADNIKA ---
         const tutorialContent = {
@@ -708,12 +706,10 @@ function logout(){
         // --- LOGIKA PREMIUM ---
         const checkmarkIcon = `<svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>`;
         
-        // Ta funkcja może być wywołana z zewnątrz, aby aktywować premium
         function activatePremium() {
             if (isPremium) return;
             isPremium = true;
 
-            // Zmiana w menu bocznym
             premiumMenuItem.classList.add('hidden');
             friendsMenuButton.classList.remove('hidden');
             profileMenuText.classList.add('premium-gradient-text');
@@ -721,24 +717,20 @@ function logout(){
             modContentMenuButton.classList.remove('hidden');
             modContentMenuText.classList.add('premium-gradient-text');
 
-            // Odblokowanie funkcji w loaderze i profilu
             premiumFeaturesUnlocked.classList.remove('hidden');
             profileUsername.classList.add('premium-gradient-text');
             profileCustomization.classList.remove('hidden');
+            customBuildSection.classList.remove('hidden');
             
-            // Aktualizacja tabeli porównawczej
             comparisonTableBody.querySelectorAll('[data-feature]').forEach(row => {
-                const premiumCell = row.children[2];
-                premiumCell.innerHTML = checkmarkIcon;
+                row.children[2].innerHTML = checkmarkIcon;
             });
 
-            // Pokaż ekran podziękowania, jeśli użytkownik jest w widoku premium
             if (!premiumContainer.classList.contains('hidden')) {
                 switchView(thankYouContainer);
             }
         }
 
-        // Przyciski "Kup teraz" przekierowują na Discorda
         buyPremiumButtons.forEach(button => {
             button.addEventListener('click', () => {
                 window.open('https://discord.gg/H6GapFWgEy', '_blank');
@@ -749,7 +741,6 @@ function logout(){
             switchView(mainContainer);
         });
 
-        // --- LOGIKA CUSTOMIZACJI PROFILU ---
         const borderColors = {
             indigo: 'border-indigo-500',
             green: 'border-green-500',
@@ -760,20 +751,27 @@ function logout(){
         colorSwatches.forEach(swatch => {
             swatch.addEventListener('click', () => {
                 const color = swatch.dataset.color;
-                
-                // Usuń wszystkie inne klasy kolorów obramowania
                 profileAvatar.classList.remove('border-gray-200', 'dark:border-gray-700', ...Object.values(borderColors));
-                
-                // Dodaj nową klasę koloru
                 profileAvatar.classList.add(borderColors[color]);
             });
         });
         
-        // --- LOGIKA BUDOWANIA MODA ---
-        
+        buildModButton.addEventListener('click', () => {
+            const modNameInput = document.getElementById('mod-name-input');
+            if (!modNameInput.value.trim()) {
+                buildStatus.textContent = 'Proszę wpisać nazwę moda.';
+                return;
+            }
+            buildStatus.textContent = `Budowanie moda "${modNameInput.value}"...`;
+            setTimeout(() => {
+                buildStatus.textContent = 'Mod został zbudowany pomyślnie!';
+            }, 2500);
+            setTimeout(() => {
+                buildStatus.textContent = '';
+                modNameInput.value = '';
+            }, 5000);
+        });
 
-
-        // --- LOGIKA LOADERA ---
         const loadingSteps = [
             { message: "Sprawdzanie aktualizacji...", progress: 10, delay: 500 },
             { message: "Weryfikacja plików gry...", progress: 30, delay: 1500 },
@@ -811,6 +809,7 @@ function logout(){
                     console.warn('postMessage failed:', err);
                 }
             }
+
             launchButton.disabled = true;
             launchButton.textContent = "Ładowanie...";
             progressBar.style.width = '0%';
@@ -820,22 +819,9 @@ function logout(){
 
         // --- DO TESTOWANIA ---
         // Aby przetestować wygląd premium, możesz odkomentować poniższą linię:
-        // activatePremium();
+        activatePremium();
 
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
