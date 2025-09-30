@@ -386,7 +386,6 @@
                     <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Twoje Buildy</h4>
                     <div id="user-builds-list" class="space-y-2 text-left max-h-32 overflow-y-auto">
                         <!-- Build rows will be inserted here by JS -->
-                        <p id="no-builds-message" class="text-gray-500 dark:text-gray-400 text-center italic">Nie posiadasz żadnego builda.</p>
                     </div>
                 </div>
             </div>
@@ -477,6 +476,7 @@
         const customBuildSection = document.getElementById('custom-build-section');
         const loadBuildButton = document.getElementById('load-build-button');
         const buildIdInput = document.getElementById('build-id-input');
+        const userBuildsList = document.getElementById('user-builds-list');
 
         // Elementy Menu
         const menuButton = document.getElementById('menu-button');
@@ -679,6 +679,38 @@
             }
         });
 
+        // --- TWOJE BUILDY ---
+        const userBuilds = [
+            // { id: 'b-001-fast', name: 'Super Szybki v1.2' },
+            // { id: 'b-002-stable', name: 'Stabilny Build' }
+        ];
+
+        function populateUserBuilds() {
+            userBuildsList.innerHTML = ''; 
+
+            if (userBuilds.length === 0) {
+                const p = document.createElement('p');
+                p.className = 'text-gray-500 dark:text-gray-400 text-center italic';
+                p.textContent = 'Nie posiadasz żadnego builda.';
+                userBuildsList.appendChild(p);
+            } else {
+                userBuilds.forEach(build => {
+                    const button = document.createElement('button');
+                    button.className = 'w-full text-left p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors';
+                    button.textContent = build.name;
+                    button.dataset.buildId = build.id;
+
+                    button.addEventListener('click', () => {
+                        selectModButtonText.textContent = `Własny: ${build.name}`;
+                        setTheme('Custom');
+                        hideModal(modModal);
+                    });
+
+                    userBuildsList.appendChild(button);
+                });
+            }
+        }
+        
         // --- LOGIKA MODALU PORADNIKA ---
         const tutorialContent = {
             'mod-usage': {
@@ -822,6 +854,10 @@
             progressBar.style.width = '0%';
             currentStep = 0;
             processStep();
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            populateUserBuilds();
         });
 
         // --- DO TESTOWANIA ---
